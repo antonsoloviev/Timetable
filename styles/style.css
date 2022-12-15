@@ -1,0 +1,187 @@
+html,
+body {
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+
+.page-wrapper {
+  padding-top: 40px;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100%;
+  background-color: #fff;
+}
+
+.button {
+  display: inline-block;
+  /* height: 48px; */
+  width: 168px;
+  padding: 5px 10px;
+  margin-bottom: 8px;
+  line-height: 1;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  background: #fff;
+  border: 1px solid gray;
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color ease 0.2s;
+}
+
+.button-get-monday {
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+.button:hover {
+  background-color: #ebecf0;
+}
+
+/*header*/
+.header {
+  width: 100%;
+  height: 106px;
+  background-color: tomato;
+  margin-bottom: 32px;
+}
+
+/*Container*/
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 1440px;
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 32px;
+}
+
+.left-grid {
+  display: grid; 
+  
+  grid-template-rows: repeat(12, 38px);
+  grid-template-columns: 100px 100px;
+  
+  gap: 0px;
+  height: 100%;
+  margin-top: 32px;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  box-sizing: border-box;
+}
+
+.table-cell {
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+
+}
+ 
+.cell-0 {
+  grid-row-start: 1;
+  grid-column-start: 1;
+
+  grid-row-end: 4;
+  grid-column-end: 2;
+}
+
+.cell-4 {
+  grid-row-start: 4;
+  grid-column-start: 1;
+
+  grid-row-end: 7;
+  grid-column-end: 2;
+}
+
+.cell-8 {
+  grid-row-start: 7;
+  grid-column-start: 1;
+
+  grid-row-end: 10;
+  grid-column-end: 2;
+}
+
+.cell-12 {
+  grid-row-start: 10;
+  grid-column-start: 1;
+
+  grid-row-end: 13;
+  grid-column-end: 2;
+}
+
+.week-table {
+  display: flex;
+  flex-direction: row;
+}
+
+.day {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 128px;
+}
+
+.day-title {
+  height: 33px;
+  width: 100%;
+  font-size: 1.6rem;
+  text-align: center;
+  align-self: center;
+  border-bottom: 1px solid black;;
+
+}
+
+.day-list {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.day-list-item {
+  display: flex;
+  width: 128px;
+  height: 38px;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+._border0 {
+  border: 0;
+}
+
+.day-list-item.time,
+.day-list-item.offset,
+.day-list-item.scene {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.day-list-item input {
+  height: 36px;
+  width: 64px;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+/* .day-list-item.scene {
+  display: flex;
+  justify-content: center;
+} */
+
+.day-list-item select {
+  height: 36px;
+  font-size: 1.6rem;
+}

@@ -1,0 +1,35 @@
+GET
+​/api​/workflow​/blocks​/values
+Gets all value blocks of the current workflow.
+
+[
+  {
+    "outPortValue": "string",
+    "inPortValue": "string",
+    "valueType": "string",
+    "displayName": "string",
+    "id": "string",
+    "type": "string"
+  }
+]
+
+GET
+​/api​/workflow​/blocks​/values​/{blockid}
+Gets the current out-port value of a value block with the specified block id.
+
+{
+  "outPortValue": "string",
+  "inPortValue": "string",
+  "valueType": "string",
+  "displayName": "string",
+  "id": "string",
+  "type": "string"
+}
+
+PUT
+​/api​/workflow​/blocks​/values​/{blockid}
+Sets the current in-port value of a value block with the specified block id.
+
+{
+  "inPortValue": "string"
+}

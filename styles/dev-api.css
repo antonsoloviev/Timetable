@@ -1,0 +1,49 @@
+.dev-api {
+  display: flex;
+  flex-direction: column;
+  width: 264px;
+  padding-left: 16px;
+  padding-right: 16px;
+  font-size: 1.6rem;
+}
+
+.dev-api > p {
+  margin-bottom: 16px;
+}
+
+.button-dev {
+  margin-bottom: 16px;
+  background-color: gainsboro;
+}
+
+.desc {
+  width: 90pt;
+}
+
+label {
+  display: block;
+}
+
+.desc-input {
+  width: 168px;
+  height: 24px;
+  border: 1px solid gray;
+  margin-bottom: 4px;
+  font-size: 1.6rem;
+
+}
+
+.desc-input_auth {
+  font-size: 2rem;
+  border: 0px;
+}
+
+.green {
+  color: green;
+}
+
+.desc-text-area {
+  border: 1px solid gray;
+  height: 116px;
+  width: 100%;
+}
