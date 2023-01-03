@@ -1,3 +1,5 @@
+// import { getData, putData, postData} from './utils';
+
 const mondayList = document.querySelector('.monday');
 
 mondayList.addEventListener('change', (event) => {
@@ -142,40 +144,40 @@ function getMondayBlocks() {
       const mondayAfterSceneSelect = document.querySelector('.monday-after-scene-select');
 
       const mondayBeforeTimeBlock = mondayBlocks.find((block) => {
-        return block.displayName === 'Mon_TBD_NB';
+        return block.displayName === 'Monday_beforeTime';
       });
       const mondayBeforeOffsetBlock = mondayBlocks.find((block) => {
-        return block.displayName === 'Mon_BD_O_NB';
+        return block.displayName === 'Monday_beforeOffset';
       });
       const mondayBeforeSceneBlock = mondayBlocks.find((block) => {
-        return block.displayName === 'Mon_BD_S_NB';
+        return block.displayName === 'Monday_beforeScene';
       });
       const mondayMorningTimeBlock = mondayBlocks.find((block) => {
-        return block.displayName === 'Mon_TM_NB';
+        return block.displayName === 'Monday_morningTime';
       });
       const mondayMorningOffsetBlock = mondayBlocks.find((block) => {
-        return block.displayName === 'Mon_M_O_NB';
+        return block.displayName === 'Monday_morningOffset';
       });
       const mondayMorningSceneBlock = mondayBlocks.find((block) => {
-        return block.displayName === 'Mon_M_S_NB';
+        return block.displayName === 'Monday_morningScene';
       });
       const mondayEveningTimeBlock = mondayBlocks.find((block) => {
-        return block.displayName === 'Mon_TE_NB';
+        return block.displayName === 'Monday_eveningTime';
       });
       const mondayEveningOffsetBlock = mondayBlocks.find((block) => {
-        return block.displayName === 'Mon_E_O_NB';
+        return block.displayName === 'Monday_eveningOffset';
       });
       const mondayEveningSceneBlock = mondayBlocks.find((block) => {
-        return block.displayName === 'Mon_E_S_NB';
+        return block.displayName === 'Monday_eveningScene';
       });
       const mondayAfterTimeBlock = mondayBlocks.find((block) => {
-        return block.displayName === 'Mon_TN_NB';
+        return block.displayName === 'Monday_afterTime';
       });
       const mondayAfterOffsetBlock = mondayBlocks.find((block) => {
-        return block.displayName === 'Mon_N_O_NB';
+        return block.displayName === 'Monday_afterOffset';
       });
       const mondayAfterSceneBlock = mondayBlocks.find((block) => {
-        return block.displayName === 'Mon_N_S_NB';
+        return block.displayName === 'Monday_afterScene';
       });
 
       mondayBeforeTimeInput.value = mondayBeforeTimeBlock.outPortValue;
@@ -196,52 +198,6 @@ function getMondayBlocks() {
 
 const buttonGetMonday = document.querySelector('.button-get-monday');
 buttonGetMonday.addEventListener('click', () => {
-
+  
   getMondayBlocks();
-
 })
-
-function setValueToBlock() {
-  // Fill object to put
-  valueBlockData = {};
-  valueBlockData.inPortValue = document.getElementById("serial").value;
-
-  // Build REST API call url
-  url = apiUrl + "workflow/blocks/values/" + document.getElementById("valueBlockId").value;
-
-  // Put data
-  putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
-}
-
-// Подвал
-
-function getAllValueBlocks() {
-
-  url = apiUrl + "workflow/blocks/values";
-
-  getData(url)
-    .then(response => {
-      // console.log(response); // dev-logs
-      return response;
-    }).catch(error => alert("An error occurred: Message = " + error.message));
-}
-
-// function getDayList(item) {
-//   const template = document.querySelector('.template-todo-card').content.cloneNode(true);
-
-//   const title = template.querySelector('.card-title');
-//   const user = template.querySelector('.card-user');
-//   const date = template.querySelector('.card-date');
-
-//   title.textContent = item.title;
-//   user.textContent = item.user;
-//   date.textContent = item.date;
-//   template.querySelector('.todo-card').setAttribute('data-id', item.id);
-
-//   return template;
-// }
-
-// function renderDay(notes) {
-//   todoListElement.innerHTML = '';
-//   todoListElement.append(...(notes.map(getTodoCard)));
-// }

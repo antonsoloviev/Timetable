@@ -150,8 +150,9 @@ h1 {
 
 }
 
-.day-list-item {
+.day-list-item, .day-list>div {
   display: flex;
+  justify-content: flex-end;
   width: 128px;
   height: 38px;
   border-right: 1px solid black;
@@ -162,14 +163,14 @@ h1 {
   border: 0;
 }
 
-.day-list-item.time,
+/* .day-list-item.time,
 .day-list-item.offset,
-.day-list-item.scene {
+.day-list-item.scene  {
   display: flex;
   justify-content: flex-end;
-}
+} */
 
-.day-list-item input {
+.day-list-item input, .day-list>div>input {
   height: 36px;
   width: 64px;
   font-size: 1.6rem;
@@ -181,7 +182,8 @@ h1 {
   justify-content: center;
 } */
 
-.day-list-item select {
+.day-list-item select, .day-list>div>select {
   height: 36px;
+  width: 100%;
   font-size: 1.6rem;
 }
