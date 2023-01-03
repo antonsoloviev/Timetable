@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="./styles/reset.css">
   <link rel="stylesheet" href="./styles/style.css">
   <link rel="stylesheet" href="./styles/dev-api.css">
+  <link rel="stylesheet" href="./styles/check-box.css">
 
 </head>
 
@@ -67,7 +68,7 @@
         <div class="table-cell cell-15">Сценарий</div>
       </div>
       <div class="week-table">
-        <div class="day">
+        <!-- <div class="day">
           <div class="day-title">Понедельник</div>
           <div class="day-list monday">
             <div class="day-list-item monday-before-time time">
@@ -146,16 +147,18 @@
               <button class="button button-get-monday">Get Monday</button>
             </div>
           </div>
-        </div>
+        </div> -->
         <!-- TEMPLATE DAY -->
         <template class="template-day">
           <div class="day">
             <div class="day-title">Понедельник</div>
             <div class="day-list">
               <div class="before-time time">
+                <input class="before-time-radio custom-radio" type="radio" name="before" value="time">
                 <input class="before-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
               </div>
               <div class="before-offset offset">
+                <input class="before-offset-radio custom-radio" type="radio" name="before" value="offset">
                 <input class="before-offset-input" type="text" placeholder="xx:xx"
                   maxlength="5"></input>
               </div>
@@ -171,9 +174,11 @@
                 </select>
               </div>
               <div class="morning-time time">
+                <input class="morning-time-radio custom-radio" type="radio" name="morning" value="time">
                 <input class="morning-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
               </div>
               <div class="morning-offset offset">
+                <input class="morning-offset-radio custom-radio" type="radio" name="morning" value="offset">
                 <input class="morning-offset-input" type="text" placeholder="xx:xx"
                   maxlength="5"></input>
               </div>
@@ -189,9 +194,11 @@
                 </select>
               </div>
               <div class="evening-time time">
+                <input class="evening-time-radio custom-radio" type="radio" name="evening" value="time">
                 <input class="evening-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
               </div>
               <div class="evening-offset offset">
+                <input class="evening-offset-radio custom-radio" type="radio" name="evening" value="offset">
                 <input class="evening-offset-input" type="text" placeholder="xx:xx"
                   maxlength="5"></input>
               </div>
@@ -207,9 +214,11 @@
                 </select>
               </div>
               <div class="after-time time">
+                <input class="after-time-radio custom-radio" type="radio" name="after" value="time">
                 <input class="after-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
               </div>
               <div class="after-offset offset">
+                <input class="after-offset-radio custom-radio" type="radio" name="after" value="offset">
                 <input class="after-offset-input" type="text" placeholder="xx:xx"
                   maxlength="5"></input>
               </div>
@@ -632,7 +641,7 @@
   <!-- <script type="module" src="./app.js"></script> -->
   <script src="utils.js"></script>
   <script src="dev-api.js"></script>
-  <script src="Monday.js"></script>
+  <!-- <script src="Monday.js"></script> -->
   <script src="store.js"></script>
   <script src="fetchBlocks.js"></script>
   

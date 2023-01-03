@@ -2,7 +2,13 @@ html,
 body {
   height: 100%;
   font-family: 'Roboto', sans-serif;
+  
+    --color: #999;
+    --checked-color: darkcyan;
+
+    --bg-color: #e8e8e8;
 }
+
 
 .page-wrapper {
   padding-top: 40px;
@@ -134,6 +140,13 @@ h1 {
   width: 128px;
 }
 
+.monday, 
+.monday>div, 
+.monday>div>input,
+.monday>div>select {
+  background-color: grey;
+}
+
 .day-title {
   height: 33px;
   width: 100%;
@@ -152,7 +165,8 @@ h1 {
 
 .day-list-item, .day-list>div {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-evenly;
+  align-items: center;
   width: 128px;
   height: 38px;
   border-right: 1px solid black;
@@ -163,24 +177,12 @@ h1 {
   border: 0;
 }
 
-/* .day-list-item.time,
-.day-list-item.offset,
-.day-list-item.scene  {
-  display: flex;
-  justify-content: flex-end;
-} */
-
-.day-list-item input, .day-list>div>input {
+.day-list-item input[type="text"], .day-list>div>input[type="text"] {
   height: 36px;
   width: 64px;
   font-size: 1.6rem;
   text-align: center;
 }
-
-/* .day-list-item.scene {
-  display: flex;
-  justify-content: center;
-} */
 
 .day-list-item select, .day-list>div>select {
   height: 36px;
