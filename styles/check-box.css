@@ -1,6 +1,7 @@
 input[type="radio"] {
   height: 22px;
   width: 22px;
+  cursor: pointer;
 }
 
 .custom-radio {
@@ -31,6 +32,3 @@ input[type="radio"] {
   background-color: var(--checked-color);
   border-width: 0.4rem;
 }
-/* input[type="radio"]:hover {
-  color: blueviolet;
-} */

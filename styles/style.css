@@ -2,11 +2,11 @@ html,
 body {
   height: 100%;
   font-family: 'Roboto', sans-serif;
-  
-    --color: #999;
-    --checked-color: darkcyan;
 
-    --bg-color: #e8e8e8;
+  --color: #999;
+  --checked-color: darkcyan;
+
+  --bg-color: #e8e8e8;
 }
 
 
@@ -54,7 +54,7 @@ body {
 .header {
   width: 100%;
   height: 106px;
-  background-color: tomato;
+  background-color: darkcyan;
   margin-bottom: 32px;
 }
 
@@ -72,11 +72,11 @@ h1 {
 }
 
 .left-grid {
-  display: grid; 
-  
+  display: grid;
+
   grid-template-rows: repeat(12, 38px);
   grid-template-columns: 100px 100px;
-  
+
   gap: 0px;
   height: 100%;
   margin-top: 32px;
@@ -93,9 +93,8 @@ h1 {
   text-align: center;
   border-right: 1px solid black;
   border-bottom: 1px solid black;
-
 }
- 
+
 .cell-0 {
   grid-row-start: 1;
   grid-column-start: 1;
@@ -140,8 +139,8 @@ h1 {
   width: 128px;
 }
 
-.monday, 
-.monday>div, 
+.monday,
+.monday>div,
 .monday>div>input,
 .monday>div>select {
   background-color: grey;
@@ -153,17 +152,16 @@ h1 {
   font-size: 1.6rem;
   text-align: center;
   align-self: center;
-  border-bottom: 1px solid black;;
-
+  border-bottom: 1px solid black;
 }
 
 .day-list {
   display: flex;
   flex-direction: column;
-
 }
 
-.day-list-item, .day-list>div {
+.day-list-item,
+.day-list>div {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -177,15 +175,40 @@ h1 {
   border: 0;
 }
 
-.day-list-item input[type="text"], .day-list>div>input[type="text"] {
-  height: 36px;
+.day-list-item input[type="text"],
+.day-list>div>input[type="text"] {
+  height: 32px;
   width: 64px;
   font-size: 1.6rem;
   text-align: center;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transform: translateY(-0.5px);
 }
 
-.day-list-item select, .day-list>div>select {
-  height: 36px;
-  width: 100%;
+.day-list>div>input[type="text"]:disabled {
+  color: #999;
+}
+
+.day-list>div>input[type="text"]:focus {
+  background-color: #fff;
+  border-color: #bdbdbd;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem var(--checked-color);
+}
+
+.day-list-item select,
+.day-list>div>select {
+  height: 32px;
+  width: 123px;
+  border-radius: 0.25rem;
+  transform: translateY(-0.5px);
   font-size: 1.6rem;
+}
+
+.day-list>div>select:focus {
+  background-color: #fff;
+  border-color: #bdbdbd;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem var(--checked-color);
 }
