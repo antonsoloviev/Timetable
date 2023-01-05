@@ -34,8 +34,12 @@ label {
 }
 
 .desc-input_auth {
+  height: 32px;
+  width: 100%;
   font-size: 2rem;
   border: 0px;
+  color: red;
+  text-align: center;
 }
 
 .green {

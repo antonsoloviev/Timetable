@@ -5,7 +5,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Timetable</title>
+
+  <link rel="icon" href="./public/favicon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,9 +16,7 @@
   <link rel="stylesheet" href="./styles/reset.css">
   <link rel="stylesheet" href="./styles/style.css">
   <link rel="stylesheet" href="./styles/dev-api.css">
-
-  <script src="calendar.js"></script>
-
+  <link rel="stylesheet" href="./styles/check-box.css">
 
 </head>
 
@@ -26,67 +26,71 @@
 
     </header>
     <h1>ФАСАД ЮЖНОГО МОЛА</h1>
+    <div class="dev-api">
+      <p>
+        <input class="desc-input desc-input_auth" type="text" readonly id="authStatus" value="⛔ Unauthorized ⛔"></input>
+      </p>
+      <!-- <div>
+        <label class="desc" for="username">Username:</label>
+        <input class="desc-input" type="text" name="username" id="username" />
+        <label class="desc" for="password">Password:</label>
+        <input class="desc-input" type="text" name="password" id="password" />
+        <button class="button button-dev button-dev__auth">Authorize</button>
+
+        <label for="valueBlockIds">Existing Value Blocks:</label>
+        <textarea class="desc-text-area" id="valueBlockIds" readonly cols="150"></textarea>
+        <button class="button button-dev button-dev__getBlocks">Get existing blocks</button>
+
+        <label class="desc" for="valueBlockId">Value Block Id:</label>
+        <input class="desc-input" type="text" id="valueBlockId" name="valueBlockId" />
+        <label class="desc" for="serial">Value:</label>
+        <input class="desc-input" type="text" id="serial" name="serial" />
+        <button class="button button-dev button-dev__setVal">Set</button>
+      </div> -->
+    </div>
     <div class="container">
-      <div class="dev-api">
-        <p>
-          <input class="desc-input desc-input_auth" type="text" readonly id="authStatus" value="Unauthorized"></input>
-        </p>
-        <div>
-          <label class="desc" for="username">Username:</label>
-          <input class="desc-input" type="text" name="username" id="username" />
-          <label class="desc" for="password">Password:</label>
-          <input class="desc-input" type="text" name="password" id="password" />
 
-          <button class="button button-dev" onclick="authorizeButtonPressed()">Authorize</button>
-          <label for="valueBlockIds">Existing Value Blocks:</label>
-          <textarea class="desc-text-area" id="valueBlockIds" readonly cols="150"></textarea>
-          <button class="button button-dev" onclick="getValueBlockIdsButtonPressed()">Get existing blocks</button>
-
-          <label class="desc" for="valueBlockId">Value Block Id:</label>
-          <input class="desc-input" type="text" id="valueBlockId" name="valueBlockId" />
-
-          <label class="desc" for="serial">Value:</label>
-          <input class="desc-input" type="text" id="serial" name="serial" />
-
-          <button class="button button-dev" onclick="setValue()">Set</button>
-        </div>
-      </div>
       <div class="left-grid">
-        <div class="table-cell cell-0">Перед рассветом</div>
-        <div class="table-cell cell-1">По времени</div>
-        <div class="table-cell cell-2">Астро офсет</div>
+        <div class="table-cell cell-0">Ночь</div>
+        <div class="table-cell cell-1">Фикс. время</div>
+        <div class="table-cell cell-2">Астро</div>
         <div class="table-cell cell-3">Сценарий</div>
         <div class="table-cell cell-4">Утро</div>
-        <div class="table-cell cell-5">Включение</div>
+        <div class="table-cell cell-5">Фикс. время</div>
         <div class="table-cell cell-6">Астро</div>
         <div class="table-cell cell-7">Сценарий</div>
-        <div class="table-cell cell-8">Вечер</div>
-        <div class="table-cell cell-9">Включение</div>
+        <div class="table-cell cell-8">Дневное выключение</div>
+        <div class="table-cell cell-9">Фикс. время</div>
         <div class="table-cell cell-10">Астро</div>
-        <div class="table-cell cell-11">Сценарий</div>
-        <div class="table-cell cell-12">После заката</div>
-        <div class="table-cell cell-13">Включение</div>
-        <div class="table-cell cell-14">Астро</div>
-        <div class="table-cell cell-15">Сценарий</div>
+        <div class="table-cell cell-11">Вечер</div>
+        <div class="table-cell cell-12">Фикс. время</div>
+        <div class="table-cell cell-13">Астро</div>
+        <div class="table-cell cell-14">Сценарий</div>
+        <div class="table-cell cell-15">Закрытие ТРЦ</div>
+        <div class="table-cell cell-16">Фикс. время</div>
+        <div class="table-cell cell-17">Астро</div>
+        <div class="table-cell cell-18">Сценарий</div>
       </div>
       <div class="week-table">
-        <div class="day">
+        <!-- <div class="day">
           <div class="day-title">Понедельник</div>
           <div class="day-list monday">
-            <div class="day-list-item monday-before-time time">
-              <input class="monday-before-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+            <div class="day-list-item monday-night-time time">
+              <input class="monday-night-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
             </div>
-            <div class="day-list-item monday-before-offset offset">
-              <input class="monday-before-offset-input" type="text" placeholder="xx:xx"
+            <div class="day-list-item monday-night-offset offset">
+              <input class="monday-night-offset-input" type="text" placeholder="xx:xx"
                 maxlength="5"></input>
             </div>
-            <div class="day-list-item monday-before-scene scene">
-              <select class="monday-before-scene-select" name="select-effect" id="">
-                <option value="effect-1">Effect-1</option>
-                <option value="effect-2">Effect-2</option>
-                <option value="effect-3">Effect-3</option>
-                <option value="effect-4">Effect-4</option>
-                <option value="effect-5">Effect-5</option>
+            <div class="day-list-item monday-night-scene scene">
+              <select class="monday-night-scene-select" name="select-effect" id="">
+                <option value="main">Основной</option>
+                <option value="white-static">Белый статика</option>
+                <option value="white-mix">Белый микс</option>
+                <option value="white-pulse">Белый пульс</option>
+                <option value="color-dynamic">Цвет динамика</option>
+                <option value="eco">Экорежим</option>
+                <option value="purple">Лиловый</option>
               </select>
             </div>
             <div class="day-list-item monday-morning-time time">
@@ -98,11 +102,13 @@
             </div>
             <div class="day-list-item monday-morning-scene scene">
               <select class="monday-morning-scene-select" name="select-effect" id="">
-                <option value="effect-1">Effect-1</option>
-                <option value="effect-2">Effect-2</option>
-                <option value="effect-3">Effect-3</option>
-                <option value="effect-4">Effect-4</option>
-                <option value="effect-5">Effect-5</option>
+                <option value="main">Основной</option>
+                <option value="white-static">Белый статика</option>
+                <option value="white-mix">Белый микс</option>
+                <option value="white-pulse">Белый пульс</option>
+                <option value="color-dynamic">Цвет динамика</option>
+                <option value="eco">Экорежим</option>
+                <option value="purple">Лиловый</option>
               </select>
             </div>
             <div class="day-list-item monday-evening-time time">
@@ -114,430 +120,148 @@
             </div>
             <div class="day-list-item monday-evening-scene scene">
               <select class="monday-evening-scene-select" name="select-effect" id="">
-                <option value="effect-1">Effect-1</option>
-                <option value="effect-2">Effect-2</option>
-                <option value="effect-3">Effect-3</option>
-                <option value="effect-4">Effect-4</option>
-                <option value="effect-5">Effect-5</option>
+                <option value="main">Основной</option>
+                <option value="white-static">Белый статика</option>
+                <option value="white-mix">Белый микс</option>
+                <option value="white-pulse">Белый пульс</option>
+                <option value="color-dynamic">Цвет динамика</option>
+                <option value="eco">Экорежим</option>
+                <option value="purple">Лиловый</option>
               </select>
             </div>
-            <div class="day-list-item monday-after-time time">
-              <input class="monday-after-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+            <div class="day-list-item monday-closing-time time">
+              <input class="monday-closing-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
             </div>
-            <div class="day-list-item monday-after-offset offset">
-              <input class="monday-after-offset-input" type="text" placeholder="xx:xx"
+            <div class="day-list-item monday-closing-offset offset">
+              <input class="monday-closing-offset-input" type="text" placeholder="xx:xx"
                 maxlength="5"></input>
             </div>
-            <div class="day-list-item monday-after-scene scene">
-              <select class="monday-after-scene-select" name="select-effect" id="">
-                <option value="effect-1">Effect-1</option>
-                <option value="effect-2">Effect-2</option>
-                <option value="effect-3">Effect-3</option>
-                <option value="effect-4">Effect-4</option>
-                <option value="effect-5">Effect-5</option>
+            <div class="day-list-item monday-closing-scene scene">
+              <select class="monday-closing-scene-select" name="select-effect" id="">
+                <option value="main">Основной</option>
+                <option value="white-static">Белый статика</option>
+                <option value="white-mix">Белый микс</option>
+                <option value="white-pulse">Белый пульс</option>
+                <option value="color-dynamic">Цвет динамика</option>
+                <option value="eco">Экорежим</option>
+                <option value="purple">Лиловый</option>
               </select>
             </div>
             <div class="day-list-item _border0">
               <button class="button button-get-monday">Get Monday</button>
             </div>
           </div>
-        </div>
-        <div class="day">
-          <div class="day-title">Вторник</div>
-          <div class="day-list tuesday">
-            <div class="day-list-item time">
-              <input class="input-time" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item offset">
-              <input class="input-offset" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item scene">
-              <select class="select-scene" name="select-effect" id="">
-                <option value="effect-1">Effect-1-long</option>
-                <option value="effect-2">Effect-2</option>
-                <option value="effect-3">Effect-3</option>
-                <option value="effect-4">Effect-4</option>
-                <option value="effect-5">Effect-5</option>
-              </select>
-            </div>
-            <div class="day-list-item time">
-              <input class="input-time" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item offset">
-              <input class="input-offset" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item scene">
-              <select class="select-scene" name="select-effect" id="">
-                <option value="effect-1">Effect-1-long</option>
-                <option value="effect-2">Effect-2</option>
-                <option value="effect-3">Effect-3</option>
-                <option value="effect-4">Effect-4</option>
-                <option value="effect-5">Effect-5</option>
-              </select>
-            </div>
-            <div class="day-list-item time">
-              <input class="input-time" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item offset">
-              <input class="input-offset" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item scene">
-              <select class="select-scene" name="select-effect" id="">
-                <option value="effect-1">Effect-1-long</option>
-                <option value="effect-2">Effect-2</option>
-                <option value="effect-3">Effect-3</option>
-                <option value="effect-4">Effect-4</option>
-                <option value="effect-5">Effect-5</option>
-              </select>
-            </div>
-            <div class="day-list-item time">
-              <input class="input-time" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item offset">
-              <input class="input-offset" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item scene">
-              <select class="select-scene" name="select-effect" id="">
-                <option value="effect-1">Effect-1-long</option>
-                <option value="effect-2">Effect-2</option>
-                <option value="effect-3">Effect-3</option>
-                <option value="effect-4">Effect-4</option>
-                <option value="effect-5">Effect-5</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="day">
-          <div class="day-title">Среда</div>
-          <div class="day-list wensday">
-            <div class="day-list-item time">
-              <input class="input-time" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item offset">
-              <input class="input-offset" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item scene">
-              <select class="select-scene" name="select-effect" id="">
-                <option value="effect-1">Effect-1-long</option>
-                <option value="effect-2">Effect-2</option>
-                <option value="effect-3">Effect-3</option>
-                <option value="effect-4">Effect-4</option>
-                <option value="effect-5">Effect-5</option>
-              </select>
-            </div>
-            <div class="day-list-item time">
-              <input class="input-time" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item offset">
-              <input class="input-offset" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item scene">
-              <select class="select-scene" name="select-effect" id="">
-                <option value="effect-1">Effect-1-long</option>
-                <option value="effect-2">Effect-2</option>
-                <option value="effect-3">Effect-3</option>
-                <option value="effect-4">Effect-4</option>
-                <option value="effect-5">Effect-5</option>
-              </select>
-            </div>
-            <div class="day-list-item time">
-              <input class="input-time" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item offset">
-              <input class="input-offset" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item scene">
-              <select class="select-scene" name="select-effect" id="">
-                <option value="effect-1">Effect-1-long</option>
-                <option value="effect-2">Effect-2</option>
-                <option value="effect-3">Effect-3</option>
-                <option value="effect-4">Effect-4</option>
-                <option value="effect-5">Effect-5</option>
-              </select>
-            </div>
-            <div class="day-list-item time">
-              <input class="input-time" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item offset">
-              <input class="input-offset" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item scene">
-              <select class="select-scene" name="select-effect" id="">
-                <option value="effect-1">Effect-1-long</option>
-                <option value="effect-2">Effect-2</option>
-                <option value="effect-3">Effect-3</option>
-                <option value="effect-4">Effect-4</option>
-                <option value="effect-5">Effect-5</option>
-              </select>
+        </div> -->
+        <!-- TEMPLATE DAY -->
+        <template class="template-day">
+          <div class="day">
+            <div class="day-title">Понедельник</div>
+            <div class="day-list">
+              <div class="night-time time">
+                <input class="night-time-radio custom-radio" type="radio" name="night" value="time">
+                <input class="night-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+              </div>
+              <div class="night-offset offset">
+                <input class="night-offset-radio custom-radio" type="radio" name="night" value="offset">
+                <input class="night-offset-input" type="text" placeholder="xx:xx"
+                  maxlength="5"></input>
+              </div>
+              <div class="night-scene scene">
+                <select class="night-scene-select" name="select-effect" id="">
+                  <option value="main">Основной</option>
+                  <option value="white-static">Белый статика</option>
+                  <option value="white-mix">Белый микс</option>
+                  <option value="white-pulse">Белый пульс</option>
+                  <option value="color-dynamic">Цвет динамика</option>
+                  <option value="eco">Экорежим</option>
+                  <option value="purple">Лиловый</option>
+                </select>
+              </div>
+              <div class="morning-time time">
+                <input class="morning-time-radio custom-radio" type="radio" name="morning" value="time">
+                <input class="morning-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+              </div>
+              <div class="morning-offset offset">
+                <input class="morning-offset-radio custom-radio" type="radio" name="morning" value="offset">
+                <input class="morning-offset-input" type="text" placeholder="xx:xx"
+                  maxlength="5"></input>
+              </div>
+              <div class="morning-scene scene">
+                <select class="morning-scene-select" name="select-effect" id="">
+                  <option value="main">Основной</option>
+                  <option value="white-static">Белый статика</option>
+                  <option value="white-mix">Белый микс</option>
+                  <option value="white-pulse">Белый пульс</option>
+                  <option value="color-dynamic">Цвет динамика</option>
+                  <option value="eco">Экорежим</option>
+                  <option value="purple">Лиловый</option>
+                </select>
+              </div>
+              <div class="daytime-time time">
+                <input class="daytime-time-radio custom-radio" type="radio" name="daytime" value="time">
+                <input class="daytime-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+              </div>
+              <div class="daytime-offset offset">
+                <input class="daytime-offset-radio custom-radio" type="radio" name="daytime" value="offset">
+                <input class="daytime-offset-input" type="text" placeholder="xx:xx"
+                  maxlength="5"></input>
+              </div>
+              <div class="evening-time time">
+                <input class="evening-time-radio custom-radio" type="radio" name="evening" value="time">
+                <input class="evening-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+              </div>
+              <div class="evening-offset offset">
+                <input class="evening-offset-radio custom-radio" type="radio" name="evening" value="offset">
+                <input class="evening-offset-input" type="text" placeholder="xx:xx"
+                  maxlength="5"></input>
+              </div>
+              <div class="evening-scene scene">
+                <select class="evening-scene-select" name="select-effect" id="">
+                  <option value="main">Основной</option>
+                  <option value="white-static">Белый статика</option>
+                  <option value="white-mix">Белый микс</option>
+                  <option value="white-pulse">Белый пульс</option>
+                  <option value="color-dynamic">Цвет динамика</option>
+                  <option value="eco">Экорежим</option>
+                  <option value="purple">Лиловый</option>
+                </select>
+              </div>
+              <div class="closing-time time">
+                <input class="closing-time-radio custom-radio" type="radio" name="closing" value="time">
+                <input class="closing-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+              </div>
+              <div class="closing-offset offset">
+                <input class="closing-offset-radio custom-radio" type="radio" name="closing" value="offset">
+                <input class="closing-offset-input" type="text" placeholder="xx:xx"
+                  maxlength="5"></input>
+              </div>
+              <div class="closing-scene scene">
+                <select class="closing-scene-select" name="select-effect" id="">
+                  <option value="main">Основной</option>
+                  <option value="white-static">Белый статика</option>
+                  <option value="white-mix">Белый микс</option>
+                  <option value="white-pulse">Белый пульс</option>
+                  <option value="color-dynamic">Цвет динамика</option>
+                  <option value="eco">Экорежим</option>
+                  <option value="purple">Лиловый</option>
+                </select>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="day">
-          <div class="day-title">Четверг</div>
-          <div class="day-list thursday">
-            <div class="day-list-item time">
-              <input class="input-time" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item offset">
-              <input class="input-offset" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item scene">
-              <select class="select-scene" name="select-effect" id="">
-                <option value="effect-1">Effect-1-long</option>
-                <option value="effect-2">Effect-2</option>
-                <option value="effect-3">Effect-3</option>
-                <option value="effect-4">Effect-4</option>
-                <option value="effect-5">Effect-5</option>
-              </select>
-            </div>
-            <div class="day-list-item time">
-              <input class="input-time" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item offset">
-              <input class="input-offset" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item scene">
-              <select class="select-scene" name="select-effect" id="">
-                <option value="effect-1">Effect-1-long</option>
-                <option value="effect-2">Effect-2</option>
-                <option value="effect-3">Effect-3</option>
-                <option value="effect-4">Effect-4</option>
-                <option value="effect-5">Effect-5</option>
-              </select>
-            </div>
-            <div class="day-list-item time">
-              <input class="input-time" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item offset">
-              <input class="input-offset" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item scene">
-              <select class="select-scene" name="select-effect" id="">
-                <option value="effect-1">Effect-1-long</option>
-                <option value="effect-2">Effect-2</option>
-                <option value="effect-3">Effect-3</option>
-                <option value="effect-4">Effect-4</option>
-                <option value="effect-5">Effect-5</option>
-              </select>
-            </div>
-            <div class="day-list-item time">
-              <input class="input-time" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item offset">
-              <input class="input-offset" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item scene">
-              <select class="select-scene" name="select-effect" id="">
-                <option value="effect-1">Effect-1-long</option>
-                <option value="effect-2">Effect-2</option>
-                <option value="effect-3">Effect-3</option>
-                <option value="effect-4">Effect-4</option>
-                <option value="effect-5">Effect-5</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="day">
-          <div class="day-title">Пятница</div>
-          <div class="day-list friday">
-            <div class="day-list-item time">
-              <input class="input-time" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item offset">
-              <input class="input-offset" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item scene">
-              <select class="select-scene" name="select-effect" id="">
-                <option value="effect-1">Effect-1-long</option>
-                <option value="effect-2">Effect-2</option>
-                <option value="effect-3">Effect-3</option>
-                <option value="effect-4">Effect-4</option>
-                <option value="effect-5">Effect-5</option>
-              </select>
-            </div>
-            <div class="day-list-item time">
-              <input class="input-time" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item offset">
-              <input class="input-offset" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item scene">
-              <select class="select-scene" name="select-effect" id="">
-                <option value="effect-1">Effect-1-long</option>
-                <option value="effect-2">Effect-2</option>
-                <option value="effect-3">Effect-3</option>
-                <option value="effect-4">Effect-4</option>
-                <option value="effect-5">Effect-5</option>
-              </select>
-            </div>
-            <div class="day-list-item time">
-              <input class="input-time" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item offset">
-              <input class="input-offset" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item scene">
-              <select class="select-scene" name="select-effect" id="">
-                <option value="effect-1">Effect-1-long</option>
-                <option value="effect-2">Effect-2</option>
-                <option value="effect-3">Effect-3</option>
-                <option value="effect-4">Effect-4</option>
-                <option value="effect-5">Effect-5</option>
-              </select>
-            </div>
-            <div class="day-list-item time">
-              <input class="input-time" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item offset">
-              <input class="input-offset" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item scene">
-              <select class="select-scene" name="select-effect" id="">
-                <option value="effect-1">Effect-1-long</option>
-                <option value="effect-2">Effect-2</option>
-                <option value="effect-3">Effect-3</option>
-                <option value="effect-4">Effect-4</option>
-                <option value="effect-5">Effect-5</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="day">
-          <div class="day-title">Суббота</div>
-          <div class="day-list saturday">
-            <div class="day-list-item time">
-              <input class="input-time" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item offset">
-              <input class="input-offset" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item scene">
-              <select class="select-scene" name="select-effect" id="">
-                <option value="effect-1">Effect-1-long</option>
-                <option value="effect-2">Effect-2</option>
-                <option value="effect-3">Effect-3</option>
-                <option value="effect-4">Effect-4</option>
-                <option value="effect-5">Effect-5</option>
-              </select>
-            </div>
-            <div class="day-list-item time">
-              <input class="input-time" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item offset">
-              <input class="input-offset" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item scene">
-              <select class="select-scene" name="select-effect" id="">
-                <option value="effect-1">Effect-1-long</option>
-                <option value="effect-2">Effect-2</option>
-                <option value="effect-3">Effect-3</option>
-                <option value="effect-4">Effect-4</option>
-                <option value="effect-5">Effect-5</option>
-              </select>
-            </div>
-            <div class="day-list-item time">
-              <input class="input-time" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item offset">
-              <input class="input-offset" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item scene">
-              <select class="select-scene" name="select-effect" id="">
-                <option value="effect-1">Effect-1-long</option>
-                <option value="effect-2">Effect-2</option>
-                <option value="effect-3">Effect-3</option>
-                <option value="effect-4">Effect-4</option>
-                <option value="effect-5">Effect-5</option>
-              </select>
-            </div>
-            <div class="day-list-item time">
-              <input class="input-time" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item offset">
-              <input class="input-offset" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item scene">
-              <select class="select-scene" name="select-effect" id="">
-                <option value="effect-1">Effect-1-long</option>
-                <option value="effect-2">Effect-2</option>
-                <option value="effect-3">Effect-3</option>
-                <option value="effect-4">Effect-4</option>
-                <option value="effect-5">Effect-5</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="day">
-          <div class="day-title">Воскресенье</div>
-          <div class="day-list sunday">
-            <div class="day-list-item time">
-              <input class="input-time" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item offset">
-              <input class="input-offset" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item scene">
-              <select class="select-scene" name="select-effect" id="">
-                <option value="effect-1">Effect-1-long</option>
-                <option value="effect-2">Effect-2</option>
-                <option value="effect-3">Effect-3</option>
-                <option value="effect-4">Effect-4</option>
-                <option value="effect-5">Effect-5</option>
-              </select>
-            </div>
-            <div class="day-list-item time">
-              <input class="input-time" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item offset">
-              <input class="input-offset" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item scene">
-              <select class="select-scene" name="select-effect" id="">
-                <option value="effect-1">Effect-1-long</option>
-                <option value="effect-2">Effect-2</option>
-                <option value="effect-3">Effect-3</option>
-                <option value="effect-4">Effect-4</option>
-                <option value="effect-5">Effect-5</option>
-              </select>
-            </div>
-            <div class="day-list-item time">
-              <input class="input-time" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item offset">
-              <input class="input-offset" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item scene">
-              <select class="select-scene" name="select-effect" id="">
-                <option value="effect-1">Effect-1-long</option>
-                <option value="effect-2">Effect-2</option>
-                <option value="effect-3">Effect-3</option>
-                <option value="effect-4">Effect-4</option>
-                <option value="effect-5">Effect-5</option>
-              </select>
-            </div>
-            <div class="day-list-item time">
-              <input class="input-time" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item offset">
-              <input class="input-offset" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item scene">
-              <select class="select-scene" name="select-effect" id="">
-                <option value="effect-1">Effect-1-long</option>
-                <option value="effect-2">Effect-2</option>
-                <option value="effect-3">Effect-3</option>
-                <option value="effect-4">Effect-4</option>
-                <option value="effect-5">Effect-5</option>
-              </select>
-            </div>
-          </div>
-        </div>
+        </template>
       </div>
     </div>
   </div>
 
-  <script src="storage.js"></script>
-  <script src="renderDay.js"></script>
+  <!-- <script type="module" src="./app.js"></script> -->
+  <script src="utils.js"></script>
+  <!-- <script src="dev-api.js"></script> -->
+  <!-- <script src="Monday.js"></script> -->
+  <script src="store.js"></script>
+  <script src="fetchBlocks.js"></script>
+  <script src="renderWeek.js"></script>
+  <script src="app.js"></script>
+
 </body>
 
 </html>
