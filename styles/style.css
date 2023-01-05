@@ -5,24 +5,20 @@ body {
 
   --color: #999;
   --checked-color: darkcyan;
-
-  --bg-color: #e8e8e8;
+  --bg-color: rgb(238, 237, 236);
 }
 
-
 .page-wrapper {
-  padding-top: 40px;
   display: flex;
   overflow: hidden;
   flex-direction: column;
   align-items: center;
   min-height: 100%;
-  background-color: #fff;
+  background-color: var(--bg-color);
 }
 
 .button {
   display: inline-block;
-  /* height: 48px; */
   width: 168px;
   padding: 5px 10px;
   margin-bottom: 8px;
@@ -33,7 +29,7 @@ body {
   text-align: center;
   text-decoration: none;
   vertical-align: middle;
-  background: #fff;
+  background: var(--bg-color);
   border: 1px solid gray;
   border-radius: 6px;
   cursor: pointer;
@@ -50,15 +46,17 @@ body {
   background-color: #ebecf0;
 }
 
-/*header*/
-.header {
-  width: 100%;
-  height: 106px;
-  background-color: darkcyan;
-  margin-bottom: 32px;
+input {
+  background-color: var(--bg-color);
 }
 
-/*Container*/
+.header {
+  width: 100%;
+  height: 96px;
+  background-color: darkcyan;
+  margin-bottom: 24px;
+}
+
 .container {
   display: flex;
   flex-direction: row;
@@ -68,14 +66,14 @@ body {
 
 h1 {
   font-size: 2.2rem;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
 }
 
 .left-grid {
   display: grid;
 
-  grid-template-rows: repeat(12, 38px);
-  grid-template-columns: 100px 100px;
+  grid-template-rows: repeat(14, 38px);
+  grid-template-columns: 128px 128px;
 
   gap: 0px;
   height: 100%;
@@ -115,15 +113,23 @@ h1 {
   grid-row-start: 7;
   grid-column-start: 1;
 
-  grid-row-end: 10;
+  grid-row-end: 9;
   grid-column-end: 2;
 }
 
-.cell-12 {
-  grid-row-start: 10;
+.cell-11 {
+  grid-row-start: 9;
   grid-column-start: 1;
 
-  grid-row-end: 13;
+  grid-row-end: 12;
+  grid-column-end: 2;
+}
+
+.cell-15 {
+  grid-row-start: 12;
+  grid-column-start: 1;
+
+  grid-row-end: 15;
   grid-column-end: 2;
 }
 
@@ -191,10 +197,14 @@ h1 {
 }
 
 .day-list>div>input[type="text"]:focus {
-  background-color: #fff;
+  background-color: var(--bg-color);
   border-color: #bdbdbd;
   outline: 0;
   box-shadow: 0 0 0 0.2rem var(--checked-color);
+}
+
+.day-list>div>input[type="text"]::placeholder {
+  font-size: 1.6rem;
 }
 
 .day-list-item select,
@@ -204,10 +214,11 @@ h1 {
   border-radius: 0.25rem;
   transform: translateY(-0.5px);
   font-size: 1.6rem;
+  background-color: var(--bg-color);
 }
 
 .day-list>div>select:focus {
-  background-color: #fff;
+  background-color: var(--bg-color);
   border-color: #bdbdbd;
   outline: 0;
   box-shadow: 0 0 0 0.2rem var(--checked-color);

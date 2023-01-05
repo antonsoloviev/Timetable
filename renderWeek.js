@@ -13,38 +13,43 @@ function getDay(item) {
   });
 
   const dayTitle = template.querySelector('.day-title');
-  const beforeTime = template.querySelector('.before-time-input');
-  const beforeOffset = template.querySelector('.before-offset-input');
-  const beforeScene = template.querySelector('.before-scene-select');
-  const beforeModeTime = template.querySelector('input[type=radio][name*="before"][value="time"]');
-  const beforeModeOffset = template.querySelector('input[type=radio][name*="before"][value="offset"]');
+  const nightTime = template.querySelector('.night-time-input');
+  const nightOffset = template.querySelector('.night-offset-input');
+  const nightScene = template.querySelector('.night-scene-select');
+  const nightModeTime = template.querySelector('input[type=radio][name*="night"][value="time"]');
+  const nightModeOffset = template.querySelector('input[type=radio][name*="night"][value="offset"]');
   const morningTime = template.querySelector('.morning-time-input');
   const morningOffset = template.querySelector('.morning-offset-input');
   const morningScene = template.querySelector('.morning-scene-select');
   const morningModeTime = template.querySelector('input[type=radio][name*="morning"][value="time"]');
   const morningModeOffset = template.querySelector('input[type=radio][name*="morning"][value="offset"]');
+  const daytimeTime = template.querySelector('.daytime-time-input');
+  const daytimeOffset = template.querySelector('.daytime-offset-input');
+  const daytimeModeTime = template.querySelector('input[type=radio][name*="daytime"][value="time"]');
+  const daytimeModeOffset = template.querySelector('input[type=radio][name*="daytime"][value="offset"]');
   const eveningTime = template.querySelector('.evening-time-input');
   const eveningOffset = template.querySelector('.evening-offset-input');
   const eveningScene = template.querySelector('.evening-scene-select');
   const eveningModeTime = template.querySelector('input[type=radio][name*="evening"][value="time"]');
   const eveningModeOffset = template.querySelector('input[type=radio][name*="evening"][value="offset"]');
-  const afterTime = template.querySelector('.after-time-input');
-  const afterOffset = template.querySelector('.after-offset-input');
-  const afterScene = template.querySelector('.after-scene-select');
-  const afterModeTime = template.querySelector('input[type=radio][name*="after"][value="time"]');
-  const afterModeOffset = template.querySelector('input[type=radio][name*="after"][value="offset"]');
+  const closingTime = template.querySelector('.closing-time-input');
+  const closingOffset = template.querySelector('.closing-offset-input');
+  const closingScene = template.querySelector('.closing-scene-select');
+  const closingModeTime = template.querySelector('input[type=radio][name*="closing"][value="time"]');
+  const closingModeOffset = template.querySelector('input[type=radio][name*="closing"][value="offset"]');
 
-  const beforeMode = item.beforeMode;
+  const nightMode = item.nightMode;
   const morningMode = item.morningMode;
+  const daytimeMode = item.morningMode;
   const eveningMode = item.eveningMode;
-  const afterMode = item.afterMode;
+  const closingMode = item.closingMode;
 
-  if (beforeMode === 'time') {
-    beforeModeTime.checked = true;
-    beforeOffset.disabled = true;
+  if (nightMode === 'time') {
+    nightModeTime.checked = true;
+    nightOffset.disabled = true;
   } else {
-    beforeModeOffset.checked = true;
-    beforeTime.disabled = true;
+    nightModeOffset.checked = true;
+    nightTime.disabled = true;
   }
 
   if (morningMode === 'time') {
@@ -55,6 +60,14 @@ function getDay(item) {
     morningTime.disabled = true;
   }
 
+  if (daytimeMode === 'time') {
+    daytimeModeTime.checked = true;
+    daytimeOffset.disabled = true;
+  } else {
+    daytimeModeOffset.checked = true;
+    daytimeTime.disabled = true;
+  }
+
   if (eveningMode === 'time') {
     eveningModeTime.checked = true;
     eveningOffset.disabled = true;
@@ -63,27 +76,29 @@ function getDay(item) {
     eveningTime.disabled = true;
   }
 
-  if (afterMode === 'time') {
-    afterModeTime.checked = true;
-    afterOffset.disabled = true;
+  if (closingMode === 'time') {
+    closingModeTime.checked = true;
+    closingOffset.disabled = true;
   } else {
-    afterModeOffset.checked = true;
-    afterTime.disabled = true;
+    closingModeOffset.checked = true;
+    closingTime.disabled = true;
   }
 
   dayTitle.textContent = week[dayNumber] || "";
-  beforeTime.value = item.beforeTime || "";
-  beforeOffset.value = item.beforeOffset || "";
-  beforeScene.value = item.beforeScene || "";
+  nightTime.value = item.nightTime || "";
+  nightOffset.value = item.nightOffset || "";
+  nightScene.value = item.nightScene || "";
   morningTime.value = item.morningTime || "";
   morningOffset.value = item.morningOffset || "";
   morningScene.value = item.morningScene || "";
+  daytimeTime.value = item.daytimeTime || "";
+  daytimeOffset.value = item.daytimeOffset || "";
   eveningTime.value = item.eveningTime || "";
   eveningOffset.value = item.eveningOffset || "";
   eveningScene.value = item.eveningScene || "";
-  afterTime.value = item.afterTime || "";
-  afterOffset.value = item.afterOffset || "";
-  afterScene.value = item.afterScene || "";
+  closingTime.value = item.closingTime || "";
+  closingOffset.value = item.closingOffset || "";
+  closingScene.value = item.closingScene || "";
 
   template.querySelector('.day').setAttribute('data-daynumber', dayNumber);
 
@@ -91,44 +106,44 @@ function getDay(item) {
     const element = event.target;
     const currentDay = element.closest('.day');
 
-    if (element.classList.contains('before-time-input')) {
+    if (element.classList.contains('night-time-input')) {
       const valueBlockData = {};
       valueBlockData.inPortValue = element.value;
-      blockId = store.weekNotes[currentDay.dataset.daynumber]['beforeTime-id'];
+      blockId = store.weekNotes[currentDay.dataset.daynumber]['nightTime-id'];
       // localStorage.setItem(element.className, element.value);
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
     };
 
-    if (element.classList.contains('before-offset-input')) {
+    if (element.classList.contains('night-offset-input')) {
       const valueBlockData = {};
       valueBlockData.inPortValue = element.value;
-      blockId = store.weekNotes[currentDay.dataset.daynumber]['beforeOffset-id'];
+      blockId = store.weekNotes[currentDay.dataset.daynumber]['nightOffset-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
     };
 
-    if (element.classList.contains('before-scene-select')) {
+    if (element.classList.contains('night-scene-select')) {
       const valueBlockData = {};
       valueBlockData.inPortValue = element.value;
-      blockId = store.weekNotes[currentDay.dataset.daynumber]['beforeScene-id'];
+      blockId = store.weekNotes[currentDay.dataset.daynumber]['nightScene-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
     };
 
-    if (element.classList.contains('before-time-radio') || element.classList.contains('before-offset-radio')) {
+    if (element.classList.contains('night-time-radio') || element.classList.contains('night-offset-radio')) {
       const valueBlockData = {};
       valueBlockData.inPortValue = element.value;
-      blockId = store.weekNotes[currentDay.dataset.daynumber]['beforeMode-id'];
+      blockId = store.weekNotes[currentDay.dataset.daynumber]['nightMode-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
 
       if (element.value === 'offset') {
-        beforeOffset.disabled = false;
-        beforeTime.disabled = true;
+        nightOffset.disabled = false;
+        nightTime.disabled = true;
       } else {
-        beforeOffset.disabled = true;
-        beforeTime.disabled = false;
+        nightOffset.disabled = true;
+        nightTime.disabled = false;
       }
     };
 
@@ -169,6 +184,38 @@ function getDay(item) {
       } else {
         morningOffset.disabled = true;
         morningTime.disabled = false;
+      }
+    };
+    
+    if (element.classList.contains('daytime-time-input')) {
+      const valueBlockData = {};
+      valueBlockData.inPortValue = element.value;
+      blockId = store.weekNotes[currentDay.dataset.daynumber]['daytimeTime-id'];
+      url = apiUrl + "workflow/blocks/values/" + blockId;
+      putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
+    };
+
+    if (element.classList.contains('daytime-offset-input')) {
+      const valueBlockData = {};
+      valueBlockData.inPortValue = element.value;
+      blockId = store.weekNotes[currentDay.dataset.daynumber]['daytimeOffset-id'];
+      url = apiUrl + "workflow/blocks/values/" + blockId;
+      putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
+    };
+
+    if (element.classList.contains('daytime-time-radio') || element.classList.contains('daytime-offset-radio')) {
+      const valueBlockData = {};
+      valueBlockData.inPortValue = element.value;
+      blockId = store.weekNotes[currentDay.dataset.daynumber]['daytimeMode-id'];
+      url = apiUrl + "workflow/blocks/values/" + blockId;
+      putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
+
+      if (element.value === 'offset') {
+        daytimeOffset.disabled = false;
+        daytimeTime.disabled = true;
+      } else {
+        daytimeOffset.disabled = true;
+        daytimeTime.disabled = false;
       }
     };
 
@@ -212,44 +259,44 @@ function getDay(item) {
       }
     };
 
-    if (element.classList.contains('after-time-input')) {
+    if (element.classList.contains('closing-time-input')) {
       const valueBlockData = {};
       valueBlockData.inPortValue = element.value;
-      blockId = store.weekNotes[currentDay.dataset.daynumber]['afterTime-id'];
+      blockId = store.weekNotes[currentDay.dataset.daynumber]['closingTime-id'];
       // localStorage.setItem(element.className, element.value);
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
     };
 
-    if (element.classList.contains('after-offset-input')) {
+    if (element.classList.contains('closing-offset-input')) {
       const valueBlockData = {};
       valueBlockData.inPortValue = element.value;
-      blockId = store.weekNotes[currentDay.dataset.daynumber]['afterOffset-id'];
+      blockId = store.weekNotes[currentDay.dataset.daynumber]['closingOffset-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
     };
 
-    if (element.classList.contains('after-scene-select')) {
+    if (element.classList.contains('closing-scene-select')) {
       const valueBlockData = {};
       valueBlockData.inPortValue = element.value;
-      blockId = store.weekNotes[currentDay.dataset.daynumber]['afterScene-id'];
+      blockId = store.weekNotes[currentDay.dataset.daynumber]['closingScene-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
     };
 
-    if (element.classList.contains('after-time-radio') || element.classList.contains('after-offset-radio')) {
+    if (element.classList.contains('closing-time-radio') || element.classList.contains('closing-offset-radio')) {
       const valueBlockData = {};
       valueBlockData.inPortValue = element.value;
-      blockId = store.weekNotes[currentDay.dataset.daynumber]['afterMode-id'];
+      blockId = store.weekNotes[currentDay.dataset.daynumber]['closingMode-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
 
       if (element.value === 'offset') {
-        afterOffset.disabled = false;
-        afterTime.disabled = true;
+        closingOffset.disabled = false;
+        closingTime.disabled = true;
       } else {
-        afterOffset.disabled = true;
-        afterTime.disabled = false;
+        closingOffset.disabled = true;
+        closingTime.disabled = false;
       }
     };
   })

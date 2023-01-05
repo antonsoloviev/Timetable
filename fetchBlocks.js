@@ -1,25 +1,13 @@
 const weekEng = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
-function getAllValueBlocks() {
-
-  url = apiUrl + "workflow/blocks/values";
-  getData(url)
-    .then(response => {
-      console.log(response);
-      return response;
-    })
-      .then(response => {
-        store.blockNotes = response;
-      })
-    .catch(error => alert("An error occurred: Message = " + error.message));
-}
-
 async function getValueBlocks() {
 
   url = apiUrl + "workflow/blocks/values";
   response = await getData(url);
   store.blockNotes = response;
   return response;
+
+  // url = apiUrl + "workflow/blocks/values";
   // getData(url)
   //   .then(response => {
   //     console.log(response);
