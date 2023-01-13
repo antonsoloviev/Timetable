@@ -15,252 +15,396 @@
 
   <link rel="stylesheet" href="./styles/reset.css">
   <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="./styles/header.css">
+  <link rel="stylesheet" href="./styles/home-page.css">
   <link rel="stylesheet" href="./styles/dev-api.css">
   <link rel="stylesheet" href="./styles/check-box.css">
+  <link rel="stylesheet" href="./styles/palette.css">
+
+  <link rel="stylesheet" type="text/css" href="./modules/themes.css" />
+
 
 </head>
 
 <body>
   <div class="page-wrapper">
     <header class="header">
-
+      <div class="header-container">
+        <div class="header-logo">
+          <a class="logo" href="#home">
+            MEGA Белая Дача
+            <p>Расписание</p>
+          </a>
+        </div>
+        <div class="header-menu menu">
+          <nav id="menu" class="menu__body">
+            <ul class="menu__list">
+              <li class="menu__item">
+                <a href="#north-mall" class="menu__link">Северный молл</a>
+              </li>
+              <li class="menu__item">
+                <a href="#south-mall" class="menu__link">Южный молл</a>
+              </li>
+              <li class="menu__item">
+                <a href="#logotypes" class="menu__link">Короб и логотипы</a>
+              </li>
+              <li class="menu__item">
+                <a href="#color-palette" class="menu__link">Палитра</a>
+              </li>
+              <li class="menu__item">
+                <a href="#emergency" class="menu__link">Аварийные сигналы</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="date-container">
+          <div class="date">
+            <span class="date-day"></span>.<span class="span date-month"></span>.<span class="span date-year"></span>
+          </div>
+          <div class="clock">
+            <span class="hours">XX</span>:<span class="mins">XX</span>
+          </div>
+        </div>
+      </div>
     </header>
-    <h1>ФАСАД ЮЖНОГО МОЛА</h1>
-    <div class="dev-api">
-      <p>
-        <input class="desc-input desc-input_auth" type="text" readonly id="authStatus" value="⛔ Unauthorized ⛔"></input>
-      </p>
-      <!-- <div>
-        <label class="desc" for="username">Username:</label>
-        <input class="desc-input" type="text" name="username" id="username" />
-        <label class="desc" for="password">Password:</label>
-        <input class="desc-input" type="text" name="password" id="password" />
-        <button class="button button-dev button-dev__auth">Authorize</button>
 
-        <label for="valueBlockIds">Existing Value Blocks:</label>
-        <textarea class="desc-text-area" id="valueBlockIds" readonly cols="150"></textarea>
-        <button class="button button-dev button-dev__getBlocks">Get existing blocks</button>
+    <section id="home" class="section home">
+      <div class="container">
+        <div class="dev-api">
+          <input class="desc-input desc-input_auth" type="text" readonly id="authStatus"
+            value="⛔ Unauthorized ⛔"></input>
+          <!-- <div>
+              <label class="desc" for="username">Username:</label>
+              <input class="desc-input" type="text" name="username" id="username" />
+              <label class="desc" for="password">Password:</label>
+              <input class="desc-input" type="text" name="password" id="password" />
+              <button class="button button-dev button-dev__auth">Authorize</button>
+      
+              <label for="valueBlockIds">Existing Value Blocks:</label>
+              <textarea class="desc-text-area" id="valueBlockIds" readonly cols="150"></textarea>
+              <button class="button button-dev button-dev__getBlocks">Get existing blocks</button>
+      
+              <label class="desc" for="valueBlockId">Value Block Id:</label>
+              <input class="desc-input" type="text" id="valueBlockId" name="valueBlockId" />
+              <label class="desc" for="serial">Value:</label>
+              <input class="desc-input" type="text" id="serial" name="serial" />
+              <button class="button button-dev button-dev__setVal">Set</button>
+            </div> -->
+        </div>
+        <h1>УПРАВЛЕНИЕ ФАСАДНЫМ ОСВЕЩЕНИЕМ</h1>
+        <div class="block-container">
+          <div class="block south-block">
+            <div class="block__title south-block__title">
+              <h2>ФАСАДЫ ЮЖНОГО МОЛЛА</h2>
+              <p>Здание 1</p>
+            </div>
+            <div class="block__range south-block__range">
+              <h2 id="south-rangeValue">100</h2>
+              <input type="range" id="range-south" min="0" max="100" value="100" name="range-south" step="1"
+                onmousemove="getSouthRangeValue(this.value)" onchange="getSouthRangeValue(this.value)" />
+            </div>
+            <button class="button button-eco">Экорежим</button>
+            <div class="block-buttons south-block-buttons">
+              <button class="button button-main">Основной</button>
+              <button class="button button-main">Белый статика</button>
+              <button class="button button-main">Белый микс</button>
+              <button class="button button-main">Световой короб</button>
+              <button class="button button-main">Белый пульсации</button>
+              <button class="button button-main">Цветной динамика</button>
+              <button class="button button-main">Лиловый</button>
+              <button class="button button-main">Реклама и логотипы</button>
 
-        <label class="desc" for="valueBlockId">Value Block Id:</label>
-        <input class="desc-input" type="text" id="valueBlockId" name="valueBlockId" />
-        <label class="desc" for="serial">Value:</label>
-        <input class="desc-input" type="text" id="serial" name="serial" />
-        <button class="button button-dev button-dev__setVal">Set</button>
-      </div> -->
-    </div>
-    <div class="container">
-
-      <div class="left-grid">
-        <div class="table-cell cell-0">Ночь</div>
-        <div class="table-cell cell-1">Фикс. время</div>
-        <div class="table-cell cell-2">Астро</div>
-        <div class="table-cell cell-3">Сценарий</div>
-        <div class="table-cell cell-4">Утро</div>
-        <div class="table-cell cell-5">Фикс. время</div>
-        <div class="table-cell cell-6">Астро</div>
-        <div class="table-cell cell-7">Сценарий</div>
-        <div class="table-cell cell-8">Дневное выключение</div>
-        <div class="table-cell cell-9">Фикс. время</div>
-        <div class="table-cell cell-10">Астро</div>
-        <div class="table-cell cell-11">Вечер</div>
-        <div class="table-cell cell-12">Фикс. время</div>
-        <div class="table-cell cell-13">Астро</div>
-        <div class="table-cell cell-14">Сценарий</div>
-        <div class="table-cell cell-15">Закрытие ТРЦ</div>
-        <div class="table-cell cell-16">Фикс. время</div>
-        <div class="table-cell cell-17">Астро</div>
-        <div class="table-cell cell-18">Сценарий</div>
-      </div>
-      <div class="week-table">
-        <!-- <div class="day">
-          <div class="day-title">Понедельник</div>
-          <div class="day-list monday">
-            <div class="day-list-item monday-night-time time">
-              <input class="monday-night-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item monday-night-offset offset">
-              <input class="monday-night-offset-input" type="text" placeholder="xx:xx"
-                maxlength="5"></input>
-            </div>
-            <div class="day-list-item monday-night-scene scene">
-              <select class="monday-night-scene-select" name="select-effect" id="">
-                <option value="main">Основной</option>
-                <option value="white-static">Белый статика</option>
-                <option value="white-mix">Белый микс</option>
-                <option value="white-pulse">Белый пульс</option>
-                <option value="color-dynamic">Цвет динамика</option>
-                <option value="eco">Экорежим</option>
-                <option value="purple">Лиловый</option>
-              </select>
-            </div>
-            <div class="day-list-item monday-morning-time time">
-              <input class="monday-morning-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item monday-morning-offset offset">
-              <input class="monday-morning-offset-input" type="text" placeholder="xx:xx"
-                maxlength="5"></input>
-            </div>
-            <div class="day-list-item monday-morning-scene scene">
-              <select class="monday-morning-scene-select" name="select-effect" id="">
-                <option value="main">Основной</option>
-                <option value="white-static">Белый статика</option>
-                <option value="white-mix">Белый микс</option>
-                <option value="white-pulse">Белый пульс</option>
-                <option value="color-dynamic">Цвет динамика</option>
-                <option value="eco">Экорежим</option>
-                <option value="purple">Лиловый</option>
-              </select>
-            </div>
-            <div class="day-list-item monday-evening-time time">
-              <input class="monday-evening-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item monday-evening-offset offset">
-              <input class="monday-evening-offset-input" type="text" placeholder="xx:xx"
-                maxlength="5"></input>
-            </div>
-            <div class="day-list-item monday-evening-scene scene">
-              <select class="monday-evening-scene-select" name="select-effect" id="">
-                <option value="main">Основной</option>
-                <option value="white-static">Белый статика</option>
-                <option value="white-mix">Белый микс</option>
-                <option value="white-pulse">Белый пульс</option>
-                <option value="color-dynamic">Цвет динамика</option>
-                <option value="eco">Экорежим</option>
-                <option value="purple">Лиловый</option>
-              </select>
-            </div>
-            <div class="day-list-item monday-closing-time time">
-              <input class="monday-closing-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
-            </div>
-            <div class="day-list-item monday-closing-offset offset">
-              <input class="monday-closing-offset-input" type="text" placeholder="xx:xx"
-                maxlength="5"></input>
-            </div>
-            <div class="day-list-item monday-closing-scene scene">
-              <select class="monday-closing-scene-select" name="select-effect" id="">
-                <option value="main">Основной</option>
-                <option value="white-static">Белый статика</option>
-                <option value="white-mix">Белый микс</option>
-                <option value="white-pulse">Белый пульс</option>
-                <option value="color-dynamic">Цвет динамика</option>
-                <option value="eco">Экорежим</option>
-                <option value="purple">Лиловый</option>
-              </select>
-            </div>
-            <div class="day-list-item _border0">
-              <button class="button button-get-monday">Get Monday</button>
             </div>
           </div>
-        </div> -->
-        <!-- TEMPLATE DAY -->
-        <template class="template-day">
-          <div class="day">
-            <div class="day-title">Понедельник</div>
-            <div class="day-list">
-              <div class="night-time time">
-                <input class="night-time-radio custom-radio" type="radio" name="night" value="time">
-                <input class="night-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
-              </div>
-              <div class="night-offset offset">
-                <input class="night-offset-radio custom-radio" type="radio" name="night" value="offset">
-                <input class="night-offset-input" type="text" placeholder="xx:xx"
-                  maxlength="5"></input>
-              </div>
-              <div class="night-scene scene">
-                <select class="night-scene-select" name="select-effect" id="">
-                  <option value="main">Основной</option>
-                  <option value="white-static">Белый статика</option>
-                  <option value="white-mix">Белый микс</option>
-                  <option value="white-pulse">Белый пульс</option>
-                  <option value="color-dynamic">Цвет динамика</option>
-                  <option value="eco">Экорежим</option>
-                  <option value="purple">Лиловый</option>
-                </select>
-              </div>
-              <div class="morning-time time">
-                <input class="morning-time-radio custom-radio" type="radio" name="morning" value="time">
-                <input class="morning-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
-              </div>
-              <div class="morning-offset offset">
-                <input class="morning-offset-radio custom-radio" type="radio" name="morning" value="offset">
-                <input class="morning-offset-input" type="text" placeholder="xx:xx"
-                  maxlength="5"></input>
-              </div>
-              <div class="morning-scene scene">
-                <select class="morning-scene-select" name="select-effect" id="">
-                  <option value="main">Основной</option>
-                  <option value="white-static">Белый статика</option>
-                  <option value="white-mix">Белый микс</option>
-                  <option value="white-pulse">Белый пульс</option>
-                  <option value="color-dynamic">Цвет динамика</option>
-                  <option value="eco">Экорежим</option>
-                  <option value="purple">Лиловый</option>
-                </select>
-              </div>
-              <div class="daytime-time time">
-                <input class="daytime-time-radio custom-radio" type="radio" name="daytime" value="time">
-                <input class="daytime-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
-              </div>
-              <div class="daytime-offset offset">
-                <input class="daytime-offset-radio custom-radio" type="radio" name="daytime" value="offset">
-                <input class="daytime-offset-input" type="text" placeholder="xx:xx"
-                  maxlength="5"></input>
-              </div>
-              <div class="evening-time time">
-                <input class="evening-time-radio custom-radio" type="radio" name="evening" value="time">
-                <input class="evening-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
-              </div>
-              <div class="evening-offset offset">
-                <input class="evening-offset-radio custom-radio" type="radio" name="evening" value="offset">
-                <input class="evening-offset-input" type="text" placeholder="xx:xx"
-                  maxlength="5"></input>
-              </div>
-              <div class="evening-scene scene">
-                <select class="evening-scene-select" name="select-effect" id="">
-                  <option value="main">Основной</option>
-                  <option value="white-static">Белый статика</option>
-                  <option value="white-mix">Белый микс</option>
-                  <option value="white-pulse">Белый пульс</option>
-                  <option value="color-dynamic">Цвет динамика</option>
-                  <option value="eco">Экорежим</option>
-                  <option value="purple">Лиловый</option>
-                </select>
-              </div>
-              <div class="closing-time time">
-                <input class="closing-time-radio custom-radio" type="radio" name="closing" value="time">
-                <input class="closing-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
-              </div>
-              <div class="closing-offset offset">
-                <input class="closing-offset-radio custom-radio" type="radio" name="closing" value="offset">
-                <input class="closing-offset-input" type="text" placeholder="xx:xx"
-                  maxlength="5"></input>
-              </div>
-              <div class="closing-scene scene">
-                <select class="closing-scene-select" name="select-effect" id="">
-                  <option value="main">Основной</option>
-                  <option value="white-static">Белый статика</option>
-                  <option value="white-mix">Белый микс</option>
-                  <option value="white-pulse">Белый пульс</option>
-                  <option value="color-dynamic">Цвет динамика</option>
-                  <option value="eco">Экорежим</option>
-                  <option value="purple">Лиловый</option>
-                </select>
-              </div>
+          <div class="block north-block">
+            <div class="block__title north-block__title">
+              <h2>ФАСАДЫ СЕВЕРНОГО МОЛЛА</h2>
+              <p>Здание 2</p>
+            </div>
+            <div class="block__range north-block__range">
+              <h2 id="north-rangeValue">100</h2>
+              <input type="range" id="range-northth" min="0" max="100" value="100" name="range-north" step="1"
+                onmousemove="getNorthRangeValue(this.value)" onchange="getNorthRangeValue(this.value)" />
+            </div>
+            <button class="button button-eco">Экорежим</button>
+            <div class="block-buttons south-block-buttons">
+              <button class="button button-main">Основной</button>
+              <button class="button button-main">Белый статика</button>
+              <button class="button button-main">Белый микс</button>
+              <button class="button button-main">Световой короб</button>
+              <button class="button button-main">Белый пульсации</button>
+              <button class="button button-main">Закат/Рассвет</button>
+              <button class="button button-main">Осень</button>
+              <button class="button button-main">Реклама и логотипы</button>
+              <button class="button button-main">Лиловый</button>
             </div>
           </div>
-        </template>
+        </div>
       </div>
-    </div>
+    </section>
+
+    <section id="north-mall" class="section">
+      <div class="container">
+        <h1>ФАСАД СЕВЕРНОГО МОЛА</h1>
+        <div class="table-wrapper">
+          <div class="left-grid">
+            <div class="table-cell cell-0">Ночь</div>
+            <div class="table-cell cell-1">Фикс. время</div>
+            <div class="table-cell cell-2">Астро</div>
+            <div class="table-cell cell-3">Сценарий</div>
+            <div class="table-cell cell-4">Утро</div>
+            <div class="table-cell cell-5">Фикс. время</div>
+            <div class="table-cell cell-6">Астро</div>
+            <div class="table-cell cell-7">Сценарий</div>
+            <div class="table-cell cell-8">Дневное выключение</div>
+            <div class="table-cell cell-9">Фикс. время</div>
+            <div class="table-cell cell-10">Астро</div>
+            <div class="table-cell cell-11">Вечер</div>
+            <div class="table-cell cell-12">Фикс. время</div>
+            <div class="table-cell cell-13">Астро</div>
+            <div class="table-cell cell-14">Сценарий</div>
+            <div class="table-cell cell-15">Закрытие ТРЦ</div>
+            <div class="table-cell cell-16">Фикс. время</div>
+            <div class="table-cell cell-17">Астро</div>
+            <div class="table-cell cell-18">Сценарий</div>
+          </div>
+          <div class="week-table week-table__north">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="south-mall" class="section">
+      <div class="container">
+        <h1>ФАСАД ЮЖНОГО МОЛА</h1>
+        <div class="table-wrapper">
+          <div class="left-grid">
+            <div class="table-cell cell-0">Ночь</div>
+            <div class="table-cell cell-1">Фикс. время</div>
+            <div class="table-cell cell-2">Астро</div>
+            <div class="table-cell cell-3">Сценарий</div>
+            <div class="table-cell cell-4">Утро</div>
+            <div class="table-cell cell-5">Фикс. время</div>
+            <div class="table-cell cell-6">Астро</div>
+            <div class="table-cell cell-7">Сценарий</div>
+            <div class="table-cell cell-8">Дневное выключение</div>
+            <div class="table-cell cell-9">Фикс. время</div>
+            <div class="table-cell cell-10">Астро</div>
+            <div class="table-cell cell-11">Вечер</div>
+            <div class="table-cell cell-12">Фикс. время</div>
+            <div class="table-cell cell-13">Астро</div>
+            <div class="table-cell cell-14">Сценарий</div>
+            <div class="table-cell cell-15">Закрытие ТРЦ</div>
+            <div class="table-cell cell-16">Фикс. время</div>
+            <div class="table-cell cell-17">Астро</div>
+            <div class="table-cell cell-18">Сценарий</div>
+          </div>
+          <div class="week-table week-table__south">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="logotypes" class="section">
+      <div class="container">
+        <h1>КОРОБ И ЛОГОТИПЫ</h1>
+      </div>
+    </section>
+
+    <section id="color-palette" class="section">
+      <div class="container">
+        <div class="palette-container">
+
+          <div class="palette-block south-block">
+            <div class="palette-block__title south-block__title">
+              <h2>ФАСАДЫ ЮЖНОГО МОЛЛА</h2>
+              <p>Здание 1</p>
+            </div>
+            <button class="button button-south-picker" aria-pressed="false">Включить выбор цвета</button>
+            <div class="south-color-picker-container">
+              <div id="south-color-picker" class="cp-small"></div>
+              <div class="color-info south-color-info">
+                <div class="io io-south">
+                  <div class="hex-info">
+                    <label>HEX</label>
+                    <input id="hex" class="hex-south" type="text" value="" />
+                  </div>
+                  <span id="rgb_css" class="rgb_css-south"></span>
+                  <div class="rgb-info">
+                    <label>R:</label>
+                    <input id="rgb_r" class="rgb_r-south" type="number" value="" />
+                  </div>
+                  <div class="rgb-info">
+                    <label>G:</label>
+                    <input id="rgb_g" class="rgb_g-south" type="number" value="" />
+                  </div>
+                  <div class="rgb-info">
+                    <label>B:</label>
+                    <input id="rgb_b" class="rgb_b-south" type="number" value="" />
+                  </div>
+                </div>
+                <div id="color" class="color-south"></div>
+              </div>
+
+              <button class="button button-send-south-picker">Применить цвет</button>
+
+            </div>
+          </div>
+
+          <div class="palette-block north-block">
+            <div class="palette-block__title north-block__title">
+              <h2>ФАСАДЫ СЕВЕРНОГО МОЛЛА</h2>
+              <p>Здание 2</p>
+            </div>
+            <button class="button button-north-picker" aria-pressed="false">Включить выбор цвета</button>
+            <div class="north-color-picker-container">
+              <div id="north-color-picker" class="cp-small"></div>
+              <div class="color-info north-color-info">
+                <div class="io io-north">
+                  <div class="hex-info">
+                    <label>HEX</label>
+                    <input id="hex" class="hex-north" type="text" value="" />
+                  </div>
+                  <span id="rgb_css" class="rgb_css-north"></span>
+                  <div class="rgb-info">
+                    <label>R:</label>
+                    <input id="rgb_r" class="rgb_r-north" type="number" value="" />
+                  </div>
+                  <div class="rgb-info">
+                    <label>G:</label>
+                    <input id="rgb_g" class="rgb_g-north" type="number" value="" />
+                  </div>
+                  <div class="rgb-info">
+                    <label>B:</label>
+                    <input id="rgb_b" class="rgb_b-north" type="number" value="" />
+                  </div>
+                </div>
+                <div id="color" class="color-north"></div>
+              </div>
+
+              <button class="button button-send-north-picker">Применить цвет</button>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="emergency" class="section">
+      <div class="container">
+        <h1>АВАРИЙНЫЕ СИГНАЛЫ</h1>
+      </div>
+    </section>
+
   </div>
 
+  <!-- TEMPLATE DAY -->
+  <template class="template-day">
+    <div class="day">
+      <div class="day-title">Понедельник</div>
+      <div class="day-list">
+        <div class="night-time time">
+          <input class="night-time-radio custom-radio" type="radio" name="night" value="time">
+          <input class="night-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+        </div>
+        <div class="night-offset offset">
+          <input class="night-offset-radio custom-radio" type="radio" name="night" value="offset">
+          <input class="night-offset-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+        </div>
+        <div class="night-scene scene">
+          <select class="night-scene-select" name="select-effect" id="">
+            <option value="main">Основной</option>
+            <option value="white-static">Белый статика</option>
+            <option value="white-mix">Белый микс</option>
+            <option value="white-pulse">Белый пульс</option>
+            <option value="color-dynamic">Цвет динамика</option>
+            <option value="eco">Экорежим</option>
+            <option value="purple">Лиловый</option>
+          </select>
+        </div>
+        <div class="morning-time time">
+          <input class="morning-time-radio custom-radio" type="radio" name="morning" value="time">
+          <input class="morning-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+        </div>
+        <div class="morning-offset offset">
+          <input class="morning-offset-radio custom-radio" type="radio" name="morning" value="offset">
+          <input class="morning-offset-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+        </div>
+        <div class="morning-scene scene">
+          <select class="morning-scene-select" name="select-effect" id="">
+            <option value="main">Основной</option>
+            <option value="white-static">Белый статика</option>
+            <option value="white-mix">Белый микс</option>
+            <option value="white-pulse">Белый пульс</option>
+            <option value="color-dynamic">Цвет динамика</option>
+            <option value="eco">Экорежим</option>
+            <option value="purple">Лиловый</option>
+          </select>
+        </div>
+        <div class="daytime-time time">
+          <input class="daytime-time-radio custom-radio" type="radio" name="daytime" value="time">
+          <input class="daytime-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+        </div>
+        <div class="daytime-offset offset">
+          <input class="daytime-offset-radio custom-radio" type="radio" name="daytime" value="offset">
+          <input class="daytime-offset-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+        </div>
+        <div class="evening-time time">
+          <input class="evening-time-radio custom-radio" type="radio" name="evening" value="time">
+          <input class="evening-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+        </div>
+        <div class="evening-offset offset">
+          <input class="evening-offset-radio custom-radio" type="radio" name="evening" value="offset">
+          <input class="evening-offset-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+        </div>
+        <div class="evening-scene scene">
+          <select class="evening-scene-select" name="select-effect" id="">
+            <option value="main">Основной</option>
+            <option value="white-static">Белый статика</option>
+            <option value="white-mix">Белый микс</option>
+            <option value="white-pulse">Белый пульс</option>
+            <option value="color-dynamic">Цвет динамика</option>
+            <option value="eco">Экорежим</option>
+            <option value="purple">Лиловый</option>
+          </select>
+        </div>
+        <div class="closing-time time">
+          <input class="closing-time-radio custom-radio" type="radio" name="closing" value="time">
+          <input class="closing-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+        </div>
+        <div class="closing-offset offset">
+          <input class="closing-offset-radio custom-radio" type="radio" name="closing" value="offset">
+          <input class="closing-offset-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+        </div>
+        <div class="closing-scene scene">
+          <select class="closing-scene-select" name="select-effect" id="">
+            <option value="main">Основной</option>
+            <option value="white-static">Белый статика</option>
+            <option value="white-mix">Белый микс</option>
+            <option value="white-pulse">Белый пульс</option>
+            <option value="color-dynamic">Цвет динамика</option>
+            <option value="eco">Экорежим</option>
+            <option value="purple">Лиловый</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </template>
+
   <!-- <script type="module" src="./app.js"></script> -->
+  <script src="home.js"></script>
   <script src="utils.js"></script>
+
   <!-- <script src="dev-api.js"></script> -->
-  <!-- <script src="Monday.js"></script> -->
   <script src="store.js"></script>
   <script src="fetchBlocks.js"></script>
   <script src="renderWeek.js"></script>
   <script src="app.js"></script>
+  <script type="text/javascript" src="./modules/colorpicker.js"></script>
+  <script src="./modules/colorpicker-start.js"></script>
+
 
 </body>
 

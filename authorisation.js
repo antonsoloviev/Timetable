@@ -19,3 +19,5 @@ async function authorizeAutomatic() {
     })
     .catch(error => alert("An error occurred: Message = " + error.message));
 }
+
+authorizeAutomatic();

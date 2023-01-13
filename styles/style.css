@@ -3,9 +3,19 @@ body {
   height: 100%;
   font-family: 'Roboto', sans-serif;
 
-  --color: #999;
-  --checked-color: darkcyan;
+  position: relative;
+ 
+  margin: 0 auto;  /* centers the layout */
+
+  --bg-color-header: #6465A5;
+  --checked-color: #6975A6;
+  --hover-color: #9FA7C6;
   --bg-color: rgb(238, 237, 236);
+  --color-yellow: #F3E96B;
+  --color-orange: #f28a30;
+  --color-red: #F05837;
+  --color-green: #73BE73;
+  --color-grey: #999;
 }
 
 .page-wrapper {
@@ -17,13 +27,50 @@ body {
   background-color: var(--bg-color);
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1680px;
+}
+
+section {
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  display: none;
+  background: var(--bg-color);
+  overflow: auto;
+}
+
+section#home {
+  display: flex;
+  justify-content: center;
+}
+
+section:target ~ #home {
+  display: none;
+}
+
+.section:target { /* Show section */
+  display: flex;
+  justify-content: center;
+  
+}
+
+section > div {
+  position: absolute;
+  top: 120px;
+}
+
 .button {
   display: inline-block;
   width: 168px;
   padding: 5px 10px;
   margin-bottom: 8px;
   line-height: 1;
-  font-size: 16px;
+  font-size: 18px;
   letter-spacing: 0.5px;
   color: black;
   text-align: center;
@@ -43,30 +90,26 @@ body {
 }
 
 .button:hover {
-  background-color: #ebecf0;
+  background-color: var(--hover-color);
 }
 
 input {
   background-color: var(--bg-color);
 }
 
-.header {
-  width: 100%;
-  height: 96px;
-  background-color: darkcyan;
+h1 {
+  font-size: 2.2rem;
   margin-bottom: 24px;
 }
 
-.container {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  max-width: 1440px;
+h2 {
+  font-size: 2rem;
+  margin-bottom: 2px;
 }
 
-h1 {
-  font-size: 2.2rem;
-  margin-bottom: 16px;
+.table-wrapper {
+  display: flex;
+  flex-direction: row;
 }
 
 .left-grid {
@@ -84,7 +127,7 @@ h1 {
 }
 
 .table-cell {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -155,7 +198,7 @@ h1 {
 .day-title {
   height: 33px;
   width: 100%;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   text-align: center;
   align-self: center;
   border-bottom: 1px solid black;
@@ -185,7 +228,7 @@ h1 {
 .day-list>div>input[type="text"] {
   height: 32px;
   width: 64px;
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   text-align: center;
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -204,7 +247,7 @@ h1 {
 }
 
 .day-list>div>input[type="text"]::placeholder {
-  font-size: 1.6rem;
+  font-size: 1.7rem;
 }
 
 .day-list-item select,
@@ -213,7 +256,7 @@ h1 {
   width: 123px;
   border-radius: 0.25rem;
   transform: translateY(-0.5px);
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   background-color: var(--bg-color);
 }
 

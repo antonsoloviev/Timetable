@@ -1,5 +1,14 @@
 window.store = {
-  weekNotes: [
+  southWeekNotes: [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+  ],
+  northWeekNotes: [
     {},
     {},
     {},

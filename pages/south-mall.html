@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timetable</title>
+
+  <link rel="icon" href="./public/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../styles/reset.css">
+  <link rel="stylesheet" href="../styles/style.css">
+  <link rel="stylesheet" href="../styles/header.css">
+
+  <link rel="stylesheet" href="../styles/dev-api.css">
+  <link rel="stylesheet" href="../styles/check-box.css">
+
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <header class="header">
+      <div class="header-container">
+        <div class="header-logo">
+          <a class="logo" href="../index.html">
+            MEGA Белая Дача
+            <p>Расписание</p>
+          </a>
+        </div>
+        <div class="header-menu menu">
+          <nav id="menu" class="menu__body">
+            <ul class="menu__list">
+              <li class="menu__item">
+                <a href="./north-mall.html" class="menu__link">Северный молл</a>
+              </li>
+              <li class="menu__item">
+                <a href="./south-mall.html" class="menu__link">Южный молл</a>
+              </li>
+              <li class="menu__item">
+                <a href="./logotypes.html" class="menu__link">Короб и логотипы</a>
+              </li>
+              <li class="menu__item">
+                <a href="./emergency.html" class="menu__link">Аварийные сигналы</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="clock">
+          <span class="hours">XX</span>:<span class="mins">XX</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="dev-api">
+      <input class="desc-input desc-input_auth" type="text" readonly id="authStatus" value="⛔ Unauthorized ⛔"></input>
+    <!-- <div>
+      <label class="desc" for="username">Username:</label>
+      <input class="desc-input" type="text" name="username" id="username" />
+      <label class="desc" for="password">Password:</label>
+      <input class="desc-input" type="text" name="password" id="password" />
+      <button class="button button-dev button-dev__auth">Authorize</button>
+
+      <label for="valueBlockIds">Existing Value Blocks:</label>
+      <textarea class="desc-text-area" id="valueBlockIds" readonly cols="150"></textarea>
+      <button class="button button-dev button-dev__getBlocks">Get existing blocks</button>
+
+      <label class="desc" for="valueBlockId">Value Block Id:</label>
+      <input class="desc-input" type="text" id="valueBlockId" name="valueBlockId" />
+      <label class="desc" for="serial">Value:</label>
+      <input class="desc-input" type="text" id="serial" name="serial" />
+      <button class="button button-dev button-dev__setVal">Set</button>
+    </div> -->
+  </div>
+  
+  <section>
+    <h1>ФАСАД ЮЖНОГО МОЛА</h1>
+    <div class="container">
+      <div class="left-grid">
+        <div class="table-cell cell-0">Ночь</div>
+        <div class="table-cell cell-1">Фикс. время</div>
+        <div class="table-cell cell-2">Астро</div>
+        <div class="table-cell cell-3">Сценарий</div>
+        <div class="table-cell cell-4">Утро</div>
+        <div class="table-cell cell-5">Фикс. время</div>
+        <div class="table-cell cell-6">Астро</div>
+        <div class="table-cell cell-7">Сценарий</div>
+        <div class="table-cell cell-8">Дневное выключение</div>
+        <div class="table-cell cell-9">Фикс. время</div>
+        <div class="table-cell cell-10">Астро</div>
+        <div class="table-cell cell-11">Вечер</div>
+        <div class="table-cell cell-12">Фикс. время</div>
+        <div class="table-cell cell-13">Астро</div>
+        <div class="table-cell cell-14">Сценарий</div>
+        <div class="table-cell cell-15">Закрытие ТРЦ</div>
+        <div class="table-cell cell-16">Фикс. время</div>
+        <div class="table-cell cell-17">Астро</div>
+        <div class="table-cell cell-18">Сценарий</div>
+      </div>
+      <div class="week-table">
+      </div>
+    </div>
+  </section>
+
+            <!-- TEMPLATE DAY -->
+            <template class="template-day">
+              <div class="day">
+                <div class="day-title">Понедельник</div>
+                <div class="day-list">
+                  <div class="night-time time">
+                    <input class="night-time-radio custom-radio" type="radio" name="night" value="time">
+                    <input class="night-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+                  </div>
+                  <div class="night-offset offset">
+                    <input class="night-offset-radio custom-radio" type="radio" name="night" value="offset">
+                    <input class="night-offset-input" type="text" placeholder="xx:xx"
+                      maxlength="5"></input>
+                  </div>
+                  <div class="night-scene scene">
+                    <select class="night-scene-select" name="select-effect" id="">
+                      <option value="main">Основной</option>
+                      <option value="white-static">Белый статика</option>
+                      <option value="white-mix">Белый микс</option>
+                      <option value="white-pulse">Белый пульс</option>
+                      <option value="color-dynamic">Цвет динамика</option>
+                      <option value="eco">Экорежим</option>
+                      <option value="purple">Лиловый</option>
+                    </select>
+                  </div>
+                  <div class="morning-time time">
+                    <input class="morning-time-radio custom-radio" type="radio" name="morning" value="time">
+                    <input class="morning-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+                  </div>
+                  <div class="morning-offset offset">
+                    <input class="morning-offset-radio custom-radio" type="radio" name="morning" value="offset">
+                    <input class="morning-offset-input" type="text" placeholder="xx:xx"
+                      maxlength="5"></input>
+                  </div>
+                  <div class="morning-scene scene">
+                    <select class="morning-scene-select" name="select-effect" id="">
+                      <option value="main">Основной</option>
+                      <option value="white-static">Белый статика</option>
+                      <option value="white-mix">Белый микс</option>
+                      <option value="white-pulse">Белый пульс</option>
+                      <option value="color-dynamic">Цвет динамика</option>
+                      <option value="eco">Экорежим</option>
+                      <option value="purple">Лиловый</option>
+                    </select>
+                  </div>
+                  <div class="daytime-time time">
+                    <input class="daytime-time-radio custom-radio" type="radio" name="daytime" value="time">
+                    <input class="daytime-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+                  </div>
+                  <div class="daytime-offset offset">
+                    <input class="daytime-offset-radio custom-radio" type="radio" name="daytime" value="offset">
+                    <input class="daytime-offset-input" type="text" placeholder="xx:xx"
+                      maxlength="5"></input>
+                  </div>
+                  <div class="evening-time time">
+                    <input class="evening-time-radio custom-radio" type="radio" name="evening" value="time">
+                    <input class="evening-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+                  </div>
+                  <div class="evening-offset offset">
+                    <input class="evening-offset-radio custom-radio" type="radio" name="evening" value="offset">
+                    <input class="evening-offset-input" type="text" placeholder="xx:xx"
+                      maxlength="5"></input>
+                  </div>
+                  <div class="evening-scene scene">
+                    <select class="evening-scene-select" name="select-effect" id="">
+                      <option value="main">Основной</option>
+                      <option value="white-static">Белый статика</option>
+                      <option value="white-mix">Белый микс</option>
+                      <option value="white-pulse">Белый пульс</option>
+                      <option value="color-dynamic">Цвет динамика</option>
+                      <option value="eco">Экорежим</option>
+                      <option value="purple">Лиловый</option>
+                    </select>
+                  </div>
+                  <div class="closing-time time">
+                    <input class="closing-time-radio custom-radio" type="radio" name="closing" value="time">
+                    <input class="closing-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+                  </div>
+                  <div class="closing-offset offset">
+                    <input class="closing-offset-radio custom-radio" type="radio" name="closing" value="offset">
+                    <input class="closing-offset-input" type="text" placeholder="xx:xx"
+                      maxlength="5"></input>
+                  </div>
+                  <div class="closing-scene scene">
+                    <select class="closing-scene-select" name="select-effect" id="">
+                      <option value="main">Основной</option>
+                      <option value="white-static">Белый статика</option>
+                      <option value="white-mix">Белый микс</option>
+                      <option value="white-pulse">Белый пульс</option>
+                      <option value="color-dynamic">Цвет динамика</option>
+                      <option value="eco">Экорежим</option>
+                      <option value="purple">Лиловый</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </template>
+  </div>
+
+  <!-- <script type="module" src="./app.js"></script> -->
+  <script src="../utils.js"></script>
+  <!-- <script src="dev-api.js"></script> -->
+  <!-- <script src="Monday.js"></script> -->
+  <script src="../store.js"></script>
+  <script src="../fetchBlocks.js"></script>
+  <script src="../renderWeek.js"></script>
+  <script src="../app.js"></script>
+  </div>
+</body>
+
+</html>

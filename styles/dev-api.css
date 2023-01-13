@@ -1,6 +1,7 @@
 .dev-api {
   display: flex;
   flex-direction: column;
+  align-self: flex-start;
   width: 264px;
   padding-left: 16px;
   padding-right: 16px;
@@ -8,7 +9,7 @@
 }
 
 .dev-api > p {
-  margin-bottom: 16px;
+  margin-bottom: 2px;
 }
 
 .button-dev {

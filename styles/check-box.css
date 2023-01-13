@@ -20,7 +20,7 @@ input[type="radio"] {
 }
 
 .custom-radio {
-  box-shadow: 0 0 0 1px var(--color);
+  box-shadow: 0 0 0 1px var(--color-grey);
 }
 
 .custom-radio:hover {
