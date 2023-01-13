@@ -176,6 +176,68 @@ h2 {
   grid-column-end: 2;
 }
 
+.logo-left-grid {
+  display: grid;
+
+  grid-template-rows: repeat(16, 38px);
+  grid-template-columns: 128px 128px 128px;
+
+  gap: 0px;
+  height: 100%;
+  margin-top: 32px;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  box-sizing: border-box;
+}
+
+.logocell-0 {
+  grid-row-start: 1;
+  grid-column-start: 1;
+
+  grid-row-end: 9;
+  grid-column-end: 2;
+}
+
+.logocell-1 {
+  grid-row-start: 9;
+  grid-column-start: 1;
+
+  grid-row-end: 17;
+  grid-column-end: 2;
+}
+
+.logocell-2 {
+  grid-row-start: 1;
+  grid-column-start: 2;
+
+  grid-row-end: 5;
+  grid-column-end: 3;
+}
+
+.logocell-3 {
+  grid-row-start: 5;
+  grid-column-start: 2;
+
+  grid-row-end: 9;
+  grid-column-end: 3;
+}
+
+.logocell-4 {
+  grid-row-start: 9;
+  grid-column-start: 2;
+
+  grid-row-end: 13;
+  grid-column-end: 3;
+}
+
+.logocell-5 {
+  grid-row-start: 13;
+  grid-column-start: 2;
+
+  grid-row-end: 17;
+  grid-column-end: 3;
+}
+
 .week-table {
   display: flex;
   flex-direction: row;

@@ -609,6 +609,10 @@ function getNorthDay(item) {
   return template;
 }
 
+function getLogoDay(item) {
+  
+}
+
 function renderSouthWeek(notes) {
   // weekList.innerHTML = '';
   southWeekList.append(...(notes.map(getSouthDay)));
