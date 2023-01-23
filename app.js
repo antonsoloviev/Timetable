@@ -11,6 +11,8 @@ window.addEventListener('load', async (event) => {
   saveBlocksToStore();
   renderNorthWeek(window.store.northWeekNotes);
   renderSouthWeek(window.store.southWeekNotes);
+  renderLogoWeek(window.store.logoWeekNotes);
+
 });
 
 

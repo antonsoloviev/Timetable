@@ -19,11 +19,17 @@ async function getValueBlocks() {
   //   .catch(error => alert("An error occurred: Message = " + error.message));
 }
 
+function getHomeBlocks() {
+  const homeBlocks = store.blockNotes.filter((item) => {
+    return item.displayName.startsWith("Home");
+  });
+  return homeBlocks;
+}
+
 function getColorBlocks() {
   const colorBlocks = store.blockNotes.filter((item) => {
     return item.displayName.startsWith("South_custom") || item.displayName.startsWith("North_custom");
   });
-  // store.colorBlocks = colorBlocks;
   return colorBlocks;
 }
 
@@ -41,6 +47,13 @@ function getNorthDayBlocks(day) {
   return northDayBlocks;
 }
 
+function getLogoDayBlocks(day) {
+  const logoDayBlocks = store.blockNotes.filter((item) => {
+    return item.displayName.startsWith(`L_${day}`);
+  });
+  return logoDayBlocks;
+}
+
 function colorBlockstoStore() {
   store.colorNotes = [];
   const colorBlocks = getColorBlocks();
@@ -51,6 +64,19 @@ function colorBlockstoStore() {
     colorObj[name] = block.outPortValue;
     colorObj[id] = block.id;
     store.colorNotes.push(colorObj)
+  })
+}
+
+function homeBlockstoStore() {
+  store.homeNotes = [];
+  const homeBlocks = getHomeBlocks();
+  homeBlocks.forEach((block, index) => {
+    const name = block.displayName;
+    const id = `${name}-id`;
+    const homeObj = {};
+    homeObj[name] = block.outPortValue;
+    homeObj[id] = block.id;
+    store.homeNotes.push(homeObj);
   })
 }
 
@@ -76,11 +102,24 @@ function northBlocksToStorebyDay(day) {
   })
 }
 
+function logoBlocksToStorebyDay(day) {
+  const dayNumber = weekEng.indexOf(day);
+  const logoDayBlocks = getLogoDayBlocks(day);
+  logoDayBlocks.forEach((block) => {
+    const name = block.displayName.replace(`L_${day}_`, '');
+    const id = `${name}-id`;
+    store.logoWeekNotes[dayNumber][name] = block.outPortValue;
+    store.logoWeekNotes[dayNumber][id] = block.id;
+  })
+}
+
 function saveBlocksToStore() {
   colorBlockstoStore();
+  homeBlockstoStore();
   weekEng.forEach((day) => {
     southBlocksToStorebyDay(day);
     northBlocksToStorebyDay(day);
+    logoBlocksToStorebyDay(day);
   })
 }
 

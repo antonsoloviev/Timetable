@@ -92,51 +92,51 @@
             </div> -->
         </div>
         <h1>УПРАВЛЕНИЕ ФАСАДНЫМ ОСВЕЩЕНИЕМ</h1>
+        <button class="button button-manual-mode" aria-pressed="false">Включить ручной режим</button>
         <div class="block-container">
-          <div class="block south-block">
+          <div class="block home-south-block">
             <div class="block__title south-block__title">
               <h2>ФАСАДЫ ЮЖНОГО МОЛЛА</h2>
               <p>Здание 1</p>
             </div>
             <div class="block__range south-block__range">
               <h2 id="south-rangeValue">100</h2>
-              <input type="range" id="range-south" min="0" max="100" value="100" name="range-south" step="1"
+              <input type="range" id="range-south" disabled min="0" max="100" value="100" name="range-south" step="1"
                 onmousemove="getSouthRangeValue(this.value)" onchange="getSouthRangeValue(this.value)" />
             </div>
-            <button class="button button-eco">Экорежим</button>
+            <button class="button button-mode button-mode-eco" aria-pressed="false">Экорежим</button>
             <div class="block-buttons south-block-buttons">
-              <button class="button button-main">Основной</button>
-              <button class="button button-main">Белый статика</button>
-              <button class="button button-main">Белый микс</button>
-              <button class="button button-main">Световой короб</button>
-              <button class="button button-main">Белый пульсации</button>
-              <button class="button button-main">Цветной динамика</button>
-              <button class="button button-main">Лиловый</button>
-              <button class="button button-main">Реклама и логотипы</button>
-
+              <button class="button button-mode button-mode-main" aria-pressed="false">Основной</button>
+              <button class="button button-mode button-mode-white" aria-pressed="false">Белый статика</button>
+              <button class="button button-mode button-mode-white-mix" aria-pressed="false">Белый микс</button>
+              <button class="button button-mode-lightbox" aria-pressed="false">Световой короб</button>
+              <button class="button button-mode button-mode-white-pulse" aria-pressed="false">Белый пульсации</button>
+              <button class="button button-mode button-mode-color-dynamic" aria-pressed="false">Цветной динамика</button>
+              <button class="button button-mode button-mode-violet" aria-pressed="false">Лиловый</button>
+              <button class="button button-mode-logotypes" aria-pressed="false">Реклама и логотипы</button>
             </div>
           </div>
-          <div class="block north-block">
+          <div class="block home-north-block">
             <div class="block__title north-block__title">
               <h2>ФАСАДЫ СЕВЕРНОГО МОЛЛА</h2>
               <p>Здание 2</p>
             </div>
             <div class="block__range north-block__range">
               <h2 id="north-rangeValue">100</h2>
-              <input type="range" id="range-northth" min="0" max="100" value="100" name="range-north" step="1"
+              <input type="range" id="range-north" disabled min="0" max="100" value="100" name="range-north" step="1"
                 onmousemove="getNorthRangeValue(this.value)" onchange="getNorthRangeValue(this.value)" />
             </div>
-            <button class="button button-eco">Экорежим</button>
-            <div class="block-buttons south-block-buttons">
-              <button class="button button-main">Основной</button>
-              <button class="button button-main">Белый статика</button>
-              <button class="button button-main">Белый микс</button>
-              <button class="button button-main">Световой короб</button>
-              <button class="button button-main">Белый пульсации</button>
-              <button class="button button-main">Закат/Рассвет</button>
-              <button class="button button-main">Осень</button>
-              <button class="button button-main">Реклама и логотипы</button>
-              <button class="button button-main">Лиловый</button>
+            <button class="button button-mode button-mode-eco" aria-pressed="false">Экорежим</button>
+            <div class="block-buttons north-block-buttons">
+              <button class="button button-mode button-mode-main">Основной</button>
+              <button class="button button-mode button-mode-white">Белый статика</button>
+              <button class="button button-mode button-mode-white-mix">Белый микс</button>
+              <button class="button button-mode-lightbox">Световой короб</button>
+              <button class="button button-mode button-mode-white-pulse">Белый пульсации</button>
+              <button class="button button-mode button-mode-sunset">Закат/Рассвет</button>
+              <button class="button button-mode button-mode-autumn">Осень</button>
+              <button class="button button-mode-logotypes">Реклама и логотипы</button>
+              <button class="button button-mode button-mode-violet">Лиловый</button>
             </div>
           </div>
         </div>
@@ -234,7 +234,7 @@
             <div class="table-cell logocell-21">Выкл. Астро</div>
             
           </div>
-          <div class="week-table week-table__south">
+          <div class="week-table week-table__logo">
           </div>
         </div>
       </div>
@@ -251,7 +251,6 @@
             </div>
             <button class="button button-south-picker" aria-pressed="false">Включить выбор цвета</button>
             <div class="south-color-picker-container">
-              <div id="south-color-picker" class="cp-small"></div>
               <div class="color-info south-color-info">
                 <div class="io io-south">
                   <div class="hex-info">
@@ -272,7 +271,8 @@
                     <input id="rgb_b" class="rgb_b-south" type="number" value="" />
                   </div>
                 </div>
-                <div id="color" class="color-south"></div>
+                <div id="south-color-picker" class="cp-small"></div>
+
               </div>
 
               <button class="button button-send-south-picker">Применить цвет</button>
@@ -287,7 +287,6 @@
             </div>
             <button class="button button-north-picker" aria-pressed="false">Включить выбор цвета</button>
             <div class="north-color-picker-container">
-              <div id="north-color-picker" class="cp-small"></div>
               <div class="color-info north-color-info">
                 <div class="io io-north">
                   <div class="hex-info">
@@ -308,7 +307,7 @@
                     <input id="rgb_b" class="rgb_b-north" type="number" value="" />
                   </div>
                 </div>
-                <div id="color" class="color-north"></div>
+                <div id="north-color-picker" class="cp-small"></div>
               </div>
 
               <button class="button button-send-north-picker">Применить цвет</button>
@@ -427,90 +426,76 @@
       <div class="day">
         <div class="day-title">Понедельник</div>
         <div class="day-list">
-          <div class="night-time time">
-            <input class="night-time-radio custom-radio" type="radio" name="night" value="time">
-            <input class="night-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+
+          <div class="lightbox-morning-on-time time">
+            <input class="lightbox-morning-on-time-radio custom-radio" type="radio" name="lightbox-morning-on" value="time">
+            <input class="lightbox-morning-on-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
           </div>
-          <div class="night-offset offset">
-            <input class="night-offset-radio custom-radio" type="radio" name="night" value="offset">
-            <input class="night-offset-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+          <div class="lightbox-morning-on-offset offset">
+            <input class="lightbox-morning-on-offset-radio custom-radio" type="radio" name="lightbox-morning-on" value="offset">
+            <input class="lightbox-morning-on-offset-input" type="text" placeholder="xx:xx" maxlength="5"></input>
           </div>
-          <div class="night-scene scene">
-            <select class="night-scene-select" name="select-effect" id="">
-              <option value="main">Основной</option>
-              <option value="white-static">Белый статика</option>
-              <option value="white-mix">Белый микс</option>
-              <option value="white-pulse">Белый пульс</option>
-              <option value="color-dynamic">Цвет динамика</option>
-              <option value="eco">Экорежим</option>
-              <option value="purple">Лиловый</option>
-            </select>
+          <div class="lightbox-morning-off-time time">
+            <input class="lightbox-morning-off-time-radio custom-radio" type="radio" name="lightbox-morning-off" value="time">
+            <input class="lightbox-morning-off-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
           </div>
-          <div class="morning-time time">
-            <input class="morning-time-radio custom-radio" type="radio" name="morning" value="time">
-            <input class="morning-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+          <div class="lightbox-morning-off-offset offset">
+            <input class="lightbox-morning-off-offset-radio custom-radio" type="radio" name="lightbox-morning-off" value="offset">
+            <input class="lightbox-morning-off-offset-input" type="text" placeholder="xx:xx" maxlength="5"></input>
           </div>
-          <div class="morning-offset offset">
-            <input class="morning-offset-radio custom-radio" type="radio" name="morning" value="offset">
-            <input class="morning-offset-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+
+          <div class="lightbox-evening-on-time time">
+            <input class="lightbox-evening-on-time-radio custom-radio" type="radio" name="lightbox-evening-on" value="time">
+            <input class="lightbox-evening-on-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
           </div>
-          <div class="morning-scene scene">
-            <select class="morning-scene-select" name="select-effect" id="">
-              <option value="main">Основной</option>
-              <option value="white-static">Белый статика</option>
-              <option value="white-mix">Белый микс</option>
-              <option value="white-pulse">Белый пульс</option>
-              <option value="color-dynamic">Цвет динамика</option>
-              <option value="eco">Экорежим</option>
-              <option value="purple">Лиловый</option>
-            </select>
+          <div class="lightbox-evening-on-offset offset">
+            <input class="lightbox-evening-on-offset-radio custom-radio" type="radio" name="lightbox-evening-on" value="offset">
+            <input class="lightbox-evening-on-offset-input" type="text" placeholder="xx:xx" maxlength="5"></input>
           </div>
-          <div class="daytime-time time">
-            <input class="daytime-time-radio custom-radio" type="radio" name="daytime" value="time">
-            <input class="daytime-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+          <div class="lightbox-evening-off-time time">
+            <input class="lightbox-evening-off-time-radio custom-radio" type="radio" name="lightbox-evening-off" value="time">
+            <input class="lightbox-evening-off-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
           </div>
-          <div class="daytime-offset offset">
-            <input class="daytime-offset-radio custom-radio" type="radio" name="daytime" value="offset">
-            <input class="daytime-offset-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+          <div class="lightbox-evening-off-offset offset">
+            <input class="lightbox-evening-off-offset-radio custom-radio" type="radio" name="lightbox-evening-off" value="offset">
+            <input class="lightbox-evening-off-offset-input" type="text" placeholder="xx:xx" maxlength="5"></input>
           </div>
-          <div class="evening-time time">
-            <input class="evening-time-radio custom-radio" type="radio" name="evening" value="time">
-            <input class="evening-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+
+
+          <div class="logotype-morning-on-time time">
+            <input class="logotype-morning-on-time-radio custom-radio" type="radio" name="logotype-morning-on" value="time">
+            <input class="logotype-morning-on-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
           </div>
-          <div class="evening-offset offset">
-            <input class="evening-offset-radio custom-radio" type="radio" name="evening" value="offset">
-            <input class="evening-offset-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+          <div class="logotype-morning-on-offset offset">
+            <input class="logotype-morning-on-offset-radio custom-radio" type="radio" name="logotype-morning-on" value="offset">
+            <input class="logotype-morning-on-offset-input" type="text" placeholder="xx:xx" maxlength="5"></input>
           </div>
-          <div class="evening-scene scene">
-            <select class="evening-scene-select" name="select-effect" id="">
-              <option value="main">Основной</option>
-              <option value="white-static">Белый статика</option>
-              <option value="white-mix">Белый микс</option>
-              <option value="white-pulse">Белый пульс</option>
-              <option value="color-dynamic">Цвет динамика</option>
-              <option value="eco">Экорежим</option>
-              <option value="purple">Лиловый</option>
-            </select>
+          <div class="logotype-morning-off-time time">
+            <input class="logotype-morning-off-time-radio custom-radio" type="radio" name="logotype-morning-off" value="time">
+            <input class="logotype-morning-off-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
           </div>
-          <div class="closing-time time">
-            <input class="closing-time-radio custom-radio" type="radio" name="closing" value="time">
-            <input class="closing-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+          <div class="logotype-morning-off-offset offset">
+            <input class="logotype-morning-off-offset-radio custom-radio" type="radio" name="logotype-morning-off" value="offset">
+            <input class="logotype-morning-off-offset-input" type="text" placeholder="xx:xx" maxlength="5"></input>
           </div>
-          <div class="closing-offset offset">
-            <input class="closing-offset-radio custom-radio" type="radio" name="closing" value="offset">
-            <input class="closing-offset-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+
+          <div class="logotype-evening-on-time time">
+            <input class="logotype-evening-on-time-radio custom-radio" type="radio" name="logotype-evening-on" value="time">
+            <input class="logotype-evening-on-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
           </div>
-          <div class="closing-scene scene">
-            <select class="closing-scene-select" name="select-effect" id="">
-              <option value="main">Основной</option>
-              <option value="white-static">Белый статика</option>
-              <option value="white-mix">Белый микс</option>
-              <option value="white-pulse">Белый пульс</option>
-              <option value="color-dynamic">Цвет динамика</option>
-              <option value="eco">Экорежим</option>
-              <option value="purple">Лиловый</option>
-            </select>
+          <div class="logotype-evening-on-offset offset">
+            <input class="logotype-evening-on-offset-radio custom-radio" type="radio" name="logotype-evening-on" value="offset">
+            <input class="logotype-evening-on-offset-input" type="text" placeholder="xx:xx" maxlength="5"></input>
           </div>
+          <div class="logotype-evening-off-time time">
+            <input class="logotype-evening-off-time-radio custom-radio" type="radio" name="logotype-evening-off" value="time">
+            <input class="logotype-evening-off-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+          </div>
+          <div class="logotype-evening-off-offset offset">
+            <input class="logotype-evening-off-offset-radio custom-radio" type="radio" name="logotype-evening-off" value="offset">
+            <input class="logotype-evening-off-offset-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+          </div>
+
         </div>
       </div>
     </template>

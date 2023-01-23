@@ -49,6 +49,15 @@ section#home {
   justify-content: center;
 }
 
+section#home > div {
+  position: absolute;
+  top: 72px;
+}
+
+section#home h1 {
+margin-bottom: 12px;
+}
+
 section:target ~ #home {
   display: none;
 }
@@ -61,16 +70,16 @@ section:target ~ #home {
 
 section > div {
   position: absolute;
-  top: 120px;
+  top: 96px;
 }
 
 .button {
   display: inline-block;
-  width: 168px;
+  width: 148px;
   padding: 5px 10px;
   margin-bottom: 8px;
   line-height: 1;
-  font-size: 18px;
+  font-size: 16px;
   letter-spacing: 0.5px;
   color: black;
   text-align: center;
@@ -81,7 +90,7 @@ section > div {
   border-radius: 6px;
   cursor: pointer;
   user-select: none;
-  transition: background-color ease 0.2s;
+  transition: background-color ease 0.3s;
 }
 
 .button-get-monday {
@@ -98,12 +107,12 @@ input {
 }
 
 h1 {
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   margin-bottom: 24px;
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin-bottom: 2px;
 }
 
@@ -115,8 +124,8 @@ h2 {
 .left-grid {
   display: grid;
 
-  grid-template-rows: repeat(14, 38px);
-  grid-template-columns: 128px 128px;
+  grid-template-rows: repeat(14, 32px);
+  grid-template-columns: 112px 112px;
 
   gap: 0px;
   height: 100%;
@@ -127,7 +136,7 @@ h2 {
 }
 
 .table-cell {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -179,8 +188,8 @@ h2 {
 .logo-left-grid {
   display: grid;
 
-  grid-template-rows: repeat(16, 38px);
-  grid-template-columns: 128px 128px 128px;
+  grid-template-rows: repeat(16, 32px);
+  grid-template-columns: 112px 112px 112px;
 
   gap: 0px;
   height: 100%;
@@ -247,7 +256,7 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  width: 128px;
+  width: 112px;
 }
 
 .monday,
@@ -260,7 +269,7 @@ h2 {
 .day-title {
   height: 33px;
   width: 100%;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   text-align: center;
   align-self: center;
   border-bottom: 1px solid black;
@@ -276,8 +285,8 @@ h2 {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  width: 128px;
-  height: 38px;
+  width: 112px;
+  height: 32px;
   border-right: 1px solid black;
   border-bottom: 1px solid black;
 }
@@ -288,9 +297,9 @@ h2 {
 
 .day-list-item input[type="text"],
 .day-list>div>input[type="text"] {
-  height: 32px;
+  height: 28px;
   width: 64px;
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   text-align: center;
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
@@ -309,16 +318,16 @@ h2 {
 }
 
 .day-list>div>input[type="text"]::placeholder {
-  font-size: 1.7rem;
+  font-size: 1.6rem;
 }
 
 .day-list-item select,
 .day-list>div>select {
-  height: 32px;
-  width: 123px;
+  height: 28px;
+  width: 108px;
   border-radius: 0.25rem;
   transform: translateY(-0.5px);
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   background-color: var(--bg-color);
 }
 

@@ -11,14 +11,14 @@ var iRNorth = document.querySelector('.rgb_r-north');
 var iGNorth = document.querySelector('.rgb_g-north');
 var iBNorth = document.querySelector('.rgb_b-north');
 var rgbCSSNorth = document.querySelector('.rgb_css-north');
-var colorNorth = document.querySelector('.color-north');
+var colorNorth = document.querySelector('.io-north');
 
 var iHexSouth = document.querySelector('.hex-south');
 var iRSouth = document.querySelector('.rgb_r-south');
 var iGSouth = document.querySelector('.rgb_g-south');
 var iBSouth = document.querySelector('.rgb_b-south');
 var rgbCSSSouth = document.querySelector('.rgb_css-south');
-var colorSouth = document.querySelector('.color-south');
+var colorSouth = document.querySelector('.io-south');
 
 function updateNorthInputs(hex) {
   var rgb = ColorPicker.hex2rgb(hex);
@@ -52,7 +52,7 @@ function updateSouthColorPickers(hex) {
   southPicker.setHex(hex);
 }
 
-var initialHex = '#f4329c';
+var initialHex = '#59126f';
 updateNorthColorPickers(initialHex);
 updateSouthColorPickers(initialHex);
 
@@ -120,6 +120,19 @@ var buttonSendSouthPicker = document.querySelector('.button-send-south-picker');
 
 function handleToggleClick(event) {
   toggleButton(event.target);
+  if (event.target.classList.contains("button-south-picker")) {
+    if (event.target.getAttribute("aria-pressed") === "true") {
+      sendSouthColorMode(true);
+    } else {
+      sendSouthColorMode(false);
+    }
+  } else if (event.target.classList.contains("button-north-picker")) {
+    if (event.target.getAttribute("aria-pressed") === "true") {
+      sendNorthColorMode(true);
+    } else {
+      sendNorthColorMode(false);
+    }
+  }
 }
 
 function toggleButton(element) {
@@ -142,6 +155,19 @@ buttonNorthPicker.addEventListener('click', (event) => {
 buttonSouthPicker.addEventListener('click', (event) => {
   handleToggleClick(event);
 })
+
+function sendNorthColorMode(bool) {
+  const valueBlockData = {};
+  valueBlockData.inPortValue = bool;
+  const block = store.colorNotes.find((item) => {
+    return item.hasOwnProperty('North_customColor_Mode-id');
+  });
+  const blockId = block["North_customColor_Mode-id"];
+  console.log(blockId);
+
+  url = apiUrl + "workflow/blocks/values/" + blockId;
+  putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
+}
 
 function sendNorthR() {
   const valueBlockData = {};
@@ -176,6 +202,19 @@ function sendNorthB() {
     return item.hasOwnProperty('North_customColor_B-id');
   });
   const blockId = block["North_customColor_B-id"];
+  console.log(blockId);
+
+  url = apiUrl + "workflow/blocks/values/" + blockId;
+  putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
+}
+
+function sendSouthColorMode(bool) {
+  const valueBlockData = {};
+  valueBlockData.inPortValue = bool;
+  const block = store.colorNotes.find((item) => {
+    return item.hasOwnProperty('South_customColor_Mode-id');
+  });
+  const blockId = block["South_customColor_Mode-id"];
   console.log(blockId);
 
   url = apiUrl + "workflow/blocks/values/" + blockId;
