@@ -488,7 +488,7 @@ async function fetchSouthModeUpdate() {
 
   let currentSouthMode = await getValueBlockOutportDataById(blockId);
 
-  if (currentSouthMode === 'eco') {
+  if ((currentSouthMode === 'eco') || (currentSouthMode == 131)) {
     buttonSouthEcoMode.setAttribute("aria-pressed", true);
     buttonsSouthAll.forEach(element => {
       if (!element.classList.contains("button-mode-eco")) {
@@ -497,7 +497,7 @@ async function fetchSouthModeUpdate() {
     });
   }
 
-  if (currentSouthMode === 'main') {
+  if ((currentSouthMode === 'main') || (currentSouthMode == 121)) {
     buttonSouthMainMode.setAttribute("aria-pressed", true);
     buttonsSouthAll.forEach(element => {
       if (!element.classList.contains("button-mode-main")) {
@@ -506,7 +506,7 @@ async function fetchSouthModeUpdate() {
     });
   }
 
-  if (currentSouthMode === 'white') {
+  if ((currentSouthMode === 'white') || (currentSouthMode == 103)) {
     buttonSouthWhiteMode.setAttribute("aria-pressed", true);
     buttonsSouthAll.forEach(element => {
       if (!element.classList.contains("button-mode-white")) {
@@ -515,7 +515,7 @@ async function fetchSouthModeUpdate() {
     });
   }
 
-  if (currentSouthMode === 'white-mix') {
+  if ((currentSouthMode === 'white-mix') || (currentSouthMode == 127)) {
     buttonSouthWhiteMixMode.setAttribute("aria-pressed", true);
     buttonsSouthAll.forEach(element => {
       if (!element.classList.contains("button-mode-white-mix")) {
@@ -524,7 +524,7 @@ async function fetchSouthModeUpdate() {
     });
   }
 
-  if (currentSouthMode === 'white-pulse') {
+  if ((currentSouthMode === 'white-pulse') || (currentSouthMode == 125)) {
     buttonSouthWhitePulseMode.setAttribute("aria-pressed", true);
     buttonsSouthAll.forEach(element => {
       if (!element.classList.contains("button-mode-white-pulse")) {
@@ -533,7 +533,7 @@ async function fetchSouthModeUpdate() {
     });
   }
 
-  if (currentSouthMode === 'color-dynamic') {
+  if ((currentSouthMode === 'color-dynamic') || (currentSouthMode == 129)) {
     buttonSouthColorDynamicMode.setAttribute("aria-pressed", true);
     buttonsSouthAll.forEach(element => {
       if (!element.classList.contains("button-mode-color-dynamic")) {
@@ -542,7 +542,7 @@ async function fetchSouthModeUpdate() {
     });
   }
 
-  if (currentSouthMode === 'violet') {
+  if ((currentSouthMode === 'violet') || (currentSouthMode == 133)) {
     buttonSouthVioletMode.setAttribute("aria-pressed", true);
     buttonsSouthAll.forEach(element => {
       if (!element.classList.contains("button-mode-violet")) {
@@ -566,7 +566,7 @@ async function fetchNorthModeUpdate() {
 
   let currentNorthMode = await getValueBlockOutportDataById(blockId);
 
-  if (currentNorthMode === 'eco') {
+  if ((currentNorthMode === 'eco') || (currentNorthMode == 113)) {
     buttonNorthEcoMode.setAttribute("aria-pressed", true);
     buttonsNorthAll.forEach(element => {
       if (!element.classList.contains("button-mode-eco")) {
@@ -575,7 +575,7 @@ async function fetchNorthModeUpdate() {
     });
   }
 
-  if (currentNorthMode === 'main') {
+  if ((currentNorthMode === 'main') || (currentNorthMode == 101)) {
     buttonNorthMainMode.setAttribute("aria-pressed", true);
     buttonsNorthAll.forEach(element => {
       if (!element.classList.contains("button-mode-main")) {
@@ -584,7 +584,7 @@ async function fetchNorthModeUpdate() {
     });
   }
 
-  if (currentNorthMode === 'white') {
+  if ((currentNorthMode === 'white') || (currentNorthMode == 103)) {
     buttonNorthWhiteMode.setAttribute("aria-pressed", true);
     buttonsNorthAll.forEach(element => {
       if (!element.classList.contains("button-mode-white")) {
@@ -593,7 +593,7 @@ async function fetchNorthModeUpdate() {
     });
   }
 
-  if (currentNorthMode === 'white-mix') {
+  if ((currentNorthMode === 'white-mix') || (currentNorthMode == 107)) {
     buttonNorthWhiteMixMode.setAttribute("aria-pressed", true);
     buttonsNorthAll.forEach(element => {
       if (!element.classList.contains("button-mode-white-mix")) {
@@ -602,7 +602,7 @@ async function fetchNorthModeUpdate() {
     });
   }
 
-  if (currentNorthMode === 'white-pulse') {
+  if ((currentNorthMode === 'white-pulse') || (currentNorthMode == 105)) {
     buttonNorthWhitePulseMode.setAttribute("aria-pressed", true);
     buttonsNorthAll.forEach(element => {
       if (!element.classList.contains("button-mode-white-pulse")) {
@@ -611,8 +611,8 @@ async function fetchNorthModeUpdate() {
     });
   }
 
-  if (currentNorthMode === 'sunset') {
-    buttonNorthColorDynamicMode.setAttribute("aria-pressed", true);
+  if ((currentNorthMode === 'sunset') || (currentNorthMode == 109)) {
+    buttonNorthSunsetMode.setAttribute("aria-pressed", true);
     buttonsNorthAll.forEach(element => {
       if (!element.classList.contains("button-mode-sunset")) {
         element.setAttribute("aria-pressed", false);
@@ -620,8 +620,8 @@ async function fetchNorthModeUpdate() {
     });
   }
 
-  if (currentNorthMode === 'autumn') {
-    buttonNorthColorDynamicMode.setAttribute("aria-pressed", true);
+  if ((currentNorthMode === 'autumn') || (currentNorthMode == 111)) {
+    buttonNorthAutumnMode.setAttribute("aria-pressed", true);
     buttonsNorthAll.forEach(element => {
       if (!element.classList.contains("button-mode-autumn")) {
         element.setAttribute("aria-pressed", false);
@@ -629,7 +629,7 @@ async function fetchNorthModeUpdate() {
     });
   }
 
-  if (currentNorthMode === 'violet') {
+  if ((currentNorthMode === 'violet') || (currentNorthMode == 115)) {
     buttonNorthVioletMode.setAttribute("aria-pressed", true);
     buttonsNorthAll.forEach(element => {
       if (!element.classList.contains("button-mode-violet")) {
