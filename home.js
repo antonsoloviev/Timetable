@@ -1,3 +1,8 @@
+// ID for start and stop southMode fetching
+let fetchSouthModeId = 0;
+let fetchNorthModeId = 0;
+
+
 let homeSouthBlock = document.querySelector('.home-south-block');
 let homeNorthBlock = document.querySelector('.home-north-block');
 
@@ -14,7 +19,7 @@ function getNorthRangeValue(value) {
   document.getElementById("north-rangeValue").innerHTML = value;
 }
 
-let buttonSouthEcoMode = document.querySelector('div.south-block > .button-mode-eco');
+let buttonSouthEcoMode = document.querySelector('div.home-south-block > .button-mode-eco');
 let buttonSouthMainMode = document.querySelector('div.south-block-buttons > .button-mode-main');
 let buttonSouthWhiteMode = document.querySelector('div.south-block-buttons > .button-mode-white');
 let buttonSouthWhiteMixMode = document.querySelector('div.south-block-buttons > .button-mode-white-mix');
@@ -36,7 +41,6 @@ let buttonNorthAutumnMode = document.querySelector('div.north-block-buttons > .b
 let buttonNorthLogotypesMode = document.querySelector('div.north-block-buttons > .button-mode-logotypes');
 let buttonNorthVioletMode = document.querySelector('div.north-block-buttons > .button-mode-violet');
 let buttonsNorth = document.querySelector('.north-block-buttons');
-
 
 function sendManualMode(bool) {
   const valueBlockData = {};
@@ -161,8 +165,32 @@ function handleToggleManualButton(event) {
 
   if (event.target.getAttribute("aria-pressed") === "true") {
     sendManualMode(true);
+
+    buttonsNorthAll.forEach(element => {
+      element.disabled = false;
+    });
+    buttonsSouthAll.forEach(element => {
+      element.disabled = false;
+    });
+
+    clearInterval(fetchSouthModeId);
+    clearInterval(fetchNorthModeId);
+
+
   } else {
     sendManualMode(false);
+
+    buttonsNorthAll.forEach(element => {
+      element.setAttribute("aria-pressed", false);
+      element.disabled = true;
+    });
+    buttonsSouthAll.forEach(element => {
+      element.setAttribute("aria-pressed", false);
+      element.disabled = true;
+    });
+
+    fetchModeStart();
+
   }
 }
 
@@ -440,3 +468,181 @@ homeNorthBlock.addEventListener('click', (event) => {
     }
   };
 })
+
+// TODO currentSouthMode and currentNorthMode request
+
+async function getValueBlockOutportDataById(blockId) {
+  url = apiUrl + "workflow/blocks/values/" + blockId;
+  response = await getData(url);
+  // store.blockNotes = response;
+  console.log(response.outPortValue);
+  return response.outPortValue;
+}
+
+async function fetchSouthModeUpdate() {
+
+  const block = store.homeNotes.find((item) => {
+    return item.hasOwnProperty('Home_S_currentModeFB-id');
+  });
+  const blockId = block["Home_S_currentModeFB-id"];
+
+  let currentSouthMode = await getValueBlockOutportDataById(blockId);
+
+  if (currentSouthMode === 'eco') {
+    buttonSouthEcoMode.setAttribute("aria-pressed", true);
+    buttonsSouthAll.forEach(element => {
+      if (!element.classList.contains("button-mode-eco")) {
+        element.setAttribute("aria-pressed", false);
+      }
+    });
+  }
+
+  if (currentSouthMode === 'main') {
+    buttonSouthMainMode.setAttribute("aria-pressed", true);
+    buttonsSouthAll.forEach(element => {
+      if (!element.classList.contains("button-mode-main")) {
+        element.setAttribute("aria-pressed", false);
+      }
+    });
+  }
+
+  if (currentSouthMode === 'white') {
+    buttonSouthWhiteMode.setAttribute("aria-pressed", true);
+    buttonsSouthAll.forEach(element => {
+      if (!element.classList.contains("button-mode-white")) {
+        element.setAttribute("aria-pressed", false);
+      }
+    });
+  }
+
+  if (currentSouthMode === 'white-mix') {
+    buttonSouthWhiteMixMode.setAttribute("aria-pressed", true);
+    buttonsSouthAll.forEach(element => {
+      if (!element.classList.contains("button-mode-white-mix")) {
+        element.setAttribute("aria-pressed", false);
+      }
+    });
+  }
+
+  if (currentSouthMode === 'white-pulse') {
+    buttonSouthWhitePulseMode.setAttribute("aria-pressed", true);
+    buttonsSouthAll.forEach(element => {
+      if (!element.classList.contains("button-mode-white-pulse")) {
+        element.setAttribute("aria-pressed", false);
+      }
+    });
+  }
+
+  if (currentSouthMode === 'color-dynamic') {
+    buttonSouthColorDynamicMode.setAttribute("aria-pressed", true);
+    buttonsSouthAll.forEach(element => {
+      if (!element.classList.contains("button-mode-color-dynamic")) {
+        element.setAttribute("aria-pressed", false);
+      }
+    });
+  }
+
+  if (currentSouthMode === 'violet') {
+    buttonSouthVioletMode.setAttribute("aria-pressed", true);
+    buttonsSouthAll.forEach(element => {
+      if (!element.classList.contains("button-mode-violet")) {
+        element.setAttribute("aria-pressed", false);
+      }
+    });
+  }
+
+  // return currentSouthMode;
+
+
+
+};
+
+async function fetchNorthModeUpdate() {
+
+  const block = store.homeNotes.find((item) => {
+    return item.hasOwnProperty('Home_N_currentModeFB-id');
+  });
+  const blockId = block["Home_N_currentModeFB-id"];
+
+  let currentNorthMode = await getValueBlockOutportDataById(blockId);
+
+  if (currentNorthMode === 'eco') {
+    buttonNorthEcoMode.setAttribute("aria-pressed", true);
+    buttonsNorthAll.forEach(element => {
+      if (!element.classList.contains("button-mode-eco")) {
+        element.setAttribute("aria-pressed", false);
+      }
+    });
+  }
+
+  if (currentNorthMode === 'main') {
+    buttonNorthMainMode.setAttribute("aria-pressed", true);
+    buttonsNorthAll.forEach(element => {
+      if (!element.classList.contains("button-mode-main")) {
+        element.setAttribute("aria-pressed", false);
+      }
+    });
+  }
+
+  if (currentNorthMode === 'white') {
+    buttonNorthWhiteMode.setAttribute("aria-pressed", true);
+    buttonsNorthAll.forEach(element => {
+      if (!element.classList.contains("button-mode-white")) {
+        element.setAttribute("aria-pressed", false);
+      }
+    });
+  }
+
+  if (currentNorthMode === 'white-mix') {
+    buttonNorthWhiteMixMode.setAttribute("aria-pressed", true);
+    buttonsNorthAll.forEach(element => {
+      if (!element.classList.contains("button-mode-white-mix")) {
+        element.setAttribute("aria-pressed", false);
+      }
+    });
+  }
+
+  if (currentNorthMode === 'white-pulse') {
+    buttonNorthWhitePulseMode.setAttribute("aria-pressed", true);
+    buttonsNorthAll.forEach(element => {
+      if (!element.classList.contains("button-mode-white-pulse")) {
+        element.setAttribute("aria-pressed", false);
+      }
+    });
+  }
+
+  if (currentNorthMode === 'sunset') {
+    buttonNorthColorDynamicMode.setAttribute("aria-pressed", true);
+    buttonsNorthAll.forEach(element => {
+      if (!element.classList.contains("button-mode-sunset")) {
+        element.setAttribute("aria-pressed", false);
+      }
+    });
+  }
+
+  if (currentNorthMode === 'autumn') {
+    buttonNorthColorDynamicMode.setAttribute("aria-pressed", true);
+    buttonsNorthAll.forEach(element => {
+      if (!element.classList.contains("button-mode-autumn")) {
+        element.setAttribute("aria-pressed", false);
+      }
+    });
+  }
+
+  if (currentNorthMode === 'violet') {
+    buttonNorthVioletMode.setAttribute("aria-pressed", true);
+    buttonsNorthAll.forEach(element => {
+      if (!element.classList.contains("button-mode-violet")) {
+        element.setAttribute("aria-pressed", false);
+      }
+    });
+  }
+
+};
+
+
+function fetchModeStart() {
+  fetchSouthModeId = setInterval(fetchSouthModeUpdate, 10000);
+  fetchNorthModeId = setInterval(fetchNorthModeUpdate, 10000);
+
+}
