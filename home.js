@@ -556,15 +556,15 @@ async function fetchSouthModeUpdate_NEW() {
 
   while (true) {
 
-    if (block_S_MainState == 122) {
-      if (block_S_WhiteState == 124) {
-        if (block_S_WhitePulseState == 126) {
-          if (block_S_WhiteMixState == 128) {
-            if (block_S_ColorDynamicState == 130) {
+    if (block_S_MainState == '122') {
+      if (block_S_WhiteState == '124') {
+        if (block_S_WhitePulseState == '126') {
+          if (block_S_WhiteMixState == '128') {
+            if (block_S_ColorDynamicState == '130') {
            
-                if (block_S_EcoState == 132) {
-                  if (block_S_VioletState == 134) {
-                  } else if (block_S_VioletState == 133) {
+                if (block_S_EcoState == '132') {
+                  if (block_S_VioletState == '134') {
+                  } else if (block_S_VioletState == '133') {
                     buttonSouthVioletMode.setAttribute("aria-pressed", true);
                     buttonsSouthAll.forEach(element => {
                       if (!element.classList.contains("button-mode-violet")) {
@@ -573,7 +573,7 @@ async function fetchSouthModeUpdate_NEW() {
                     });
                     break;
                   }
-                } else if (block_S_EcoState == 131) {
+                } else if (block_S_EcoState == '131') {
                   buttonSouthEcoMode.setAttribute("aria-pressed", true);
                   buttonsSouthAll.forEach(element => {
                     if (!element.classList.contains("button-mode-eco")) {
@@ -583,7 +583,7 @@ async function fetchSouthModeUpdate_NEW() {
                   break;
                 }
 
-            } else if (block_S_ColorDynamicState == 129) {
+            } else if (block_S_ColorDynamicState == '129') {
               buttonSouthColorDynamicMode.setAttribute("aria-pressed", true);
               buttonsSouthAll.forEach(element => {
                 if (!element.classList.contains("button-mode-color-dynamic")) {
@@ -592,7 +592,7 @@ async function fetchSouthModeUpdate_NEW() {
               });
               break;
             }
-          } else if (block_S_WhiteMixState == 127) {
+          } else if (block_S_WhiteMixState == '127') {
             buttonSouthWhiteMixMode.setAttribute("aria-pressed", true);
             buttonsSouthAll.forEach(element => {
               if (!element.classList.contains("button-mode-white-mix")) {
@@ -601,7 +601,7 @@ async function fetchSouthModeUpdate_NEW() {
             });
             break;
           }
-        } else if (block_S_WhitePulseState == 125) {
+        } else if (block_S_WhitePulseState == '125') {
           buttonSouthWhitePulseMode.setAttribute("aria-pressed", true);
           buttonsSouthAll.forEach(element => {
             if (!element.classList.contains("button-mode-white-pulse")) {
@@ -610,7 +610,7 @@ async function fetchSouthModeUpdate_NEW() {
           });
           break;
         }
-      } else if (block_S_WhiteState == 123) {
+      } else if (block_S_WhiteState == '123') {
         buttonSouthWhiteMode.setAttribute("aria-pressed", true);
         buttonsSouthAll.forEach(element => {
           if (!element.classList.contains("button-mode-white")) {
@@ -619,7 +619,7 @@ async function fetchSouthModeUpdate_NEW() {
         });
         break;
       }
-    } else if (block_S_MainState == 121) {
+    } else if (block_S_MainState == '121') {
       buttonSouthMainMode.setAttribute("aria-pressed", true);
       buttonsSouthAll.forEach(element => {
         if (!element.classList.contains("button-mode-main")) {
@@ -636,13 +636,13 @@ async function fetchSouthModeUpdate_NEW() {
     break;
   }
 
-  if (block_S_LightboxState == 144) {
+  if (block_S_LightboxState == '144') {
     buttonSouthLightboxMode.setAttribute("aria-pressed", true);
   } else {
     buttonSouthLightboxMode.setAttribute("aria-pressed", false);
   }
 
-  if (block_S_LogotypesState == 145) {
+  if (block_S_LogotypesState == '145') {
     buttonSouthLogotypesMode.setAttribute("aria-pressed", true);
   } else {
     buttonSouthLogotypesMode.setAttribute("aria-pressed", false);
@@ -715,15 +715,15 @@ async function fetchNorthModeUpdate_NEW() {
 
   while (true) {
 
-    if (block_N_MainState == 102) {
-      if (block_N_WhiteState == 104) {
-        if (block_N_WhitePulseState == 106) {
-          if (block_N_WhiteMixState == 108) {
-            if (block_N_SunsetState == 110) {
-              if (block_N_AutumnState == 112) {
-                if (block_N_EcoState == 114) {
-                  if (block_N_VioletState == 116) {
-                  } else if (block_N_VioletState == 115) {
+    if (block_N_MainState == '102') {
+      if (block_N_WhiteState == '104') {
+        if (block_N_WhitePulseState == '106') {
+          if (block_N_WhiteMixState == '108') {
+            if (block_N_SunsetState == '110') {
+              if (block_N_AutumnState == '112') {
+                if (block_N_EcoState == '114') {
+                  if (block_N_VioletState == '116') {
+                  } else if (block_N_VioletState == '115') {
                     buttonNorthVioletMode.setAttribute("aria-pressed", true);
                     buttonsNorthAll.forEach(element => {
                       if (!element.classList.contains("button-mode-violet")) {
@@ -732,7 +732,7 @@ async function fetchNorthModeUpdate_NEW() {
                     });
                     break; // == goto(#2)
                   }
-                } else if (block_N_EcoState == 113) {
+                } else if (block_N_EcoState == '113') {
                   buttonNorthEcoMode.setAttribute("aria-pressed", true);
                   buttonsNorthAll.forEach(element => {
                     if (!element.classList.contains("button-mode-eco")) {
@@ -741,7 +741,7 @@ async function fetchNorthModeUpdate_NEW() {
                   });
                   break; // == goto(#2)
                 }
-              } else if (block_N_AutumnState == 111) {
+              } else if (block_N_AutumnState == '111') {
                 buttonNorthAutumnMode.setAttribute("aria-pressed", true);
                 buttonsNorthAll.forEach(element => {
                   if (!element.classList.contains("button-mode-autumn")) {
@@ -750,7 +750,7 @@ async function fetchNorthModeUpdate_NEW() {
                 });
                 break; // == goto(#2)
               }
-            } else if (block_N_SunsetState == 109) {
+            } else if (block_N_SunsetState == '109') {
               buttonNorthSunsetMode.setAttribute("aria-pressed", true);
               buttonsNorthAll.forEach(element => {
                 if (!element.classList.contains("button-mode-sunset")) {
@@ -759,7 +759,7 @@ async function fetchNorthModeUpdate_NEW() {
               });
               break; // == goto(#2)
             }
-          } else if (block_N_WhiteMixState == 107) {
+          } else if (block_N_WhiteMixState == '107') {
             buttonNorthWhiteMixMode.setAttribute("aria-pressed", true);
             buttonsNorthAll.forEach(element => {
               if (!element.classList.contains("button-mode-white-mix")) {
@@ -768,7 +768,7 @@ async function fetchNorthModeUpdate_NEW() {
             });
             break; // == goto(#2)
           }
-        } else if (block_N_WhitePulseState == 105) {
+        } else if (block_N_WhitePulseState == '105') {
           buttonNorthWhitePulseMode.setAttribute("aria-pressed", true);
           buttonsNorthAll.forEach(element => {
             if (!element.classList.contains("button-mode-white-pulse")) {
@@ -777,7 +777,7 @@ async function fetchNorthModeUpdate_NEW() {
           });
           break; // == goto(#2)
         }
-      } else if (block_N_WhiteState == 103) {
+      } else if (block_N_WhiteState == '103') {
         buttonNorthWhiteMode.setAttribute("aria-pressed", true);
         buttonsNorthAll.forEach(element => {
           if (!element.classList.contains("button-mode-white")) {
@@ -786,7 +786,7 @@ async function fetchNorthModeUpdate_NEW() {
         });
         break; // == goto(#2)
       }
-    } else if (block_N_MainState == 101) {
+    } else if (block_N_MainState == '101') {
       buttonNorthMainMode.setAttribute("aria-pressed", true);
       buttonsNorthAll.forEach(element => {
         if (!element.classList.contains("button-mode-main")) {
@@ -803,13 +803,13 @@ async function fetchNorthModeUpdate_NEW() {
     break;
   }
   
-  if (block_N_LightboxState == 140) {
+  if (block_N_LightboxState == '140') {
     buttonNorthLightboxMode.setAttribute("aria-pressed", true);
   } else {
     buttonNorthLightboxMode.setAttribute("aria-pressed", false);
   }
 
-  if (block_N_LogotypesState == 141) {
+  if (block_N_LogotypesState == '141') {
     buttonNorthLogotypesMode.setAttribute("aria-pressed", true);
   } else {
     buttonNorthLogotypesMode.setAttribute("aria-pressed", false);
