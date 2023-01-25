@@ -64,7 +64,8 @@
 
 .button-south-picker:hover,
 .button-north-picker:hover {
-  background-color: var(--color-orange);
+  background-color: inherit;
+  border: solid 2px var(--color-orange);
 }
 
 .button-south-picker[aria-pressed="true"],

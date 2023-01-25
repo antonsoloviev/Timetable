@@ -70,13 +70,14 @@ input[type=range]::-webkit-slider-thumb {
 
 
 .button-manual-mode {
-  height: 48px;
+  height: 64px;
   width: 196px;
   margin-bottom: 12px;
 }
 
 .button-manual-mode:hover {
-  background-color: var(--color-orange);
+  background-color: inherit;
+  border: solid 2px var(--color-orange);
 }
 
 .button-manual-mode[aria-pressed="true"] {
@@ -86,6 +87,11 @@ input[type=range]::-webkit-slider-thumb {
 [class*="button-mode"] {
   height: 48px;
   margin-bottom: 0;
+}
+
+[class*="button-mode"]:hover {
+  background-color: inherit;
+  border: solid 2px var(--checked-color);
 }
 
 [class*="button-mode"][aria-pressed="true"] {
@@ -99,7 +105,8 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 .button-mode-eco:hover {
-  background-color: var(--color-green);
+  background-color: inherit;
+  border: solid 2px var(--color-green);
 }
 
 .button-mode-eco[aria-pressed="true"] {
