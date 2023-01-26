@@ -29,7 +29,7 @@ let buttonSouthVioletMode = document.querySelector('div.south-block-buttons > .b
 let buttonSouthLogotypesMode = document.querySelector('div.south-block-buttons > .button-mode-logotypes');
 let buttonsSouth = document.querySelector('.south-block-buttons');
 
-let buttonNorthEcoMode = document.querySelector('div.north-block > .button-mode-eco');
+let buttonNorthEcoMode = document.querySelector('div.home-north-block > .button-mode-eco');
 let buttonNorthMainMode = document.querySelector('div.north-block-buttons > .button-mode-main');
 let buttonNorthWhiteMode = document.querySelector('div.north-block-buttons > .button-mode-white');
 let buttonNorthWhiteMixMode = document.querySelector('div.north-block-buttons > .button-mode-white-mix');
@@ -493,6 +493,7 @@ homeNorthBlock.addEventListener('click', (event) => {
 async function getValueBlockOutportDataById(blockId) {
   url = apiUrl + "workflow/blocks/values/" + blockId;
   response = await getData(url);
+  console.log(response.displayName);
   console.log(response.outPortValue);
   return response.outPortValue;
 }
@@ -556,14 +557,14 @@ async function fetchSouthModeUpdate_NEW() {
 
   while (true) {
 
-    if (block_S_MainState == '122') {
-      if (block_S_WhiteState == '124') {
-        if (block_S_WhitePulseState == '126') {
-          if (block_S_WhiteMixState == '128') {
-            if (block_S_ColorDynamicState == '130') {
+    if (block_S_MainState != '121') {
+      if (block_S_WhiteState != '123') {
+        if (block_S_WhitePulseState != '125') {
+          if (block_S_WhiteMixState != '127') {
+            if (block_S_ColorDynamicState != '129') {
            
-                if (block_S_EcoState == '132') {
-                  if (block_S_VioletState == '134') {
+                if (block_S_EcoState != '131') {
+                  if (block_S_VioletState != '133') {
                   } else if (block_S_VioletState == '133') {
                     buttonSouthVioletMode.setAttribute("aria-pressed", true);
                     buttonsSouthAll.forEach(element => {
@@ -635,6 +636,7 @@ async function fetchSouthModeUpdate_NEW() {
 
     break;
   }
+
 
   if (block_S_LightboxState == '144') {
     buttonSouthLightboxMode.setAttribute("aria-pressed", true);
@@ -715,14 +717,14 @@ async function fetchNorthModeUpdate_NEW() {
 
   while (true) {
 
-    if (block_N_MainState == '102') {
-      if (block_N_WhiteState == '104') {
-        if (block_N_WhitePulseState == '106') {
-          if (block_N_WhiteMixState == '108') {
-            if (block_N_SunsetState == '110') {
-              if (block_N_AutumnState == '112') {
-                if (block_N_EcoState == '114') {
-                  if (block_N_VioletState == '116') {
+    if (block_N_MainState != '101') {
+      if (block_N_WhiteState != '103') {
+        if (block_N_WhitePulseState != '105') {
+          if (block_N_WhiteMixState != '107') {
+            if (block_N_SunsetState != '109') {
+              if (block_N_AutumnState != '111') {
+                if (block_N_EcoState != '113') {
+                  if (block_N_VioletState != '115') {
                   } else if (block_N_VioletState == '115') {
                     buttonNorthVioletMode.setAttribute("aria-pressed", true);
                     buttonsNorthAll.forEach(element => {
@@ -730,7 +732,7 @@ async function fetchNorthModeUpdate_NEW() {
                         element.setAttribute("aria-pressed", false);
                       }
                     });
-                    break; // == goto(#2)
+                    break;
                   }
                 } else if (block_N_EcoState == '113') {
                   buttonNorthEcoMode.setAttribute("aria-pressed", true);
@@ -739,7 +741,7 @@ async function fetchNorthModeUpdate_NEW() {
                       element.setAttribute("aria-pressed", false);
                     }
                   });
-                  break; // == goto(#2)
+                  break;
                 }
               } else if (block_N_AutumnState == '111') {
                 buttonNorthAutumnMode.setAttribute("aria-pressed", true);
@@ -818,7 +820,7 @@ async function fetchNorthModeUpdate_NEW() {
 };
 
 function fetchModeStart() {
-  fetchSouthModeId = setInterval(fetchSouthModeUpdate_NEW, 10000);
-  fetchNorthModeId = setInterval(fetchNorthModeUpdate_NEW, 10000);
+  fetchSouthModeId = setInterval(fetchSouthModeUpdate_NEW, 5000);
+  fetchNorthModeId = setInterval(fetchNorthModeUpdate_NEW, 5000);
   
 }
