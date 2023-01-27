@@ -143,3 +143,18 @@ function clockStart() {
   clockUpdate();
   dateUpdate();
 }
+
+// timeString in 'xx:xx' format
+function convertTimeStringToMins(timeString) {
+  let hours = parseInt(timeString);
+  let mins = Number(timeString.substring(timeString.length - 2));
+  let totalMins = 0;
+  if (hours < 0) {
+    totalMins = hours*60 - mins;
+  } else {
+    totalMins = hours*60 + mins;
+  }
+  
+  console.log(totalMins);
+  return totalMins;
+}

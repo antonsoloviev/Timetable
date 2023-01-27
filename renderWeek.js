@@ -41,6 +41,69 @@ function getSouthDay(item) {
   const closingModeTime = template.querySelector('input[type=radio][name*="closing"][value="time"]');
   const closingModeOffset = template.querySelector('input[type=radio][name*="closing"][value="offset"]');
 
+  const timeInputs = template.querySelectorAll('div.time input[type=text]');
+  const offsetInputs = template.querySelectorAll('div.offset input[type=text]');
+
+  timeInputs.forEach((input) => {
+    input.pattern = "[0-1]{1}[0-9]{1}[\:][0-5]{1}[0-9]{1}|[2]{1}[0-4]{1}[\:][0-5]{1}[0-9]{1}| ";
+    input.title = 'Формат ввода времени ХХ:ХХ';
+    input.onkeyup = (e) => {
+      if (e.target.value.length == 2) {
+        e.target.value += ':';
+      }
+      validate();
+    }
+   
+    function validate() {
+
+      let pattern = "[0-1]{1}[0-9]{1}[\:][0-5]{1}[0-9]{1}|[2]{1}[0-4]{1}[\:][0-5]{1}[0-9]{1}";
+      if (input.value.match(pattern)) {
+        input.classList.add("valid");
+        input.classList.remove("invalid");
+      }
+      else {
+        input.classList.remove("valid");
+        input.classList.add("invalid");
+      }
+
+      if(input.value == "") {
+        input.classList.add("valid");
+        input.classList.remove("invalid");
+      }
+    }
+  });
+
+  offsetInputs.forEach((input) => {
+    input.pattern = "[0-]{1}[0-2]{1}[\:][0-5]{1}[0-9]{1}";
+    input.title = 'Формат сдвига ХХ:ХХ, не более ±02:59';
+    input.onkeyup = (e) => {
+      if (e.target.value.length == 2) {
+        e.target.value += ':';
+      }
+      validate();
+    }
+   
+    function validate() {
+
+      let pattern = "[0-]{1}[0-4]{1}[\:][0-5]{1}[0-9]{1}";
+      if (input.value.match(pattern)) {
+        input.classList.add("valid");
+        input.classList.remove("invalid");
+      }
+      else {
+        input.classList.remove("valid");
+        input.classList.add("invalid");
+      }
+
+      if(input.value == "") {
+        input.classList.add("valid");
+        input.classList.remove("invalid");
+      }
+      
+    }
+  });
+
+
   const nightMode = item.nightMode;
   const morningMode = item.morningMode;
   const daytimeMode = item.daytimeMode;
@@ -109,7 +172,7 @@ function getSouthDay(item) {
     const element = event.target;
     const currentDay = element.closest('.day');
 
-    if (element.classList.contains('night-time-input')) {
+    if ((element.classList.contains('night-time-input')) & (element.classList.contains('valid'))) {
       const valueBlockData = {};
       valueBlockData.inPortValue = element.value;
       blockId = store.southWeekNotes[currentDay.dataset.daynumber]['nightTime-id'];
@@ -120,7 +183,8 @@ function getSouthDay(item) {
 
     if (element.classList.contains('night-offset-input')) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      valueInMins = convertTimeStringToMins(element.value);
+      valueBlockData.inPortValue = valueInMins;
       blockId = store.southWeekNotes[currentDay.dataset.daynumber]['nightOffset-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
@@ -343,6 +407,69 @@ function getNorthDay(item) {
   const closingModeTime = template.querySelector('input[type=radio][name*="closing"][value="time"]');
   const closingModeOffset = template.querySelector('input[type=radio][name*="closing"][value="offset"]');
 
+  const timeInputs = template.querySelectorAll('div.time input[type=text]');
+  const offsetInputs = template.querySelectorAll('div.offset input[type=text]');
+
+  timeInputs.forEach((input) => {
+    input.pattern = "[0-1]{1}[0-9]{1}[\:][0-5]{1}[0-9]{1}|[2]{1}[0-4]{1}[\:][0-5]{1}[0-9]{1}";
+    input.title = 'Формат ввода времени ХХ:ХХ';
+    input.onkeyup = (e) => {
+      if (e.target.value.length == 2) {
+        e.target.value += ':';
+      }
+      validate();
+    }
+   
+    function validate() {
+
+      let pattern = "[0-1]{1}[0-9]{1}[\:][0-5]{1}[0-9]{1}|[2]{1}[0-4]{1}[\:][0-5]{1}[0-9]{1}";
+      if (input.value.match(pattern)) {
+        input.classList.add("valid");
+        input.classList.remove("invalid");
+      }
+      else {
+        input.classList.remove("valid");
+        input.classList.add("invalid");
+      }
+
+      if(input.value == "") {
+        input.classList.add("valid");
+        input.classList.remove("invalid");
+      }
+      
+    }
+  });
+
+  offsetInputs.forEach((input) => {
+    input.pattern = "[0-]{1}[0-2]{1}[\:][0-5]{1}[0-9]{1}";
+    input.title = 'Формат сдвига ХХ:ХХ, не более ±02:59';
+    input.onkeyup = (e) => {
+      if (e.target.value.length == 2) {
+        e.target.value += ':';
+      }
+      validate();
+    }
+   
+    function validate() {
+
+      let pattern = "[0-]{1}[0-4]{1}[\:][0-5]{1}[0-9]{1}";
+      if (input.value.match(pattern)) {
+        input.classList.add("valid");
+        input.classList.remove("invalid");
+      }
+      else {
+        input.classList.remove("valid");
+        input.classList.add("invalid");
+      }
+
+      if(input.value == "") {
+        input.classList.add("valid");
+        input.classList.remove("invalid");
+      }
+      
+    }
+  });
+
   const nightMode = item.nightMode;
   const morningMode = item.morningMode;
   const daytimeMode = item.daytimeMode;
@@ -421,7 +548,8 @@ function getNorthDay(item) {
 
     if (element.classList.contains('night-offset-input')) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      const valueInMins = convertTimeStringToMins(element.value);
+      valueBlockData.inPortValue = valueInMins;
       blockId = store.northWeekNotes[currentDay.dataset.daynumber]['nightOffset-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
@@ -461,7 +589,8 @@ function getNorthDay(item) {
 
     if (element.classList.contains('morning-offset-input')) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      const valueInMins = convertTimeStringToMins(element.value);
+      valueBlockData.inPortValue = valueInMins;
       blockId = store.northWeekNotes[currentDay.dataset.daynumber]['morningOffset-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
@@ -501,7 +630,8 @@ function getNorthDay(item) {
 
     if (element.classList.contains('daytime-offset-input')) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      const valueInMins = convertTimeStringToMins(element.value);
+      valueBlockData.inPortValue = valueInMins;
       blockId = store.northWeekNotes[currentDay.dataset.daynumber]['daytimeOffset-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
@@ -533,7 +663,8 @@ function getNorthDay(item) {
 
     if (element.classList.contains('evening-offset-input')) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      const valueInMins = convertTimeStringToMins(element.value);
+      valueBlockData.inPortValue = valueInMins;
       blockId = store.northWeekNotes[currentDay.dataset.daynumber]['eveningOffset-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
@@ -573,7 +704,8 @@ function getNorthDay(item) {
 
     if (element.classList.contains('closing-offset-input')) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      const valueInMins = convertTimeStringToMins(element.value);
+      valueBlockData.inPortValue = valueInMins;
       blockId = store.northWeekNotes[currentDay.dataset.daynumber]['closingOffset-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
