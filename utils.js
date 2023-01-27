@@ -158,3 +158,32 @@ function convertTimeStringToMins(timeString) {
   console.log(totalMins);
   return totalMins;
 }
+
+function convertMinsToTimeString(minsValue) {
+  let timeString = '';
+
+  let hours = parseInt(minsValue/60);
+  let mins = (minsValue % 60)
+  console.log(hours);
+  console.log(mins);
+
+  if ((hours >= 0) & (mins >=0)){
+    hours = '0' + hours;
+
+  } else {
+    hours = Math.abs(hours);
+    timeString = '-'
+  }
+
+  if (mins < 0) {
+    mins = Math.abs(mins);
+  }
+
+  if ((mins < 10) & (mins >= 0)) {
+    mins = '0' + mins;
+  }
+
+  timeString = timeString + hours +':'+ mins;
+
+  return timeString;
+}

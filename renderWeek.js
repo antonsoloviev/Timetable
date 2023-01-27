@@ -152,18 +152,23 @@ function getSouthDay(item) {
 
   dayTitle.textContent = week[dayNumber] || "";
   nightTime.value = item.nightTime || "";
-  nightOffset.value = item.nightOffset || "";
+  let nightOffsetTimeString = convertMinsToTimeString(item.nightOffset)
+  nightOffset.value = nightOffsetTimeString || "";
   nightScene.value = item.nightScene || "";
   morningTime.value = item.morningTime || "";
-  morningOffset.value = item.morningOffset || "";
+  let morningOffsetTimeString = convertMinsToTimeString(item.morningOffset)
+  morningOffset.value = morningOffsetTimeString || "";
   morningScene.value = item.morningScene || "";
   daytimeTime.value = item.daytimeTime || "";
-  daytimeOffset.value = item.daytimeOffset || "";
+  let daytimeOffsetTimeString = convertMinsToTimeString(item.daytimeOffset)
+  daytimeOffset.value = daytimeOffsetTimeString || "";
   eveningTime.value = item.eveningTime || "";
-  eveningOffset.value = item.eveningOffset || "";
+  let eveningOffsetTimeString = convertMinsToTimeString(item.eveningOffset)
+  eveningOffset.value = eveningOffsetTimeString || "";
   eveningScene.value = item.eveningScene || "";
   closingTime.value = item.closingTime || "";
-  closingOffset.value = item.closingOffset || "";
+  let closingOffsetTimeString = convertMinsToTimeString(item.closingOffset)
+  closingOffset.value = closingOffsetTimeString || "";
   closingScene.value = item.closingScene || "";
 
   template.querySelector('.day').setAttribute('data-daynumber', dayNumber);
@@ -224,7 +229,8 @@ function getSouthDay(item) {
 
     if (element.classList.contains('morning-offset-input')) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      valueInMins = convertTimeStringToMins(element.value);
+      valueBlockData.inPortValue = valueInMins;
       blockId = store.southWeekNotes[currentDay.dataset.daynumber]['morningOffset-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
@@ -264,7 +270,8 @@ function getSouthDay(item) {
 
     if (element.classList.contains('daytime-offset-input')) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      valueInMins = convertTimeStringToMins(element.value);
+      valueBlockData.inPortValue = valueInMins;
       blockId = store.southWeekNotes[currentDay.dataset.daynumber]['daytimeOffset-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
@@ -296,7 +303,8 @@ function getSouthDay(item) {
 
     if (element.classList.contains('evening-offset-input')) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      valueInMins = convertTimeStringToMins(element.value);
+      valueBlockData.inPortValue = valueInMins;
       blockId = store.southWeekNotes[currentDay.dataset.daynumber]['eveningOffset-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
@@ -336,7 +344,8 @@ function getSouthDay(item) {
 
     if (element.classList.contains('closing-offset-input')) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      valueInMins = convertTimeStringToMins(element.value);
+      valueBlockData.inPortValue = valueInMins;
       blockId = store.southWeekNotes[currentDay.dataset.daynumber]['closingOffset-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
@@ -516,20 +525,41 @@ function getNorthDay(item) {
     closingTime.disabled = true;
   }
 
+  // dayTitle.textContent = week[dayNumber] || "";
+  // nightTime.value = item.nightTime || "";
+  // nightOffset.value = item.nightOffset || "";
+  // nightScene.value = item.nightScene || "";
+  // morningTime.value = item.morningTime || "";
+  // morningOffset.value = item.morningOffset || "";
+  // morningScene.value = item.morningScene || "";
+  // daytimeTime.value = item.daytimeTime || "";
+  // daytimeOffset.value = item.daytimeOffset || "";
+  // eveningTime.value = item.eveningTime || "";
+  // eveningOffset.value = item.eveningOffset || "";
+  // eveningScene.value = item.eveningScene || "";
+  // closingTime.value = item.closingTime || "";
+  // closingOffset.value = item.closingOffset || "";
+  // closingScene.value = item.closingScene || "";
+
   dayTitle.textContent = week[dayNumber] || "";
   nightTime.value = item.nightTime || "";
-  nightOffset.value = item.nightOffset || "";
+  let nightOffsetTimeString = convertMinsToTimeString(item.nightOffset)
+  nightOffset.value = nightOffsetTimeString || "";
   nightScene.value = item.nightScene || "";
   morningTime.value = item.morningTime || "";
-  morningOffset.value = item.morningOffset || "";
+  let morningOffsetTimeString = convertMinsToTimeString(item.morningOffset)
+  morningOffset.value = morningOffsetTimeString || "";
   morningScene.value = item.morningScene || "";
   daytimeTime.value = item.daytimeTime || "";
-  daytimeOffset.value = item.daytimeOffset || "";
+  let daytimeOffsetTimeString = convertMinsToTimeString(item.daytimeOffset)
+  daytimeOffset.value = daytimeOffsetTimeString || "";
   eveningTime.value = item.eveningTime || "";
-  eveningOffset.value = item.eveningOffset || "";
+  let eveningOffsetTimeString = convertMinsToTimeString(item.eveningOffset)
+  eveningOffset.value = eveningOffsetTimeString || "";
   eveningScene.value = item.eveningScene || "";
   closingTime.value = item.closingTime || "";
-  closingOffset.value = item.closingOffset || "";
+  let closingOffsetTimeString = convertMinsToTimeString(item.closingOffset)
+  closingOffset.value = closingOffsetTimeString || "";
   closingScene.value = item.closingScene || "";
 
   template.querySelector('.day').setAttribute('data-daynumber', dayNumber);
