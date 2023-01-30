@@ -86,7 +86,14 @@ function southBlocksToStorebyDay(day) {
   southDayBlocks.forEach((block) => {
     const name = block.displayName.replace(`S_${day}_`, '');
     const id = `${name}-id`;
-    store.southWeekNotes[dayNumber][name] = block.outPortValue;
+
+    if ((block.outPortValue.length == 4) & (block.outPortValue[1] === ':')) {
+      outPortValueString = '0' + block.outPortValue;
+    } else {
+      outPortValueString = block.outPortValue;
+    }
+    
+    store.southWeekNotes[dayNumber][name] = outPortValueString;
     store.southWeekNotes[dayNumber][id] = block.id;
   })
 }
@@ -97,7 +104,14 @@ function northBlocksToStorebyDay(day) {
   northDayBlocks.forEach((block) => {
     const name = block.displayName.replace(`N_${day}_`, '');
     const id = `${name}-id`;
-    store.northWeekNotes[dayNumber][name] = block.outPortValue;
+
+    if ((block.outPortValue.length == 4) & (block.outPortValue[1] === ':')) {
+      outPortValueString = '0' + block.outPortValue;
+    } else {
+      outPortValueString = block.outPortValue;
+    }
+
+    store.northWeekNotes[dayNumber][name] = outPortValueString;
     store.northWeekNotes[dayNumber][id] = block.id;
   })
 }
@@ -108,7 +122,14 @@ function logoBlocksToStorebyDay(day) {
   logoDayBlocks.forEach((block) => {
     const name = block.displayName.replace(`L_${day}_`, '');
     const id = `${name}-id`;
-    store.logoWeekNotes[dayNumber][name] = block.outPortValue;
+
+    if ((block.outPortValue.length == 4) & (block.outPortValue[1] === ':')) {
+      outPortValueString = '0' + block.outPortValue;
+    } else {
+      outPortValueString = block.outPortValue;
+    }
+
+    store.logoWeekNotes[dayNumber][name] = outPortValueString;
     store.logoWeekNotes[dayNumber][id] = block.id;
   })
 }

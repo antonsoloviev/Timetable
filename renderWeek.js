@@ -179,7 +179,12 @@ function getSouthDay(item) {
 
     if ((element.classList.contains('night-time-input')) & (element.classList.contains('valid'))) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      const timeString = element.value;
+      if (timeString[0] === '0') {
+        valueBlockData.inPortValue = timeString.slice(1);
+      } else {
+        valueBlockData.inPortValue = timeString;
+      }
       blockId = store.southWeekNotes[currentDay.dataset.daynumber]['nightTime-id'];
       // localStorage.setItem(element.className, element.value);
       url = apiUrl + "workflow/blocks/values/" + blockId;
@@ -221,7 +226,12 @@ function getSouthDay(item) {
 
     if (element.classList.contains('morning-time-input')) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      const timeString = element.value;
+      if (timeString[0] === '0') {
+        valueBlockData.inPortValue = timeString.slice(1);
+      } else {
+        valueBlockData.inPortValue = timeString;
+      }
       blockId = store.southWeekNotes[currentDay.dataset.daynumber]['morningTime-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
@@ -262,7 +272,12 @@ function getSouthDay(item) {
 
     if (element.classList.contains('daytime-time-input')) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      const timeString = element.value;
+      if (timeString[0] === '0') {
+        valueBlockData.inPortValue = timeString.slice(1);
+      } else {
+        valueBlockData.inPortValue = timeString;
+      }
       blockId = store.southWeekNotes[currentDay.dataset.daynumber]['daytimeTime-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
@@ -295,7 +310,12 @@ function getSouthDay(item) {
 
     if (element.classList.contains('evening-time-input')) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      const timeString = element.value;
+      if (timeString[0] === '0') {
+        valueBlockData.inPortValue = timeString.slice(1);
+      } else {
+        valueBlockData.inPortValue = timeString;
+      }
       blockId = store.southWeekNotes[currentDay.dataset.daynumber]['eveningTime-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
@@ -336,7 +356,12 @@ function getSouthDay(item) {
 
     if (element.classList.contains('closing-time-input')) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      const timeString = element.value;
+      if (timeString[0] === '0') {
+        valueBlockData.inPortValue = timeString.slice(1);
+      } else {
+        valueBlockData.inPortValue = timeString;
+      }
       blockId = store.southWeekNotes[currentDay.dataset.daynumber]['closingTime-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
@@ -570,7 +595,12 @@ function getNorthDay(item) {
 
     if (element.classList.contains('night-time-input')) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      const timeString = element.value;
+      if (timeString[0] === '0') {
+        valueBlockData.inPortValue = timeString.slice(1);
+      } else {
+        valueBlockData.inPortValue = timeString;
+      }
       blockId = store.northWeekNotes[currentDay.dataset.daynumber]['nightTime-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
@@ -611,7 +641,12 @@ function getNorthDay(item) {
 
     if (element.classList.contains('morning-time-input')) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      const timeString = element.value;
+      if (timeString[0] === '0') {
+        valueBlockData.inPortValue = timeString.slice(1);
+      } else {
+        valueBlockData.inPortValue = timeString;
+      }
       blockId = store.northWeekNotes[currentDay.dataset.daynumber]['morningTime-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
@@ -652,7 +687,12 @@ function getNorthDay(item) {
 
     if (element.classList.contains('daytime-time-input')) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      const timeString = element.value;
+      if (timeString[0] === '0') {
+        valueBlockData.inPortValue = timeString.slice(1);
+      } else {
+        valueBlockData.inPortValue = timeString;
+      }
       blockId = store.northWeekNotes[currentDay.dataset.daynumber]['daytimeTime-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
@@ -685,7 +725,12 @@ function getNorthDay(item) {
 
     if (element.classList.contains('evening-time-input')) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      const timeString = element.value;
+      if (timeString[0] === '0') {
+        valueBlockData.inPortValue = timeString.slice(1);
+      } else {
+        valueBlockData.inPortValue = timeString;
+      }
       blockId = store.northWeekNotes[currentDay.dataset.daynumber]['eveningTime-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
@@ -710,7 +755,12 @@ function getNorthDay(item) {
 
     if (element.classList.contains('evening-time-radio') || element.classList.contains('evening-offset-radio')) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      const timeString = element.value;
+      if (timeString[0] === '0') {
+        valueBlockData.inPortValue = timeString.slice(1);
+      } else {
+        valueBlockData.inPortValue = timeString;
+      }
       blockId = store.northWeekNotes[currentDay.dataset.daynumber]['eveningMode-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
@@ -726,7 +776,12 @@ function getNorthDay(item) {
 
     if (element.classList.contains('closing-time-input')) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      const timeString = element.value;
+      if (timeString[0] === '0') {
+        valueBlockData.inPortValue = timeString.slice(1);
+      } else {
+        valueBlockData.inPortValue = timeString;
+      }
       blockId = store.northWeekNotes[currentDay.dataset.daynumber]['closingTime-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
@@ -921,7 +976,12 @@ function getLogoDay(item) {
     // Lightboxes MORNING
     if (element.classList.contains('lightbox-morning-on-time-input')) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      const timeString = element.value;
+      if (timeString[0] === '0') {
+        valueBlockData.inPortValue = timeString.slice(1);
+      } else {
+        valueBlockData.inPortValue = timeString;
+      }
       blockId = store.logoWeekNotes[currentDay.dataset.daynumber]['lightboxMorningOnTime-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
@@ -953,7 +1013,12 @@ function getLogoDay(item) {
 
     if (element.classList.contains('lightbox-morning-off-time-input')) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      const timeString = element.value;
+      if (timeString[0] === '0') {
+        valueBlockData.inPortValue = timeString.slice(1);
+      } else {
+        valueBlockData.inPortValue = timeString;
+      }
       blockId = store.logoWeekNotes[currentDay.dataset.daynumber]['lightboxMorningOffTime-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
@@ -986,7 +1051,12 @@ function getLogoDay(item) {
     // Lightboxes EVENING
     if (element.classList.contains('lightbox-evening-on-time-input')) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      const timeString = element.value;
+      if (timeString[0] === '0') {
+        valueBlockData.inPortValue = timeString.slice(1);
+      } else {
+        valueBlockData.inPortValue = timeString;
+      }
       blockId = store.logoWeekNotes[currentDay.dataset.daynumber]['lightboxEveningOnTime-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
@@ -1018,7 +1088,12 @@ function getLogoDay(item) {
 
     if (element.classList.contains('lightbox-evening-off-time-input')) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      const timeString = element.value;
+      if (timeString[0] === '0') {
+        valueBlockData.inPortValue = timeString.slice(1);
+      } else {
+        valueBlockData.inPortValue = timeString;
+      }
       blockId = store.logoWeekNotes[currentDay.dataset.daynumber]['lightboxEveningOffTime-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
@@ -1052,7 +1127,12 @@ function getLogoDay(item) {
     // Logotypes MORNING
     if (element.classList.contains('logotype-morning-on-time-input')) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      const timeString = element.value;
+      if (timeString[0] === '0') {
+        valueBlockData.inPortValue = timeString.slice(1);
+      } else {
+        valueBlockData.inPortValue = timeString;
+      }
       blockId = store.logoWeekNotes[currentDay.dataset.daynumber]['logotypeMorningOnTime-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
@@ -1084,7 +1164,12 @@ function getLogoDay(item) {
 
     if (element.classList.contains('logotype-morning-off-time-input')) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      const timeString = element.value;
+      if (timeString[0] === '0') {
+        valueBlockData.inPortValue = timeString.slice(1);
+      } else {
+        valueBlockData.inPortValue = timeString;
+      }
       blockId = store.logoWeekNotes[currentDay.dataset.daynumber]['logotypeMorningOffTime-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
@@ -1117,7 +1202,12 @@ function getLogoDay(item) {
     // Logotypes EVENING
     if (element.classList.contains('logotype-evening-on-time-input')) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      const timeString = element.value;
+      if (timeString[0] === '0') {
+        valueBlockData.inPortValue = timeString.slice(1);
+      } else {
+        valueBlockData.inPortValue = timeString;
+      }
       blockId = store.logoWeekNotes[currentDay.dataset.daynumber]['logotypeEveningOnTime-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
@@ -1149,7 +1239,12 @@ function getLogoDay(item) {
 
     if (element.classList.contains('logotype-evening-off-time-input')) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      const timeString = element.value;
+      if (timeString[0] === '0') {
+        valueBlockData.inPortValue = timeString.slice(1);
+      } else {
+        valueBlockData.inPortValue = timeString;
+      }
       blockId = store.logoWeekNotes[currentDay.dataset.daynumber]['logotypeEveningOffTime-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
