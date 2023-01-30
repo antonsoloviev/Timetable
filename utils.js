@@ -137,11 +137,34 @@ function dateUpdate() {
   dateElement.children[2].innerHTML = year;
 }
 
+function sunsetUpdate() {
+  let sunriseNorthElement = document.querySelector('.north-table-footnote .table-footnote-sunrise');
+  let sunsetNorthElement = document.querySelector('.north-table-footnote .table-footnote-sunset');
+  let sunriseSouthElement = document.querySelector('.south-table-footnote .table-footnote-sunrise');
+  let sunsetSouthElement = document.querySelector('.south-table-footnote .table-footnote-sunset');
+  let sunriseLogoElement = document.querySelector('.logo-table-footnote .table-footnote-sunrise');
+  let sunsetLogoElement = document.querySelector('.logo-table-footnote .table-footnote-sunset');
+  
+  var times = SunCalc.getTimes(new Date(), 55.658, 37.846);
+  var sunriseStr = times.sunrise.getHours() + ':' + times.sunrise.getMinutes();
+  var sunsetStr = times.sunset.getHours() + ':' + times.sunset.getMinutes();
+
+  sunriseNorthElement.innerHTML = `(следующий в ${sunriseStr})`;
+  sunsetNorthElement.innerHTML = `(следующий в ${sunsetStr})`;
+  sunriseSouthElement.innerHTML = `(следующий в ${sunriseStr})`;
+  sunsetSouthElement.innerHTML = `(следующий в ${sunsetStr})`;
+  sunriseLogoElement.innerHTML = `(следующий в ${sunriseStr})`;
+  sunsetLogoElement.innerHTML = `(следующий в ${sunsetStr})`;
+}
+
 function clockStart() {
   let clockId = setInterval(clockUpdate, 5000);
-  let dateId = setInterval(dateUpdate, 30000)
+  let dateId = setInterval(dateUpdate, 600000);
+  let sunsetId = setInterval(dateUpdate, 600000);
+
   clockUpdate();
   dateUpdate();
+  sunsetUpdate();
 }
 
 // timeString in 'xx:xx' format
@@ -150,11 +173,11 @@ function convertTimeStringToMins(timeString) {
   let mins = Number(timeString.substring(timeString.length - 2));
   let totalMins = 0;
   if (hours < 0) {
-    totalMins = hours*60 - mins;
+    totalMins = hours * 60 - mins;
   } else {
-    totalMins = hours*60 + mins;
+    totalMins = hours * 60 + mins;
   }
-  
+
   console.log(totalMins);
   return totalMins;
 }
@@ -162,12 +185,10 @@ function convertTimeStringToMins(timeString) {
 function convertMinsToTimeString(minsValue) {
   let timeString = '';
 
-  let hours = parseInt(minsValue/60);
+  let hours = parseInt(minsValue / 60);
   let mins = (minsValue % 60)
-  console.log(hours);
-  console.log(mins);
 
-  if ((hours >= 0) & (mins >=0)){
+  if ((hours >= 0) & (mins >= 0)) {
     hours = '0' + hours;
 
   } else {
@@ -183,7 +204,7 @@ function convertMinsToTimeString(minsValue) {
     mins = '0' + mins;
   }
 
-  timeString = timeString + hours +':'+ mins;
+  timeString = timeString + hours + ':' + mins;
 
   return timeString;
 }

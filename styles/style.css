@@ -190,7 +190,7 @@ h2 {
   display: grid;
 
   grid-template-rows: repeat(16, 32px);
-  grid-template-columns: 112px 112px 112px;
+  grid-template-columns: 112px 112px 136px;
 
   gap: 0px;
   height: 100%;
@@ -355,10 +355,19 @@ h2 {
   box-shadow: 0 0 0 0.2rem var(--checked-color);
 }
 
-.table-footnote {
+.north-table-footnote,
+.south-table-footnote,
+.logo-table-footnote {
   display: flex;
   flex-direction: column;
   align-self: flex-start;
   font-size: 1.6rem;
   font-weight: 100;
+}
+
+.north-table-footnote span,
+.south-table-footnote span,
+.logo-table-footnote span{
+  font-size: 1.6rem;
+  font-weight: 400;
 }

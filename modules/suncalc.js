@@ -323,3 +323,7 @@ var times = SunCalc.getTimes(new Date(), 55.658, 37.846);
 // format sunrise time from the Date object
 var sunriseStr = times.sunrise.getHours() + ':' + times.sunrise.getMinutes();
 var sunsetStr = times.sunset.getHours() + ':' + times.sunset.getMinutes();
+
+console.log(`sunrise: ${sunriseStr}`);
+console.log(`sunset: ${sunsetStr}`);
+

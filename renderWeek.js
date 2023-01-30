@@ -873,6 +873,69 @@ function getLogoDay(item) {
   const logotypeEveningOffModeOffset = template.querySelector('input[type=radio][name*="logotype-evening-off"][value="offset"]');
   const logotypeEveningOffOffset = template.querySelector('.logotype-evening-off-offset-input');
 
+  const timeInputs = template.querySelectorAll('div.time input[type=text]');
+  const offsetInputs = template.querySelectorAll('div.offset input[type=text]');
+
+  timeInputs.forEach((input) => {
+    input.pattern = "[0-1]{1}[0-9]{1}[\:][0-5]{1}[0-9]{1}|[2]{1}[0-4]{1}[\:][0-5]{1}[0-9]{1}";
+    input.title = 'Формат ввода времени ХХ:ХХ';
+    input.onkeyup = (e) => {
+      if (e.target.value.length == 2) {
+        e.target.value += ':';
+      }
+      validate();
+    }
+   
+    function validate() {
+
+      let pattern = "[0-1]{1}[0-9]{1}[\:][0-5]{1}[0-9]{1}|[2]{1}[0-4]{1}[\:][0-5]{1}[0-9]{1}";
+      if (input.value.match(pattern)) {
+        input.classList.add("valid");
+        input.classList.remove("invalid");
+      }
+      else {
+        input.classList.remove("valid");
+        input.classList.add("invalid");
+      }
+
+      if(input.value == "") {
+        input.classList.add("valid");
+        input.classList.remove("invalid");
+      }
+      
+    }
+  });
+
+  offsetInputs.forEach((input) => {
+    input.pattern = "[0-]{1}[0-2]{1}[\:][0-5]{1}[0-9]{1}";
+    input.title = 'Формат сдвига ХХ:ХХ, не более ±02:59';
+    input.onkeyup = (e) => {
+      if (e.target.value.length == 2) {
+        e.target.value += ':';
+      }
+      validate();
+    }
+   
+    function validate() {
+
+      let pattern = "[0-]{1}[0-4]{1}[\:][0-5]{1}[0-9]{1}";
+      if (input.value.match(pattern)) {
+        input.classList.add("valid");
+        input.classList.remove("invalid");
+      }
+      else {
+        input.classList.remove("valid");
+        input.classList.add("invalid");
+      }
+
+      if(input.value == "") {
+        input.classList.add("valid");
+        input.classList.remove("invalid");
+      }
+      
+    }
+  });
+
   const lightboxMorningOnMode = item.lightboxMorningOnMode;
   const lightboxMorningOffMode = item.lightboxMorningOffMode;
   const lightboxEveningOnMode = item.lightboxEveningOnMode;
@@ -949,23 +1012,38 @@ function getLogoDay(item) {
   }
 
   dayTitle.textContent = week[dayNumber] || "";
+
   lightboxMorningOnTime.value = item.lightboxMorningOnTime || "";
-  lightboxMorningOnOffset.value = item.lightboxMorningOnOffset || "";
+  let lightboxMorningOnOffsetString = convertMinsToTimeString(item.lightboxMorningOnOffset)
+  lightboxMorningOnOffset.value = lightboxMorningOnOffsetString || "";
+
   lightboxMorningOffTime.value = item.lightboxMorningOffTime || "";
-  lightboxMorningOffOffset.value = item.lightboxMorningOffOffset || "";
+  let lightboxMorningOffOffsetString = convertMinsToTimeString(item.lightboxMorningOffOffset)
+  lightboxMorningOffOffset.value = lightboxMorningOffOffsetString || "";
+
   lightboxEveningOnTime.value = item.lightboxEveningOnTime || "";
-  lightboxEveningOnOffset.value = item.lightboxEveningOnOffset || "";
+  let lightboxEveningOnOffsetString = convertMinsToTimeString(item.lightboxEveningOnOffset)
+  lightboxEveningOnOffset.value = lightboxEveningOnOffsetString || "";
+
   lightboxEveningOffTime.value = item.lightboxEveningOffTime || "";
-  lightboxEveningOffOffset.value = item.lightboxEveningOffOffset || "";
+  let lightboxEveningOffOffsetString = convertMinsToTimeString(item.lightboxEveningOffOffset)
+  lightboxEveningOffOffset.value = lightboxEveningOffOffsetString || "";
 
   logotypeMorningOnTime.value = item.logotypeMorningOnTime || "";
-  logotypeMorningOnOffset.value = item.logotypeMorningOnOffset || "";
+  let logotypeMorningOnOffsetString = convertMinsToTimeString(item.logotypeMorningOnOffset)
+  logotypeMorningOnOffset.value = logotypeMorningOnOffsetString || "";
+
   logotypeMorningOffTime.value = item.logotypeMorningOffTime || "";
-  logotypeMorningOffOffset.value = item.logotypeMorningOffOffset || "";
+  let logotypeMorningOffOffsetString = convertMinsToTimeString(item.logotypeMorningOffOffset)
+  logotypeMorningOffOffset.value = logotypeMorningOffOffsetString || "";
+
   logotypeEveningOnTime.value = item.logotypeEveningOnTime || "";
-  logotypeEveningOnOffset.value = item.logotypeEveningOnOffset || "";
+  let logotypeEveningOnOffsetString = convertMinsToTimeString(item.logotypeEveningOnOffset)
+  logotypeEveningOnOffset.value = logotypeEveningOnOffsetString || "";
+
   logotypeEveningOffTime.value = item.logotypeEveningOffTime || "";
-  logotypeEveningOffOffset.value = item.logotypeEveningOffOffset || "";
+  let logotypeEveningOffOffsetString = convertMinsToTimeString(item.logotypeEveningOffOffset)
+  logotypeEveningOffOffset.value = logotypeEveningOffOffsetString || "";
 
   template.querySelector('.day').setAttribute('data-daynumber', dayNumber);
 
@@ -989,7 +1067,8 @@ function getLogoDay(item) {
 
     if (element.classList.contains('lightbox-morning-on-offset-input')) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      const valueInMins = convertTimeStringToMins(element.value);
+      valueBlockData.inPortValue = valueInMins;
       blockId = store.logoWeekNotes[currentDay.dataset.daynumber]['lightboxMorningOnOffset-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
@@ -1026,7 +1105,8 @@ function getLogoDay(item) {
 
     if (element.classList.contains('lightbox-morning-off-offset-input')) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      const valueInMins = convertTimeStringToMins(element.value);
+      valueBlockData.inPortValue = valueInMins;
       blockId = store.logoWeekNotes[currentDay.dataset.daynumber]['lightboxMorningOffOffset-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
@@ -1064,7 +1144,8 @@ function getLogoDay(item) {
 
     if (element.classList.contains('lightbox-evening-on-offset-input')) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      const valueInMins = convertTimeStringToMins(element.value);
+      valueBlockData.inPortValue = valueInMins;
       blockId = store.logoWeekNotes[currentDay.dataset.daynumber]['lightboxEveningOnOffset-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
@@ -1101,7 +1182,8 @@ function getLogoDay(item) {
 
     if (element.classList.contains('lightbox-evening-off-offset-input')) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      const valueInMins = convertTimeStringToMins(element.value);
+      valueBlockData.inPortValue = valueInMins;
       blockId = store.logoWeekNotes[currentDay.dataset.daynumber]['lightboxEveningOffOffset-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
@@ -1140,7 +1222,8 @@ function getLogoDay(item) {
 
     if (element.classList.contains('logotype-morning-on-offset-input')) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      const valueInMins = convertTimeStringToMins(element.value);
+      valueBlockData.inPortValue = valueInMins;
       blockId = store.logoWeekNotes[currentDay.dataset.daynumber]['logotypeMorningOnOffset-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
@@ -1177,7 +1260,8 @@ function getLogoDay(item) {
 
     if (element.classList.contains('logotype-morning-off-offset-input')) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      const valueInMins = convertTimeStringToMins(element.value);
+      valueBlockData.inPortValue = valueInMins;
       blockId = store.logoWeekNotes[currentDay.dataset.daynumber]['logotypeMorningOffOffset-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
@@ -1215,7 +1299,8 @@ function getLogoDay(item) {
 
     if (element.classList.contains('logotype-evening-on-offset-input')) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      const valueInMins = convertTimeStringToMins(element.value);
+      valueBlockData.inPortValue = valueInMins;
       blockId = store.logoWeekNotes[currentDay.dataset.daynumber]['logotypeEveningOnOffset-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
@@ -1252,7 +1337,8 @@ function getLogoDay(item) {
 
     if (element.classList.contains('logotype-evening-off-offset-input')) {
       const valueBlockData = {};
-      valueBlockData.inPortValue = element.value;
+      const valueInMins = convertTimeStringToMins(element.value);
+      valueBlockData.inPortValue = valueInMins;
       blockId = store.logoWeekNotes[currentDay.dataset.daynumber]['logotypeEveningOffOffset-id'];
       url = apiUrl + "workflow/blocks/values/" + blockId;
       putData(url, valueBlockData).catch(error => alert("An error occurred: Message = " + error.message));
