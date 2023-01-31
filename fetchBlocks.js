@@ -54,6 +54,26 @@ function getLogoDayBlocks(day) {
   return logoDayBlocks;
 }
 
+function getAlarmBlocks() {
+  const alarmBlocks = store.blockNotes.filter((item) => {
+    return item.displayName.startsWith("Alarm");
+  });
+  return alarmBlocks;
+}
+
+function alarmBlockstoStore() {
+  store.alarmNotes = [];
+  const alarmBlocks = getAlarmBlocks();
+  alarmBlocks.forEach((block, index) => {
+    const name = block.displayName;
+    const id = `${name}-id`;
+    const alarmObj = {};
+    alarmObj[name] = block.outPortValue;
+    alarmObj[id] = block.id;
+    store.alarmNotes.push(alarmObj);
+  })
+}
+
 function colorBlockstoStore() {
   store.colorNotes = [];
   const colorBlocks = getColorBlocks();
@@ -136,6 +156,7 @@ function logoBlocksToStorebyDay(day) {
 
 function saveBlocksToStore() {
   colorBlockstoStore();
+  alarmBlockstoStore();
   homeBlockstoStore();
   weekEng.forEach((day) => {
     southBlocksToStorebyDay(day);

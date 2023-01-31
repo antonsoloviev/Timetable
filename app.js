@@ -13,7 +13,8 @@ window.addEventListener('load', async (event) => {
   renderSouthWeek(window.store.southWeekNotes);
   renderLogoWeek(window.store.logoWeekNotes);
 
-  fetchModeStart()
+  fetchModeStart();
+  fetchEmergencyStart();
 
 });
 

@@ -550,22 +550,6 @@ function getNorthDay(item) {
     closingTime.disabled = true;
   }
 
-  // dayTitle.textContent = week[dayNumber] || "";
-  // nightTime.value = item.nightTime || "";
-  // nightOffset.value = item.nightOffset || "";
-  // nightScene.value = item.nightScene || "";
-  // morningTime.value = item.morningTime || "";
-  // morningOffset.value = item.morningOffset || "";
-  // morningScene.value = item.morningScene || "";
-  // daytimeTime.value = item.daytimeTime || "";
-  // daytimeOffset.value = item.daytimeOffset || "";
-  // eveningTime.value = item.eveningTime || "";
-  // eveningOffset.value = item.eveningOffset || "";
-  // eveningScene.value = item.eveningScene || "";
-  // closingTime.value = item.closingTime || "";
-  // closingOffset.value = item.closingOffset || "";
-  // closingScene.value = item.closingScene || "";
-
   dayTitle.textContent = week[dayNumber] || "";
   nightTime.value = item.nightTime || "";
   let nightOffsetTimeString = convertMinsToTimeString(item.nightOffset)

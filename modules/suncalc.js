@@ -320,9 +320,17 @@ else window.SunCalc = SunCalc;
 // 55.65822077809536, 37.84650383555191
 var times = SunCalc.getTimes(new Date(), 55.658, 37.846);
 
+function addZero(i) {
+    if (i < 10) {i = "0" + i}
+    return i;
+  }
+  
+//   let h = addZero(d.getHours());
+//   let m = addZero(d.getMinutes());
+
 // format sunrise time from the Date object
-var sunriseStr = times.sunrise.getHours() + ':' + times.sunrise.getMinutes();
-var sunsetStr = times.sunset.getHours() + ':' + times.sunset.getMinutes();
+var sunriseStr = addZero(times.sunrise.getHours()) + ':' + addZero(times.sunrise.getMinutes());
+var sunsetStr = addZero(times.sunset.getHours()) + ':' + addZero(times.sunset.getMinutes());
 
 console.log(`sunrise: ${sunriseStr}`);
 console.log(`sunset: ${sunsetStr}`);

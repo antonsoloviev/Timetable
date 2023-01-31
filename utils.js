@@ -146,8 +146,8 @@ function sunsetUpdate() {
   let sunsetLogoElement = document.querySelector('.logo-table-footnote .table-footnote-sunset');
   
   var times = SunCalc.getTimes(new Date(), 55.658, 37.846);
-  var sunriseStr = times.sunrise.getHours() + ':' + times.sunrise.getMinutes();
-  var sunsetStr = times.sunset.getHours() + ':' + times.sunset.getMinutes();
+  var sunriseStr = addZero(times.sunrise.getHours()) + ':' + addZero(times.sunrise.getMinutes());
+  var sunsetStr = addZero(times.sunset.getHours()) + ':' + addZero(times.sunset.getMinutes());
 
   sunriseNorthElement.innerHTML = `(следующий в ${sunriseStr})`;
   sunsetNorthElement.innerHTML = `(следующий в ${sunsetStr})`;
@@ -159,12 +159,14 @@ function sunsetUpdate() {
 
 function clockStart() {
   let clockId = setInterval(clockUpdate, 5000);
-  let dateId = setInterval(dateUpdate, 600000);
-  let sunsetId = setInterval(dateUpdate, 600000);
+  let dateId = setInterval(dateUpdate, 60000);
+  let sunsetId = setInterval(dateUpdate, 3600000);
+  let authorizeId = setInterval(authorizeAutomatic, 1800000);
 
   clockUpdate();
   dateUpdate();
   sunsetUpdate();
+  authorizeAutomatic();
 }
 
 // timeString in 'xx:xx' format
