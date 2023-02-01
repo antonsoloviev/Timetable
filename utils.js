@@ -145,7 +145,7 @@ function sunsetUpdate() {
   let sunriseLogoElement = document.querySelector('.logo-table-footnote .table-footnote-sunrise');
   let sunsetLogoElement = document.querySelector('.logo-table-footnote .table-footnote-sunset');
   
-  var times = SunCalc.getTimes(new Date(), 55.658, 37.846);
+  var times = SunCalc.getTimes(new Date(), 55.46, 37.40);
   var sunriseStr = addZero(times.sunrise.getHours()) + ':' + addZero(times.sunrise.getMinutes());
   var sunsetStr = addZero(times.sunset.getHours()) + ':' + addZero(times.sunset.getMinutes());
 

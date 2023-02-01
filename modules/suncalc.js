@@ -318,7 +318,7 @@ else window.SunCalc = SunCalc;
 
 // get today's sunlight times in MEGA BD
 // 55.65822077809536, 37.84650383555191
-var times = SunCalc.getTimes(new Date(), 55.658, 37.846);
+var times = SunCalc.getTimes(new Date(), 55.46, 37.40);
 
 function addZero(i) {
     if (i < 10) {i = "0" + i}

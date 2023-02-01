@@ -87,67 +87,129 @@ async function fetchEmergencyUpdate() {
   });
   const block_DMX_SB5_id = block_DMX_SB5["Alarm_DMX_SB#5-id"];
 
-// Alarm_NB_SHUFO-1
-const block_SHUFO_NB1 = store.alarmNotes.find((item) => {
-  return item.hasOwnProperty('Alarm_NB_SHUFO-1-id');
-});
-const block_SHUFO_NB1_id = block_SHUFO_NB1["Alarm_NB_SHUFO-1-id"];
+  // Alarm_Relay_NB#1
+  const block_Relay_NB1 = store.alarmNotes.find((item) => {
+    return item.hasOwnProperty('Alarm_Relay_NB#1-id');
+  });
+  const block_Relay_NB1_id = block_Relay_NB1["Alarm_Relay_NB#1-id"];
 
-const block_SHUFO_NB2 = store.alarmNotes.find((item) => {
-  return item.hasOwnProperty('Alarm_NB_SHUFO-2-id');
-});
-const block_SHUFO_NB2_id = block_SHUFO_NB2["Alarm_NB_SHUFO-2-id"];
+  const block_Relay_NB2 = store.alarmNotes.find((item) => {
+    return item.hasOwnProperty('Alarm_Relay_NB#2-id');
+  });
+  const block_Relay_NB2_id = block_Relay_NB2["Alarm_Relay_NB#2-id"];
 
-const block_SHUFO_NB3 = store.alarmNotes.find((item) => {
-  return item.hasOwnProperty('Alarm_NB_SHUFO-3-id');
-});
-const block_SHUFO_NB3_id = block_SHUFO_NB3["Alarm_NB_SHUFO-3-id"];
+  const block_Relay_NB3 = store.alarmNotes.find((item) => {
+    return item.hasOwnProperty('Alarm_Relay_NB#3-id');
+  });
+  const block_Relay_NB3_id = block_Relay_NB3["Alarm_Relay_NB#3-id"];
 
-const block_SHUFO_NB4 = store.alarmNotes.find((item) => {
-  return item.hasOwnProperty('Alarm_NB_SHUFO-4-id');
-});
-const block_SHUFO_NB4_id = block_SHUFO_NB4["Alarm_NB_SHUFO-4-id"];
+  const block_Relay_NB4 = store.alarmNotes.find((item) => {
+    return item.hasOwnProperty('Alarm_Relay_NB#4-id');
+  });
+  const block_Relay_NB4_id = block_Relay_NB4["Alarm_Relay_NB#4-id"];
 
-const block_SHUFO_NB5 = store.alarmNotes.find((item) => {
-  return item.hasOwnProperty('Alarm_NB_SHUFO-5-id');
-});
-const block_SHUFO_NB5_id = block_SHUFO_NB5["Alarm_NB_SHUFO-5-id"];
+  const block_Relay_NB5 = store.alarmNotes.find((item) => {
+    return item.hasOwnProperty('Alarm_Relay_NB#5-id');
+  });
+  const block_Relay_NB5_id = block_Relay_NB5["Alarm_Relay_NB#5-id"];
 
-const block_SHUFO_NB6 = store.alarmNotes.find((item) => {
-  return item.hasOwnProperty('Alarm_NB_SHUFO-6-id');
-});
-const block_SHUFO_NB6_id = block_SHUFO_NB6["Alarm_NB_SHUFO-6-id"];
+  const block_Relay_NB6 = store.alarmNotes.find((item) => {
+    return item.hasOwnProperty('Alarm_Relay_NB#6-id');
+  });
+  const block_Relay_NB6_id = block_Relay_NB6["Alarm_Relay_NB#6-id"];
 
-const block_SHUFO_NB7 = store.alarmNotes.find((item) => {
-  return item.hasOwnProperty('Alarm_NB_SHUFO-7-id');
-});
-const block_SHUFO_NB7_id = block_SHUFO_NB7["Alarm_NB_SHUFO-7-id"];
+  const block_Relay_NB7 = store.alarmNotes.find((item) => {
+    return item.hasOwnProperty('Alarm_Relay_NB#7-id');
+  });
+  const block_Relay_NB7_id = block_Relay_NB7["Alarm_Relay_NB#7-id"];
 
-// Alarm_SB_SHUFO-1
-const block_SHUFO_SB1 = store.alarmNotes.find((item) => {
-  return item.hasOwnProperty('Alarm_SB_SHUFO-1-id');
-});
-const block_SHUFO_SB1_id = block_SHUFO_SB1["Alarm_SB_SHUFO-1-id"];
+  // Alarm_Relay_SB#1
+  const block_Relay_SB1 = store.alarmNotes.find((item) => {
+    return item.hasOwnProperty('Alarm_Relay_SB#1-id');
+  });
+  const block_Relay_SB1_id = block_Relay_SB1["Alarm_Relay_SB#1-id"];
 
-const block_SHUFO_SB2 = store.alarmNotes.find((item) => {
-  return item.hasOwnProperty('Alarm_SB_SHUFO-2-id');
-});
-const block_SHUFO_SB2_id = block_SHUFO_SB2["Alarm_SB_SHUFO-2-id"];
+  const block_Relay_SB2 = store.alarmNotes.find((item) => {
+    return item.hasOwnProperty('Alarm_Relay_SB#2-id');
+  });
+  const block_Relay_SB2_id = block_Relay_SB2["Alarm_Relay_SB#2-id"];
 
-const block_SHUFO_SB3 = store.alarmNotes.find((item) => {
-  return item.hasOwnProperty('Alarm_SB_SHUFO-3-id');
-});
-const block_SHUFO_SB3_id = block_SHUFO_SB3["Alarm_SB_SHUFO-3-id"];
+  const block_Relay_SB3 = store.alarmNotes.find((item) => {
+    return item.hasOwnProperty('Alarm_Relay_SB#3-id');
+  });
+  const block_Relay_SB3_id = block_Relay_SB3["Alarm_Relay_SB#3-id"];
 
-const block_SHUFO_SB4 = store.alarmNotes.find((item) => {
-  return item.hasOwnProperty('Alarm_SB_SHUFO-4-id');
-});
-const block_SHUFO_SB4_id = block_SHUFO_SB4["Alarm_SB_SHUFO-4-id"];
+  const block_Relay_SB4 = store.alarmNotes.find((item) => {
+    return item.hasOwnProperty('Alarm_Relay_SB#4-id');
+  });
+  const block_Relay_SB4_id = block_Relay_SB4["Alarm_Relay_SB#4-id"];
 
-const block_SHUFO_SB5 = store.alarmNotes.find((item) => {
-  return item.hasOwnProperty('Alarm_SB_SHUFO-5-id');
-});
-const block_SHUFO_SB5_id = block_SHUFO_SB5["Alarm_SB_SHUFO-5-id"];
+  const block_Relay_SB5 = store.alarmNotes.find((item) => {
+    return item.hasOwnProperty('Alarm_Relay_SB#5-id');
+  });
+  const block_Relay_SB5_id = block_Relay_SB5["Alarm_Relay_SB#5-id"];
+
+  // Alarm_NB_SHUFO-1
+  const block_SHUFO_NB1 = store.alarmNotes.find((item) => {
+    return item.hasOwnProperty('Alarm_NB_SHUFO-1-id');
+  });
+  const block_SHUFO_NB1_id = block_SHUFO_NB1["Alarm_NB_SHUFO-1-id"];
+
+  const block_SHUFO_NB2 = store.alarmNotes.find((item) => {
+    return item.hasOwnProperty('Alarm_NB_SHUFO-2-id');
+  });
+  const block_SHUFO_NB2_id = block_SHUFO_NB2["Alarm_NB_SHUFO-2-id"];
+
+  const block_SHUFO_NB3 = store.alarmNotes.find((item) => {
+    return item.hasOwnProperty('Alarm_NB_SHUFO-3-id');
+  });
+  const block_SHUFO_NB3_id = block_SHUFO_NB3["Alarm_NB_SHUFO-3-id"];
+
+  const block_SHUFO_NB4 = store.alarmNotes.find((item) => {
+    return item.hasOwnProperty('Alarm_NB_SHUFO-4-id');
+  });
+  const block_SHUFO_NB4_id = block_SHUFO_NB4["Alarm_NB_SHUFO-4-id"];
+
+  const block_SHUFO_NB5 = store.alarmNotes.find((item) => {
+    return item.hasOwnProperty('Alarm_NB_SHUFO-5-id');
+  });
+  const block_SHUFO_NB5_id = block_SHUFO_NB5["Alarm_NB_SHUFO-5-id"];
+
+  const block_SHUFO_NB6 = store.alarmNotes.find((item) => {
+    return item.hasOwnProperty('Alarm_NB_SHUFO-6-id');
+  });
+  const block_SHUFO_NB6_id = block_SHUFO_NB6["Alarm_NB_SHUFO-6-id"];
+
+  const block_SHUFO_NB7 = store.alarmNotes.find((item) => {
+    return item.hasOwnProperty('Alarm_NB_SHUFO-7-id');
+  });
+  const block_SHUFO_NB7_id = block_SHUFO_NB7["Alarm_NB_SHUFO-7-id"];
+
+  // Alarm_SB_SHUFO-1
+  const block_SHUFO_SB1 = store.alarmNotes.find((item) => {
+    return item.hasOwnProperty('Alarm_SB_SHUFO-1-id');
+  });
+  const block_SHUFO_SB1_id = block_SHUFO_SB1["Alarm_SB_SHUFO-1-id"];
+
+  const block_SHUFO_SB2 = store.alarmNotes.find((item) => {
+    return item.hasOwnProperty('Alarm_SB_SHUFO-2-id');
+  });
+  const block_SHUFO_SB2_id = block_SHUFO_SB2["Alarm_SB_SHUFO-2-id"];
+
+  const block_SHUFO_SB3 = store.alarmNotes.find((item) => {
+    return item.hasOwnProperty('Alarm_SB_SHUFO-3-id');
+  });
+  const block_SHUFO_SB3_id = block_SHUFO_SB3["Alarm_SB_SHUFO-3-id"];
+
+  const block_SHUFO_SB4 = store.alarmNotes.find((item) => {
+    return item.hasOwnProperty('Alarm_SB_SHUFO-4-id');
+  });
+  const block_SHUFO_SB4_id = block_SHUFO_SB4["Alarm_SB_SHUFO-4-id"];
+
+  const block_SHUFO_SB5 = store.alarmNotes.find((item) => {
+    return item.hasOwnProperty('Alarm_SB_SHUFO-5-id');
+  });
+  const block_SHUFO_SB5_id = block_SHUFO_SB5["Alarm_SB_SHUFO-5-id"];
 
   let block_DMX_NB1State = await getValueBlockOutportDataById(block_DMX_NB1_id);
   let block_DMX_NB2State = await getValueBlockOutportDataById(block_DMX_NB2_id);
@@ -163,6 +225,20 @@ const block_SHUFO_SB5_id = block_SHUFO_SB5["Alarm_SB_SHUFO-5-id"];
   let block_DMX_SB4State = await getValueBlockOutportDataById(block_DMX_SB4_id);
   let block_DMX_SB5State = await getValueBlockOutportDataById(block_DMX_SB5_id);
 
+  let block_Relay_NB1State = await getValueBlockOutportDataById(block_Relay_NB1_id);
+  let block_Relay_NB2State = await getValueBlockOutportDataById(block_Relay_NB2_id);
+  let block_Relay_NB3State = await getValueBlockOutportDataById(block_Relay_NB3_id);
+  let block_Relay_NB4State = await getValueBlockOutportDataById(block_Relay_NB4_id);
+  let block_Relay_NB5State = await getValueBlockOutportDataById(block_Relay_NB5_id);
+  let block_Relay_NB6State = await getValueBlockOutportDataById(block_Relay_NB6_id);
+  let block_Relay_NB7State = await getValueBlockOutportDataById(block_Relay_NB7_id);
+
+  let block_Relay_SB1State = await getValueBlockOutportDataById(block_Relay_SB1_id);
+  let block_Relay_SB2State = await getValueBlockOutportDataById(block_Relay_SB2_id);
+  let block_Relay_SB3State = await getValueBlockOutportDataById(block_Relay_SB3_id);
+  let block_Relay_SB4State = await getValueBlockOutportDataById(block_Relay_SB4_id);
+  let block_Relay_SB5State = await getValueBlockOutportDataById(block_Relay_SB5_id);
+
   let block_SHUFO_NB1State = await getValueBlockOutportDataById(block_SHUFO_NB1_id);
   let block_SHUFO_NB2State = await getValueBlockOutportDataById(block_SHUFO_NB2_id);
   let block_SHUFO_NB3State = await getValueBlockOutportDataById(block_SHUFO_NB3_id);
@@ -177,19 +253,19 @@ const block_SHUFO_SB5_id = block_SHUFO_SB5["Alarm_SB_SHUFO-5-id"];
   let block_SHUFO_SB4State = await getValueBlockOutportDataById(block_SHUFO_SB4_id);
   let block_SHUFO_SB5State = await getValueBlockOutportDataById(block_SHUFO_SB5_id);
 
-  (block_DMX_NB1State === '204;') ? (northShufo_1_controller.classList.add('_bg-red')) : (northShufo_1_controller.classList.remove('_bg-red'));
-  (block_DMX_NB2State === '206;') ? (northShufo_2_controller.classList.add('_bg-red')) : (northShufo_2_controller.classList.remove('_bg-red'));
-  (block_DMX_NB3State === '208;') ? (northShufo_3_controller.classList.add('_bg-red')) : (northShufo_3_controller.classList.remove('_bg-red'));
-  (block_DMX_NB4State === '210;') ? (northShufo_4_controller.classList.add('_bg-red')) : (northShufo_4_controller.classList.remove('_bg-red'));
-  (block_DMX_NB5State === '212;') ? (northShufo_5_controller.classList.add('_bg-red')) : (northShufo_5_controller.classList.remove('_bg-red'));
-  (block_DMX_NB6State === '214;') ? (northShufo_6_controller.classList.add('_bg-red')) : (northShufo_6_controller.classList.remove('_bg-red'));
-  (block_DMX_NB7State === '216;') ? (northShufo_7_controller.classList.add('_bg-red')) : (northShufo_7_controller.classList.remove('_bg-red'));
+  (block_DMX_NB1State === '204;') || (block_Relay_NB1State === '218;') ? (northShufo_1_controller.classList.add('_bg-red')) : (northShufo_1_controller.classList.remove('_bg-red'));
+  (block_DMX_NB2State === '206;') || (block_Relay_NB2State === '220;') ? (northShufo_2_controller.classList.add('_bg-red')) : (northShufo_2_controller.classList.remove('_bg-red'));
+  (block_DMX_NB3State === '208;') || (block_Relay_NB3State === '222;') ? (northShufo_3_controller.classList.add('_bg-red')) : (northShufo_3_controller.classList.remove('_bg-red'));
+  (block_DMX_NB4State === '210;') || (block_Relay_NB4State === '224;') ? (northShufo_4_controller.classList.add('_bg-red')) : (northShufo_4_controller.classList.remove('_bg-red'));
+  (block_DMX_NB5State === '212;') || (block_Relay_NB5State === '226;') ? (northShufo_5_controller.classList.add('_bg-red')) : (northShufo_5_controller.classList.remove('_bg-red'));
+  (block_DMX_NB6State === '214;') || (block_Relay_NB6State === '228;') ? (northShufo_6_controller.classList.add('_bg-red')) : (northShufo_6_controller.classList.remove('_bg-red'));
+  (block_DMX_NB7State === '216;') || (block_Relay_NB7State === '230;') ? (northShufo_7_controller.classList.add('_bg-red')) : (northShufo_7_controller.classList.remove('_bg-red'));
 
-  (block_DMX_SB1State === '232;') ? (southShufo_1_controller.classList.add('_bg-red')) : (southShufo_1_controller.classList.remove('_bg-red'));
-  (block_DMX_SB2State === '234;') ? (southShufo_2_controller.classList.add('_bg-red')) : (southShufo_2_controller.classList.remove('_bg-red'));
-  (block_DMX_SB3State === '236;') ? (southShufo_3_controller.classList.add('_bg-red')) : (southShufo_3_controller.classList.remove('_bg-red'));
-  (block_DMX_SB4State === '238;') ? (southShufo_4_controller.classList.add('_bg-red')) : (southShufo_4_controller.classList.remove('_bg-red'));
-  (block_DMX_SB5State === '240;') ? (southShufo_5_controller.classList.add('_bg-red')) : (southShufo_5_controller.classList.remove('_bg-red'));
+  (block_DMX_SB1State === '232;') || (block_Relay_SB1State === '242;') ? (southShufo_1_controller.classList.add('_bg-red')) : (southShufo_1_controller.classList.remove('_bg-red'));
+  (block_DMX_SB2State === '234;') || (block_Relay_SB2State === '244;') ? (southShufo_2_controller.classList.add('_bg-red')) : (southShufo_2_controller.classList.remove('_bg-red'));
+  (block_DMX_SB3State === '236;') || (block_Relay_SB3State === '246;') ? (southShufo_3_controller.classList.add('_bg-red')) : (southShufo_3_controller.classList.remove('_bg-red'));
+  (block_DMX_SB4State === '238;') || (block_Relay_SB4State === '248;') ? (southShufo_4_controller.classList.add('_bg-red')) : (southShufo_4_controller.classList.remove('_bg-red'));
+  (block_DMX_SB5State === '240;') || (block_Relay_SB5State === '250;') ? (southShufo_5_controller.classList.add('_bg-red')) : (southShufo_5_controller.classList.remove('_bg-red'));
 
   (block_SHUFO_NB1State === '252;') ? (northShufo_1_luminaire.classList.add('_bg-red')) : (northShufo_1_luminaire.classList.remove('_bg-red'));
   (block_SHUFO_NB2State === '254;') ? (northShufo_2_luminaire.classList.add('_bg-red')) : (northShufo_2_luminaire.classList.remove('_bg-red'));
@@ -204,7 +280,7 @@ const block_SHUFO_SB5_id = block_SHUFO_SB5["Alarm_SB_SHUFO-5-id"];
   (block_SHUFO_SB3State === '270;') ? (southShufo_3_luminaire.classList.add('_bg-red')) : (southShufo_3_luminaire.classList.remove('_bg-red'));
   (block_SHUFO_SB4State === '272;') ? (southShufo_4_luminaire.classList.add('_bg-red')) : (southShufo_4_luminaire.classList.remove('_bg-red'));
   (block_SHUFO_SB5State === '274;') ? (southShufo_5_luminaire.classList.add('_bg-red')) : (southShufo_5_luminaire.classList.remove('_bg-red'));
-  
+
   console.log('fetchEmergency done');
 
 }
