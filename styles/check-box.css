@@ -32,3 +32,24 @@ input[type="radio"] {
   background-color: var(--checked-color);
   border-width: 0.4rem;
 }
+
+.button-save-north-to-file>span,
+.button-restore-north-from-file>span,
+.button-save-south-to-file>span,
+.button-restore-south-from-file>span,
+.button-save-logo-to-file>span,
+.button-restore-logo-from-file>span {
+	color: black;
+}
+
+.button-save-north-to-file:hover,
+.button-save-south-to-file:hover,
+.button-save-logo-to-file:hover {
+	background-color: var(--color-light-green);
+}
+
+.button-restore-north-from-file:hover,
+.button-restore-south-from-file:hover,
+.button-restore-logo-from-file:hover {
+	background-color: var(--hover-light-color);
+}

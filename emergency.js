@@ -286,6 +286,5 @@ async function fetchEmergencyUpdate() {
 }
 
 function fetchEmergencyStart() {
-  fetchEmergencyId = setInterval(fetchEmergencyUpdate, 5000);
-
+  fetchEmergencyUpdateId = setInterval(fetchEmergencyUpdate, 5000);
 }

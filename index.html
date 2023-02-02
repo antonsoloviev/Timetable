@@ -29,6 +29,7 @@
 
 <body>
   <div class="page-wrapper">
+
     <header class="header">
       <div class="header-container">
         <div class="header-logo">
@@ -69,6 +70,7 @@
       </div>
     </header>
 
+    <!-- HOME -->
     <section id="home" class="section home">
       <div class="container">
         <div class="dev-api">
@@ -93,7 +95,7 @@
             </div> -->
         </div>
         <h1>УПРАВЛЕНИЕ ФАСАДНЫМ ОСВЕЩЕНИЕМ</h1>
-        <button class="button button-manual-mode" aria-pressed="false">Включить ручной режим</button>
+        <button class="button button-manual-mode" aria-pressed="false">Ручной режим уравления</button>
         <div class="block-container">
           <div class="block home-south-block">
             <div class="block__title south-block__title">
@@ -147,6 +149,7 @@
       </div>
     </section>
 
+    <!-- NORTH -->
     <section id="north-mall" class="section">
       <div class="container">
         <h1>ФАСАД СЕВЕРНОГО МОЛА</h1>
@@ -176,16 +179,29 @@
           </div>
         </div>
         <div class="north-table-footnote">
-          <p>Астро восход 🌄 - сдвиг относительно времени восхода солнца
-            <span class="table-footnote-sunrise">next sunrise</span>
-          </p>
-          <p>Астро заход 🌇- сдвиг относительно времени захода солнца
-            <span class="table-footnote-sunset">next sunrise</span>
-          </p>
+          <div class="north-table-footnote__text">
+            <p>Астро восход 🌄 - сдвиг относительно времени восхода солнца
+              <span class="table-footnote-sunrise">next sunrise</span>
+            </p>
+            <p>Астро заход 🌇- сдвиг относительно времени захода солнца
+              <span class="table-footnote-sunset">next sunrise</span>
+            </p>
+          </div>
+          <div class="north-table-footnote__buttons">
+            <button class="button button-save-north-to-file" title="Сохранить расписание в файл .txt в папку Загрузки">
+              <span>Сохранить в файл</span>
+            </button>
+            <button class="button button-restore-north-from-file" title="Восстановить расписание из файла .txt">
+              Восстановить из файла
+            </button>
+          </div>
+
         </div>
       </div>
+
     </section>
 
+    <!-- SOUTH -->
     <section id="south-mall" class="section">
       <div class="container">
         <h1>ФАСАД ЮЖНОГО МОЛА</h1>
@@ -215,16 +231,27 @@
           </div>
         </div>
         <div class="south-table-footnote">
-          <p>Астро восход 🌄 - сдвиг относительно времени восхода солнца
-            <span class="table-footnote-sunrise">next sunrise</span>
-          </p>
-          <p>Астро заход 🌇- сдвиг относительно времени захода солнца
-            <span class="table-footnote-sunset">next sunrise</span>
-          </p>
+          <div class="south-table-footnote__text">
+            <p>Астро восход 🌄 - сдвиг относительно времени восхода солнца
+              <span class="table-footnote-sunrise">next sunrise</span>
+            </p>
+            <p>Астро заход 🌇- сдвиг относительно времени захода солнца
+              <span class="table-footnote-sunset">next sunrise</span>
+            </p>
+          </div>
+          <div class="south-table-footnote__buttons">
+            <button class="button button-save-south-to-file" title="Сохранить расписание в файл .txt в папку Загрузки">
+              <span>Сохранить в файл</span>
+            </button>
+            <button class="button button-restore-south-from-file" title="Восстановить расписание из файла .txt">
+              Восстановить из файла
+            </button>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- LOGO -->
     <section id="logotypes" class="section">
       <div class="container">
         <h1>КОРОБ И ЛОГОТИПЫ</h1>
@@ -258,16 +285,27 @@
           </div>
         </div>
         <div class="logo-table-footnote">
-          <p>Вкл./Выкл. Астро🌄 - сдвиг относительно времени восхода солнца
-            <span class="table-footnote-sunrise">next sunrise</span>
-          </p>
-          <p>Вкл./Выкл. Астро 🌇- сдвиг относительно времени захода солнца
-            <span class="table-footnote-sunset">next sunrise</span>
-          </p>
+          <div class="logo-table-footnote__text">
+            <p>Астро восход 🌄 - сдвиг относительно времени восхода солнца
+              <span class="table-footnote-sunrise">next sunrise</span>
+            </p>
+            <p>Астро заход 🌇- сдвиг относительно времени захода солнца
+              <span class="table-footnote-sunset">next sunrise</span>
+            </p>
+          </div>
+          <div class="logo-table-footnote__buttons">
+            <button class="button button-save-logo-to-file" title="Сохранить расписание в файл .txt в папку Загрузки">
+              <span>Сохранить в файл</span>
+            </button>
+            <button class="button button-restore-logo-from-file" title="Восстановить расписание из файла .txt">
+              Восстановить из файла
+            </button>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- COLOR -->
     <section id="color-palette" class="section">
       <div class="container">
         <div class="palette-container">
@@ -347,6 +385,7 @@
       </div>
     </section>
 
+    <!-- EMERGENCY -->
     <section id="emergency" class="section">
       <div class="container">
         <h1>АВАРИЙНЫЕ СИГНАЛЫ</h1>
@@ -428,7 +467,7 @@
                 <div class="controller">Контроллер</div>
                 <div class="schufo">ЩУФО-7</div>
               </div>
-              
+
             </div>
           </div>
         </div>
@@ -628,7 +667,6 @@
   <!-- <script type="module" src="./app.js"></script> -->
 
   <script src="utils.js"></script>
-
   <!-- <script src="dev-api.js"></script> -->
   <script src="store.js"></script>
   <script src="fetchBlocks.js"></script>
@@ -640,8 +678,7 @@
   <script src="./modules/colorpicker-start.js"></script>
   <script src="./modules/suncalc.js"></script>
   <script src="emergency.js"></script>
-
-
+  <script src="save-read.js"></script>
 
 </body>
 

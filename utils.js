@@ -144,17 +144,17 @@ function sunsetUpdate() {
   let sunsetSouthElement = document.querySelector('.south-table-footnote .table-footnote-sunset');
   let sunriseLogoElement = document.querySelector('.logo-table-footnote .table-footnote-sunrise');
   let sunsetLogoElement = document.querySelector('.logo-table-footnote .table-footnote-sunset');
-  
+
   var times = SunCalc.getTimes(new Date(), 55.46, 37.40);
   var sunriseStr = addZero(times.sunrise.getHours()) + ':' + addZero(times.sunrise.getMinutes());
   var sunsetStr = addZero(times.sunset.getHours()) + ':' + addZero(times.sunset.getMinutes());
 
-  sunriseNorthElement.innerHTML = `(следующий в ${sunriseStr})`;
-  sunsetNorthElement.innerHTML = `(следующий в ${sunsetStr})`;
-  sunriseSouthElement.innerHTML = `(следующий в ${sunriseStr})`;
-  sunsetSouthElement.innerHTML = `(следующий в ${sunsetStr})`;
-  sunriseLogoElement.innerHTML = `(следующий в ${sunriseStr})`;
-  sunsetLogoElement.innerHTML = `(следующий в ${sunsetStr})`;
+  sunriseNorthElement.innerHTML = `(следующий восход: ${sunriseStr})`;
+  sunsetNorthElement.innerHTML = `(следующий заход: ${sunsetStr})`;
+  sunriseSouthElement.innerHTML = `(следующий восход: ${sunriseStr})`;
+  sunsetSouthElement.innerHTML = `(следующий заход: ${sunsetStr})`;
+  sunriseLogoElement.innerHTML = `(следующий восход: ${sunriseStr})`;
+  sunsetLogoElement.innerHTML = `(следующий заход: ${sunsetStr})`;
 }
 
 function clockStart() {
@@ -210,3 +210,4 @@ function convertMinsToTimeString(minsValue) {
 
   return timeString;
 }
+

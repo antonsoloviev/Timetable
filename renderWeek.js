@@ -53,7 +53,7 @@ function getSouthDay(item) {
       }
       validate();
     }
-   
+
     function validate() {
 
       let pattern = "[0-1]{1}[0-9]{1}[\:][0-5]{1}[0-9]{1}|[2]{1}[0-4]{1}[\:][0-5]{1}[0-9]{1}";
@@ -66,7 +66,7 @@ function getSouthDay(item) {
         input.classList.add("invalid");
       }
 
-      if(input.value == "") {
+      if (input.value == "") {
         input.classList.add("valid");
         input.classList.remove("invalid");
       }
@@ -82,7 +82,7 @@ function getSouthDay(item) {
       }
       validate();
     }
-   
+
     function validate() {
 
       let pattern = "[0-]{1}[0-4]{1}[\:][0-5]{1}[0-9]{1}";
@@ -95,11 +95,11 @@ function getSouthDay(item) {
         input.classList.add("invalid");
       }
 
-      if(input.value == "") {
+      if (input.value == "") {
         input.classList.add("valid");
         input.classList.remove("invalid");
       }
-      
+
     }
   });
 
@@ -453,7 +453,7 @@ function getNorthDay(item) {
       }
       validate();
     }
-   
+
     function validate() {
 
       let pattern = "[0-1]{1}[0-9]{1}[\:][0-5]{1}[0-9]{1}|[2]{1}[0-4]{1}[\:][0-5]{1}[0-9]{1}";
@@ -466,11 +466,11 @@ function getNorthDay(item) {
         input.classList.add("invalid");
       }
 
-      if(input.value == "") {
+      if (input.value == "") {
         input.classList.add("valid");
         input.classList.remove("invalid");
       }
-      
+
     }
   });
 
@@ -483,7 +483,7 @@ function getNorthDay(item) {
       }
       validate();
     }
-   
+
     function validate() {
 
       let pattern = "[0-]{1}[0-4]{1}[\:][0-5]{1}[0-9]{1}";
@@ -496,11 +496,11 @@ function getNorthDay(item) {
         input.classList.add("invalid");
       }
 
-      if(input.value == "") {
+      if (input.value == "") {
         input.classList.add("valid");
         input.classList.remove("invalid");
       }
-      
+
     }
   });
 
@@ -869,7 +869,7 @@ function getLogoDay(item) {
       }
       validate();
     }
-   
+
     function validate() {
 
       let pattern = "[0-1]{1}[0-9]{1}[\:][0-5]{1}[0-9]{1}|[2]{1}[0-4]{1}[\:][0-5]{1}[0-9]{1}";
@@ -882,11 +882,11 @@ function getLogoDay(item) {
         input.classList.add("invalid");
       }
 
-      if(input.value == "") {
+      if (input.value == "") {
         input.classList.add("valid");
         input.classList.remove("invalid");
       }
-      
+
     }
   });
 
@@ -899,7 +899,7 @@ function getLogoDay(item) {
       }
       validate();
     }
-   
+
     function validate() {
 
       let pattern = "[0-]{1}[0-4]{1}[\:][0-5]{1}[0-9]{1}";
@@ -912,11 +912,11 @@ function getLogoDay(item) {
         input.classList.add("invalid");
       }
 
-      if(input.value == "") {
+      if (input.value == "") {
         input.classList.add("valid");
         input.classList.remove("invalid");
       }
-      
+
     }
   });
 

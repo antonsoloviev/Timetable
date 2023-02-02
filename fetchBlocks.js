@@ -162,6 +162,6 @@ function saveBlocksToStore() {
     southBlocksToStorebyDay(day);
     northBlocksToStorebyDay(day);
     logoBlocksToStorebyDay(day);
-  })
+  });
 }
 

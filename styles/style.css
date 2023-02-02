@@ -10,11 +10,13 @@ body {
   --bg-color-header: #6465A5;
   --checked-color: #6975A6;
   --hover-color: #9FA7C6;
+  --hover-light-color: #bbc1d7;
   --bg-color: rgb(238, 237, 236);
   --color-yellow: #F3E96B;
   --color-orange: #f28a30;
   --color-red: #F05837;
   --color-green: #73BE73;
+  --color-light-green: #8fcb8f;
   --color-grey: #999;
 }
 
@@ -358,6 +360,17 @@ h2 {
 .north-table-footnote,
 .south-table-footnote,
 .logo-table-footnote {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1.6rem;
+  font-weight: 100;
+}
+
+.north-table-footnote__text,
+.south-table-footnote__text,
+.logo-table-footnote__text {
   display: flex;
   flex-direction: column;
   align-self: flex-start;
@@ -365,10 +378,16 @@ h2 {
   font-weight: 100;
 }
 
+.north-table-footnote__buttons,
+.south-table-footnote__buttons,
+.logo-table-footnote__buttons {
+  display: flex;
+  gap: 16px;
+}
+
 .north-table-footnote span,
 .south-table-footnote span,
 .logo-table-footnote span{
   font-size: 1.6rem;
   font-weight: 400;
-  color:#4e4f86
 }
