@@ -56,7 +56,7 @@ section#home {
 
 section#home > div {
   position: absolute;
-  top: 72px;
+  top: 80px;
 }
 
 section#home h1 {
@@ -75,7 +75,7 @@ section:target ~ #home {
 
 section > div {
   position: absolute;
-  top: 84px;
+  top: 90px;
 }
 
 .button {
