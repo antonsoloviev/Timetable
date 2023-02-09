@@ -18,6 +18,8 @@ body {
   --color-green: #73BE73;
   --color-light-green: #8fcb8f;
   --color-grey: #999;
+
+  overflow-x: hidden;
 }
 
 .page-wrapper {
@@ -33,7 +35,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 1680px;
+  max-width: 1500px;
 }
 
 section {
@@ -43,7 +45,8 @@ section {
   width: 100%;
   display: none;
   background: var(--bg-color);
-  overflow: auto;
+  overflow-x: hidden;
+
 }
 
 section#home {

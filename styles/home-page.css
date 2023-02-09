@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  width: 1600px;
+  width: 1500px;
 }
 
 .block {

@@ -15,6 +15,7 @@ async function authorizeAutomatic() {
   token = response.token;
   document.getElementById("authStatus").value = "Authorized";
   document.getElementById("authStatus").classList.add("green");
+  console.log('Authorized');
   //   postData(url, loginData)
   //     .then(response => {
   //       token = response.token;
