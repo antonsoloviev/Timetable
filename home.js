@@ -165,6 +165,8 @@ function handleToggleManualButton(event) {
   if (event.target.getAttribute("aria-pressed") === "true") {
     sendManualMode(true);
 
+    buttonManualMode.firstChild.data = 'Выкл. ручной режим';
+
     buttonsNorthAll.forEach(element => {
       element.disabled = false;
     });
@@ -183,6 +185,8 @@ function handleToggleManualButton(event) {
 
   } else {
     sendManualMode(false);
+
+    buttonManualMode.firstChild.data = 'Вкл. ручной режим';
 
     buttonsNorthAll.forEach(element => {
       element.setAttribute("aria-pressed", false);

@@ -107,11 +107,15 @@ function southBlocksToStorebyDay(day) {
     const name = block.displayName.replace(`S_${day}_`, '');
     const id = `${name}-id`;
 
-    if ((block.outPortValue.length == 4) & (block.outPortValue[1] === ':')) {
+    if (block.outPortValue) {
+      if ((block.outPortValue?.length == 4) & (block.outPortValue[1] === ':')) {
       outPortValueString = '0' + block.outPortValue;
     } else {
       outPortValueString = block.outPortValue;
     }
+  } else {
+    outPortValueString = '';
+  }
     
     store.southWeekNotes[dayNumber][name] = outPortValueString;
     store.southWeekNotes[dayNumber][id] = block.id;
