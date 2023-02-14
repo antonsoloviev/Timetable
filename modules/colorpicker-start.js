@@ -123,14 +123,20 @@ function handleToggleClick(event) {
   if (event.target.classList.contains("button-south-picker")) {
     if (event.target.getAttribute("aria-pressed") === "true") {
       sendSouthColorMode(true);
+      buttonSouthPicker.firstChild.data = 'Отключить выбор цвета';
     } else {
       sendSouthColorMode(false);
+      buttonSouthPicker.firstChild.data = 'Включить выбор цвета';
+
     }
   } else if (event.target.classList.contains("button-north-picker")) {
     if (event.target.getAttribute("aria-pressed") === "true") {
       sendNorthColorMode(true);
+      buttonNorthPicker.firstChild.data = 'Отключить выбор цвета';
     } else {
       sendNorthColorMode(false);
+      buttonNorthPicker.firstChild.data = 'Включить выбор цвета';
+
     }
   }
 }
