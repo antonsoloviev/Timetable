@@ -1,3 +1,6 @@
+// alarm__link
+let alarmIndicator = document.querySelector('.alarm__link');
+
 let northShufo_1_controller = document.querySelector('div.north-block-keyplan > .schufo-container-1 > .controller');
 let northShufo_1_luminaire = document.querySelector('div.north-block-keyplan > .schufo-container-1 > .luminaire');
 let northShufo_2_controller = document.querySelector('div.north-block-keyplan > .schufo-container-2 > .controller');
@@ -211,6 +214,13 @@ async function fetchEmergencyUpdate() {
   });
   const block_SHUFO_SB5_id = block_SHUFO_SB5["Alarm_SB_SHUFO-5-id"];
 
+  const block_AlarmIndicator = store.alarmNotes.find((item) => {
+    return item.hasOwnProperty('Alarm_indicator-id');
+  });
+  const block_AlarmIndicator_id = block_AlarmIndicator["Alarm_indicator-id"];
+
+  let block_AlarmIndicatorState = await getValueBlockOutportDataById(block_AlarmIndicator_id);
+
   let block_DMX_NB1State = await getValueBlockOutportDataById(block_DMX_NB1_id);
   let block_DMX_NB2State = await getValueBlockOutportDataById(block_DMX_NB2_id);
   let block_DMX_NB3State = await getValueBlockOutportDataById(block_DMX_NB3_id);
@@ -252,6 +262,10 @@ async function fetchEmergencyUpdate() {
   let block_SHUFO_SB3State = await getValueBlockOutportDataById(block_SHUFO_SB3_id);
   let block_SHUFO_SB4State = await getValueBlockOutportDataById(block_SHUFO_SB4_id);
   let block_SHUFO_SB5State = await getValueBlockOutportDataById(block_SHUFO_SB5_id);
+
+  // block_AlarmState
+  // (block_AlarmIndicatorState == true) ? (alarmIndicator.classList.add('alarm__link_active')) : (alarmIndicator.classList.remove('alarm__link_active'));
+  (block_AlarmIndicatorState == 'True') ? (alarmIndicator.classList.add('alarm__link_active')) : (alarmIndicator.classList.remove('alarm__link_active'));
 
   (block_DMX_NB1State === '204;') || (block_Relay_NB1State === '218;') ? (northShufo_1_controller.classList.add('_bg-red')) : (northShufo_1_controller.classList.remove('_bg-red'));
   (block_DMX_NB2State === '206;') || (block_Relay_NB2State === '220;') ? (northShufo_2_controller.classList.add('_bg-red')) : (northShufo_2_controller.classList.remove('_bg-red'));

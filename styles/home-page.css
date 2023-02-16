@@ -26,6 +26,48 @@
   font-weight: bold;
 }
 
+.alarm__link.alarm__link_active {
+  width: 276px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  padding: 6px;
+  background: red;
+  border: 1px solid red;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.alarm__link {
+  display: none;
+}
+
+.alarm__link:hover.alarm__link>img {
+  transform: translateX(16px);
+}
+
+.alarm__link>p {
+  font-size: 1.6rem;
+  color: white;
+  padding-left: 4px;
+}
+
+.alarm__link>img {
+  fill:white;
+}
+
+.alarm__link>img {
+  fill:white;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.alarm__link>img:hover {
+  transform: translateX(16px);
+}
+
 .block_range {
   display: flex;
   flex-direction: column;

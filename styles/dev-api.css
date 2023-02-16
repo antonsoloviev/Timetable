@@ -9,7 +9,7 @@
 }
 
 .dev-api > p {
-  margin-bottom: 2px;
+  margin-bottom: 0;
 }
 
 .button-dev {
@@ -29,13 +29,13 @@ label {
   width: 168px;
   height: 24px;
   border: 1px solid gray;
-  margin-bottom: 4px;
+  margin-bottom: 0;
   font-size: 1.4rem;
 
 }
 
 .desc-input_auth {
-  height: 32px;
+  height: 24px;
   width: 100%;
   font-size: 1.6rem;
   border: 0px;

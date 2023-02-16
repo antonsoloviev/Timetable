@@ -5,7 +5,7 @@ const logoWeekList = document.querySelector('.week-table__logo');
 const week = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"];
 
 function getSouthDay(item) {
-  const template = document.querySelector('.template-day').content.cloneNode(true);
+  const template = document.querySelector('.template-south-day').content.cloneNode(true);
 
   const dayNumber = window.store.southWeekNotes.indexOf(item);
 
@@ -405,7 +405,7 @@ function getSouthDay(item) {
 }
 
 function getNorthDay(item) {
-  const template = document.querySelector('.template-day').content.cloneNode(true);
+  const template = document.querySelector('.template-north-day').content.cloneNode(true);
 
   const dayNumber = window.store.northWeekNotes.indexOf(item);
 

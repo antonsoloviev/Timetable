@@ -94,7 +94,13 @@
             </div> -->
         </div>
         <h1>УПРАВЛЕНИЕ ФАСАДНЫМ ОСВЕЩЕНИЕМ</h1>
-        <button class="button button-manual-mode" aria-pressed="false">Включить ручной режим</button>
+        <button class="button button-manual-mode" aria-pressed="false">
+          Включить ручной режим
+        </button>
+        <a href="#emergency" class="alarm__link">
+          <p>Обнаружена неисправность</p>
+          <img src="./assets/images/icon-forward.svg" alt="arrow">
+        </a>
         <div class="block-container">
           <div class="block home-south-block">
             <div class="block__title south-block__title">
@@ -475,8 +481,8 @@
 
   </div>
 
-  <!-- TEMPLATE DAY -->
-  <template class="template-day">
+  <!-- TEMPLATE SOUTH DAY -->
+  <template class="template-south-day">
     <div class="day">
       <div class="day-title">Понедельник</div>
       <div class="day-list">
@@ -497,6 +503,7 @@
             <option value="color-dynamic">Цвет динамика</option>
             <option value="eco">Экорежим</option>
             <option value="violet">Лиловый</option>
+            <option value="off">Отключение</option>
           </select>
         </div>
         <div class="morning-time time">
@@ -515,7 +522,8 @@
             <option value="white-pulse">Белый пульс</option>
             <option value="color-dynamic">Цвет динамика</option>
             <option value="eco">Экорежим</option>
-            <option value="purple">Лиловый</option>
+            <option value="violet">Лиловый</option>
+            <option value="off">Отключение</option>
           </select>
         </div>
         <div class="daytime-time time">
@@ -542,7 +550,8 @@
             <option value="white-pulse">Белый пульс</option>
             <option value="color-dynamic">Цвет динамика</option>
             <option value="eco">Экорежим</option>
-            <option value="purple">Лиловый</option>
+            <option value="violet">Лиловый</option>
+            <option value="off">Отключение</option>
           </select>
         </div>
         <div class="closing-time time">
@@ -561,12 +570,114 @@
             <option value="white-pulse">Белый пульс</option>
             <option value="color-dynamic">Цвет динамика</option>
             <option value="eco">Экорежим</option>
-            <option value="purple">Лиловый</option>
+            <option value="violet">Лиловый</option>
+            <option value="off">Отключение</option>
           </select>
         </div>
       </div>
     </div>
   </template>
+
+    <!-- TEMPLATE NORTH DAY -->
+    <template class="template-north-day">
+      <div class="day">
+        <div class="day-title">Понедельник</div>
+        <div class="day-list">
+          <div class="night-time time">
+            <input class="night-time-radio custom-radio" type="radio" name="night" value="time">
+            <input class="night-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+          </div>
+          <div class="night-offset offset">
+            <input class="night-offset-radio custom-radio" type="radio" name="night" value="offset">
+            <input class="night-offset-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+          </div>
+          <div class="night-scene scene">
+            <select class="night-scene-select" name="select-effect" id="">
+              <option value="main">Основной</option>
+              <option value="white-static">Белый статика</option>
+              <option value="white-mix">Белый микс</option>
+              <option value="white-pulse">Белый пульс</option>
+              <option value="sunset">Закат/Рассвет</option>
+              <option value="autumn">Осень</option>
+              <option value="eco">Экорежим</option>
+              <option value="violet">Лиловый</option>
+              <option value="off">Отключение</option>
+            </select>
+          </div>
+          <div class="morning-time time">
+            <input class="morning-time-radio custom-radio" type="radio" name="morning" value="time">
+            <input class="morning-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+          </div>
+          <div class="morning-offset offset">
+            <input class="morning-offset-radio custom-radio" type="radio" name="morning" value="offset">
+            <input class="morning-offset-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+          </div>
+          <div class="morning-scene scene">
+            <select class="morning-scene-select" name="select-effect" id="">
+              <option value="main">Основной</option>
+              <option value="white-static">Белый статика</option>
+              <option value="white-mix">Белый микс</option>
+              <option value="white-pulse">Белый пульс</option>
+              <option value="sunset">Закат/Рассвет</option>
+              <option value="autumn">Осень</option>
+              <option value="eco">Экорежим</option>
+              <option value="violet">Лиловый</option>
+              <option value="off">Отключение</option>
+            </select>
+          </div>
+          <div class="daytime-time time">
+            <input class="daytime-time-radio custom-radio" type="radio" name="daytime" value="time">
+            <input class="daytime-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+          </div>
+          <div class="daytime-offset offset">
+            <input class="daytime-offset-radio custom-radio" type="radio" name="daytime" value="offset">
+            <input class="daytime-offset-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+          </div>
+          <div class="evening-time time">
+            <input class="evening-time-radio custom-radio" type="radio" name="evening" value="time">
+            <input class="evening-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+          </div>
+          <div class="evening-offset offset">
+            <input class="evening-offset-radio custom-radio" type="radio" name="evening" value="offset">
+            <input class="evening-offset-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+          </div>
+          <div class="evening-scene scene">
+            <select class="evening-scene-select" name="select-effect" id="">
+              <option value="main">Основной</option>
+              <option value="white-static">Белый статика</option>
+              <option value="white-mix">Белый микс</option>
+              <option value="white-pulse">Белый пульс</option>
+              <option value="sunset">Закат/Рассвет</option>
+              <option value="autumn">Осень</option>
+              <option value="eco">Экорежим</option>
+              <option value="violet">Лиловый</option>
+              <option value="off">Отключение</option>
+            </select>
+          </div>
+          <div class="closing-time time">
+            <input class="closing-time-radio custom-radio" type="radio" name="closing" value="time">
+            <input class="closing-time-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+          </div>
+          <div class="closing-offset offset">
+            <input class="closing-offset-radio custom-radio" type="radio" name="closing" value="offset">
+            <input class="closing-offset-input" type="text" placeholder="xx:xx" maxlength="5"></input>
+          </div>
+          <div class="closing-scene scene">
+            <select class="closing-scene-select" name="select-effect" id="">
+              <option value="main">Основной</option>
+              <option value="white-static">Белый статика</option>
+              <option value="white-mix">Белый микс</option>
+              <option value="white-pulse">Белый пульс</option>
+              <option value="sunset">Закат/Рассвет</option>
+              <option value="autumn">Осень</option>
+              <option value="eco">Экорежим</option>
+              <option value="violet">Лиловый</option>
+              <option value="off">Отключение</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </template>
 
   <!-- TEMPLATE LOGO-DAY -->
   <template class="template-logo-day">
