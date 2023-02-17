@@ -1,5 +1,23 @@
 window.store = {
-  weekNotes: [
+  southWeekNotes: [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+  ],
+  northWeekNotes: [
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+    {},
+  ],
+  logoWeekNotes: [
     {},
     {},
     {},

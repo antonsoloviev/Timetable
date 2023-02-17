@@ -1,0 +1,137 @@
+.emergency-south-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.south-block-keyplan {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 700px;
+  height: 421px;
+  background-image: url(../assets/images/SM-key-plan.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.north-block-keyplan {
+  width: 700px;
+  height: 421px;
+  background-image: url(../assets/images/NM-key-plan.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.schufo-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+
+.south-block-keyplan .schufo-container-1 {
+  top: -180px;
+  left: 270px;
+}
+
+.south-block-keyplan .schufo-container-2 {
+  top: -180px;
+  left: 60px;
+}
+
+.south-block-keyplan .schufo-container-3 {
+  top: -180px;
+  left: -140px;
+}
+
+.south-block-keyplan .schufo-container-4 {
+  top: -70px;
+  left: -200px;
+}
+
+.south-block-keyplan .schufo-container-5 {
+  top: 45px;
+  left: -280px;
+}
+
+.north-block-keyplan .schufo-container-1 {
+  top: 240px;
+  left: -200px;
+}
+
+.north-block-keyplan .schufo-container-2 {
+  top: 192px;
+  left: 100px;
+}
+
+.north-block-keyplan .schufo-container-3 {
+  top: 108px;
+  left: 200px;
+}
+
+.north-block-keyplan .schufo-container-4 {
+  top: -70px;
+  left: 240px;
+}
+
+.north-block-keyplan .schufo-container-5 {
+  top: -210px;
+  left: 125px;
+}
+
+.north-block-keyplan .schufo-container-6 {
+  top: -386px;
+  left: 125px;
+}
+
+.north-block-keyplan .schufo-container-7 {
+  top: -470px;
+  left: 25px;
+}
+
+.schufo {
+  width: 82px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  font-size: 1.4rem;
+  text-align: center;
+  background-color: var(--color-yellow);
+}
+
+.controller {
+  width: 82px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  border-radius: 4px;
+  font-size: 1.3rem;
+  text-align: center;
+  background-color: var(--color-green);
+}
+
+.luminaire {
+  width: 82px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  border-radius: 4px;
+  font-size: 1.3rem;
+  text-align: center;
+  background-color: var(--color-green);
+}
+
+._bg-red {
+  background-color: tomato;
+}

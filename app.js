@@ -5,11 +5,16 @@
 // import {renderWeek} from './renderWeek';
 
 window.addEventListener('load', async (event) => {
-
+  clockStart();
   await authorizeAutomatic();
   await getValueBlocks();
   saveBlocksToStore();
-  renderWeek(window.store.weekNotes);
+  renderNorthWeek(window.store.northWeekNotes);
+  renderSouthWeek(window.store.southWeekNotes);
+  renderLogoWeek(window.store.logoWeekNotes);
+
+  fetchModeStart();
+  fetchEmergencyStart();
 
 });
 

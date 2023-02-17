@@ -1,14 +1,15 @@
 .dev-api {
   display: flex;
   flex-direction: column;
+  align-self: flex-start;
   width: 264px;
   padding-left: 16px;
   padding-right: 16px;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 
 .dev-api > p {
-  margin-bottom: 16px;
+  margin-bottom: 0;
 }
 
 .button-dev {
@@ -28,15 +29,15 @@ label {
   width: 168px;
   height: 24px;
   border: 1px solid gray;
-  margin-bottom: 4px;
-  font-size: 1.6rem;
+  margin-bottom: 0;
+  font-size: 1.4rem;
 
 }
 
 .desc-input_auth {
-  height: 32px;
+  height: 24px;
   width: 100%;
-  font-size: 2rem;
+  font-size: 1.6rem;
   border: 0px;
   color: red;
   text-align: center;

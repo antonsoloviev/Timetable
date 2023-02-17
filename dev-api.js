@@ -1,5 +1,5 @@
 // Url to SYMPHOLIGHT REST API with port 5001 (for SSL) and HTTPS (SSL)
-var apiUrl = "https://127.0.0.1:5001/api/"
+var apiUrl = "http://127.0.0.1:500/api/"
 var token;
 
 const buttonDevAuth = document.querySelector(".button-dev__auth");
