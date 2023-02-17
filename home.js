@@ -7,6 +7,7 @@ let homeNorthBlock = document.querySelector('.home-north-block');
 
 // Buttons
 let buttonManualMode = document.querySelector('.button-manual-mode');
+let autoManualModeArray = document.querySelectorAll('.left-mode');
 let rangeSouth = document.getElementById("range-south");
 let rangeNorth = document.getElementById("range-north");
 
@@ -179,6 +180,11 @@ function handleToggleManualButton(event) {
     buttonSouthLightboxMode.disabled = false;
     buttonSouthLogotypesMode.disabled = false;
 
+    autoManualModeArray.forEach((item) => {
+      item.textContent = '🛠️ Manual';
+      item.classList.add('_red');
+    });
+
     clearInterval(fetchSouthModeId);
     clearInterval(fetchNorthModeId);
 
@@ -213,6 +219,11 @@ function handleToggleManualButton(event) {
     rangeSouth.value = 100;
     getSouthRangeValue(100);
     sendSouthRange(100);
+
+    autoManualModeArray.forEach((item) => {
+      item.textContent = '🕒 Auto';
+      item.classList.remove('_red');
+    });
 
     fetchModeStart();
 

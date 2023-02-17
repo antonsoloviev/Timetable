@@ -127,6 +127,25 @@ h2 {
   margin-bottom: 18px;
 }
 
+.left {
+  display: flex;
+  flex-direction: column;
+}
+
+.left-mode {
+  height: 32px;
+  font-size: 1.6rem;
+  color: green;
+}
+
+._red {
+  color: red;
+}
+
+._green {
+  color: green;
+}
+
 .left-grid {
   display: grid;
 
@@ -134,8 +153,8 @@ h2 {
   grid-template-columns: 136px 136px;
 
   gap: 0px;
-  height: 100%;
-  margin-top: 32px;
+  /* height: 100%; */
+  /* margin-top: 32px; */
   border-top: 1px solid black;
   border-left: 1px solid black;
   box-sizing: border-box;
@@ -198,8 +217,8 @@ h2 {
   grid-template-columns: 112px 112px 136px;
 
   gap: 0px;
-  height: 100%;
-  margin-top: 32px;
+  /* height: 100%;
+  margin-top: 32px; */
   border-top: 1px solid black;
   border-left: 1px solid black;
   box-sizing: border-box;
