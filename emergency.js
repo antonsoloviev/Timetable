@@ -263,9 +263,7 @@ async function fetchEmergencyUpdate() {
   let block_SHUFO_SB4State = await getValueBlockOutportDataById(block_SHUFO_SB4_id);
   let block_SHUFO_SB5State = await getValueBlockOutportDataById(block_SHUFO_SB5_id);
 
-  // block_AlarmState
-  // (block_AlarmIndicatorState == true) ? (alarmIndicator.classList.add('alarm__link_active')) : (alarmIndicator.classList.remove('alarm__link_active'));
-  (block_AlarmIndicatorState == 'True') ? (alarmIndicator.classList.add('alarm__link_active')) : (alarmIndicator.classList.remove('alarm__link_active'));
+  // (block_AlarmIndicatorState == 'True') ? (alarmIndicator.classList.add('alarm__link_active')) : (alarmIndicator.classList.remove('alarm__link_active'));
 
   (block_DMX_NB1State === '204;') || (block_Relay_NB1State === '218;') ? (northShufo_1_controller.classList.add('_bg-red')) : (northShufo_1_controller.classList.remove('_bg-red'));
   (block_DMX_NB2State === '206;') || (block_Relay_NB2State === '220;') ? (northShufo_2_controller.classList.add('_bg-red')) : (northShufo_2_controller.classList.remove('_bg-red'));
