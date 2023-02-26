@@ -96,3 +96,7 @@
 .menu__link:hover {
   color: var(--color-yellow);
 }
+
+.menu__link--active {
+  color: var(--color-yellow);
+}
