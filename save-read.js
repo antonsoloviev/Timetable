@@ -57,7 +57,7 @@ function sendNorthDayBlocksToSympholite(dayNumber) {
 
   Object.keys(dayNotes).forEach((key, index, keysArray) => {
 
-    console.log(key, ':', dayNotes[key]);
+    // console.log(key, ':', dayNotes[key]);
 
     if ((key.endsWith('Scene-id')) || (key.endsWith('Offset-id')) || (key.endsWith('Mode-id'))) {
       const valueBlockData = {};
@@ -92,7 +92,7 @@ function sendSouthDayBlocksToSympholite(dayNumber) {
 
   Object.keys(dayNotes).forEach((key, index, keysArray) => {
 
-    console.log(key, ':', dayNotes[key]);
+    // console.log(key, ':', dayNotes[key]);
 
     if ((key.endsWith('Scene-id')) || (key.endsWith('Offset-id')) || (key.endsWith('Mode-id'))) {
       const valueBlockData = {};
@@ -127,7 +127,7 @@ function sendLogoDayBlocksToSympholite(dayNumber) {
 
   Object.keys(dayNotes).forEach((key, index, keysArray) => {
 
-    console.log(key, ':', dayNotes[key]);
+    // console.log(key, ':', dayNotes[key]);
 
     if ((key.endsWith('Scene-id')) || (key.endsWith('Offset-id')) || (key.endsWith('Mode-id'))) {
       const valueBlockData = {};
@@ -180,7 +180,6 @@ function sendLogoWeekToSympholight() {
   });
 }
 
-
 async function restoreNorthFromFile() {
   let fileHandle;
   [fileHandle] = await window.showOpenFilePicker();
@@ -189,7 +188,7 @@ async function restoreNorthFromFile() {
   const content = await file.text();
 
   let data = JSON.parse(content);
-  console.log(data);
+  // console.log(data);
 
   window.store.northWeekNotes.length = 0;
   window.store.northWeekNotes.push(...data);
@@ -206,7 +205,7 @@ async function restoreSouthFromFile() {
   const content = await file.text();
 
   let data = JSON.parse(content);
-  console.log(data);
+  // console.log(data);
 
   window.store.southWeekNotes.length = 0;
   window.store.southWeekNotes.push(...data);
@@ -223,7 +222,7 @@ async function restoreLogoFromFile() {
   const content = await file.text();
 
   let data = JSON.parse(content);
-  console.log(data);
+  // console.log(data);
 
   window.store.logoWeekNotes.length = 0;
   window.store.logoWeekNotes.push(...data);

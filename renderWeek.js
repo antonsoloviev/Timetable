@@ -926,9 +926,9 @@ function getLogoDay(item) {
   const lightboxEveningOffMode = item.lightboxEveningOffMode;
 
   const logotypeMorningOnMode = item.logotypeMorningOnMode;
-  const logotypeMorningOffMode = item.logotypeMorningOnMode;
+  const logotypeMorningOffMode = item.logotypeMorningOffMode;
   const logotypeEveningOnMode = item.logotypeEveningOnMode;
-  const logotypeEveningOffMode = item.logotypeEveningOnMode;
+  const logotypeEveningOffMode = item.logotypeEveningOffMode;
 
   if (lightboxMorningOnMode === 'time') {
     lightboxMorningOnModeTime.checked = true;
