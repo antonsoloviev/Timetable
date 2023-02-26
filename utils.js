@@ -172,16 +172,15 @@ function clockStart() {
 
 // timeString in 'xx:xx' format
 function convertTimeStringToMins(timeString) {
+  const isMinus = timeString[0];
   let hours = parseInt(timeString);
   let mins = Number(timeString.substring(timeString.length - 2));
   let totalMins = 0;
-  if (hours < 0) {
+  if ((hours < 0) || (isMinus == '-')){
     totalMins = hours * 60 - mins;
   } else {
     totalMins = hours * 60 + mins;
   }
-
-  console.log(totalMins);
   return totalMins;
 }
 
