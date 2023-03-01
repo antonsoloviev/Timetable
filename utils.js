@@ -164,7 +164,7 @@ function clockStart() {
   let clockId = setInterval(clockUpdate, 5000);
   let dateId = setInterval(dateUpdate, 60000);
   let sunsetId = setInterval(dateUpdate, 3600000);
-  let authorizeId = setInterval(authorizeAutomatic, 1800000);
+  let authorizeId = setInterval(authorizeAutomatic, 2400000);
 
   clockUpdate();
   dateUpdate();
@@ -211,5 +211,12 @@ function convertMinsToTimeString(minsValue) {
   timeString = timeString + hours + ':' + mins;
 
   return timeString;
+}
+
+function pageReloadStart() {
+  let pageId = setInterval(() => {
+    location.reload();
+    // console.log('reload done');
+  }, 3600000);
 }
 

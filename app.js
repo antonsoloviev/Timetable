@@ -15,8 +15,6 @@ window.addEventListener('load', async (event) => {
 
   fetchModeStart();
   fetchEmergencyStart();
+  pageReloadStart();
 
 });
-
-
-
