@@ -1,17 +1,19 @@
 // Url to SYMPHOLIGHT REST API with port 5001 (for SSL) and HTTPS (SSL)
-var apiUrl = "https://127.0.0.1:5001/api/"
+var apiUrl = "http://127.0.0.1:5000/api/"
+// var apiUrl = "http://172.20.44.200:5000/api/"
+
 var token;
 
 async function authorizeAutomatic() {
 
-  url = apiUrl + "Auth/login";
+  const url = apiUrl + "Auth/login";
 
-  loginData = {};
+  const loginData = {};
   loginData.username = 'admin';
   loginData.password = '1234';
 
   // Call the postData function and provide the URL and the loginData object
-  response = await postData(url, loginData);
+  const response = await postData(url, loginData);
   token = response.token;
   document.getElementById("authStatus").value = "Authorized";
   document.getElementById("authStatus").classList.add("green");
@@ -162,7 +164,7 @@ function clockStart() {
   let clockId = setInterval(clockUpdate, 5000);
   let dateId = setInterval(dateUpdate, 60000);
   let sunsetId = setInterval(dateUpdate, 3600000);
-  let authorizeId = setInterval(authorizeAutomatic, 1800000);
+  let authorizeId = setInterval(authorizeAutomatic, 2400000);
 
   clockUpdate();
   dateUpdate();
@@ -209,5 +211,12 @@ function convertMinsToTimeString(minsValue) {
   timeString = timeString + hours + ':' + mins;
 
   return timeString;
+}
+
+function pageReloadStart() {
+  let pageId = setInterval(() => {
+    location.reload();
+    // console.log('reload done');
+  }, 3600000);
 }
 
