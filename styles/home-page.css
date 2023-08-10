@@ -165,4 +165,32 @@ input[type=range]::-webkit-slider-thumb {
   gap: 20px;
 }
 
+.pw_prompt {
+    position:fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    left: 50%;
+    top: 30%;
+    margin-left:-200px;
+    padding:40px;
+    width:400px;
+    border:2px solid black;
+    border-radius: 10px;
+    background-color: white;
+}
+.pw_prompt label {
+    display:block; 
+    margin-bottom:5px;
+    font-size: 16px;
+}
+.pw_prompt input {
+    padding: 4px;
+    margin-bottom:10px;
+    font-size: 16px;
+}
+
+.pw_prompt button {
+
+}
 
