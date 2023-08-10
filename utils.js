@@ -260,7 +260,6 @@ function pw_prompt(options) {
 
   var submit = function () {
     options.callback(input.value);
-    console.log("submit");
     document.body.removeChild(prompt);
   };
 
@@ -288,4 +287,30 @@ function pw_prompt(options) {
   prompt.appendChild(button);
 
   document.body.appendChild(prompt);
+}
+
+function password_prompt(options) {
+  if (!options.callback) {
+    alert("No callback function provided! Please provide one.");
+  }
+
+  var submit = function () {
+    options.callback(input.value);
+    input.value = "";
+  };
+  var input = document.getElementById("password-input");
+  input.addEventListener(
+    "keyup",
+    function (e) {
+      if (e.key == "Enter") {
+        submit();
+      } else {
+        popupErrorText.classList.remove("active");
+      }
+    },
+    false
+  );
+
+  var button = document.getElementById("password-button");
+  button.addEventListener("click", submit, true);
 }
