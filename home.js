@@ -11,6 +11,26 @@ let autoManualModeArray = document.querySelectorAll(".left-mode");
 let rangeSouth = document.getElementById("range-south");
 let rangeNorth = document.getElementById("range-north");
 
+// Popup
+let popupBg = document.querySelector(".popup__bg"); // Фон попап окна
+let popup = document.querySelector(".popup"); // Само окно
+let inputPassword = document.getElementById("password-input");
+let popupErrorText = document.querySelector(".popup .error-text"); // Само окно
+let openPopupButtons = document.querySelectorAll(".open-popup"); // Кнопки для показа окна
+let closePopupButton = document.querySelector(".close-popup"); // Кнопка для скрытия окна
+closePopupButton.addEventListener("click", () => {
+  popupBg.classList.remove("active"); // Убираем активный класс с фона
+  popup.classList.remove("active"); // И с окна
+});
+document.addEventListener("click", (e) => {
+  // Вешаем обработчик на весь документ
+  if (e.target === popupBg) {
+    // Если цель клика - фон, то:
+    popupBg.classList.remove("active"); // Убираем активный класс с фона
+    popup.classList.remove("active"); // И с окна
+  }
+});
+
 function getSouthRangeValue(value) {
   document.getElementById("south-rangeValue").innerHTML = value;
 }
@@ -290,18 +310,43 @@ buttonManualMode.addEventListener("click", (event) => {
     rangeSouth.disabled = true;
     rangeNorth.disabled = true;
   } else {
-    pw_prompt({
-      lm: "Please enter your password:",
+    popupErrorText.classList.remove("active");
+    popupBg.classList.add("active");
+    popup.classList.add("active");
+
+    password_prompt({
       callback: function (password) {
         if (password === PASSWORD) {
-          handleToggleManualButton(event);
+          // TODO: remove comments
+          console.log("CORRECT PASSWORD");
+          try {
+            handleToggleManualButton(event);
+          } catch (error) {
+            console.log(error.message);
+          }
           rangeSouth.disabled = false;
           rangeNorth.disabled = false;
+          popupBg.classList.remove("active");
+          popup.classList.remove("active");
         } else {
-          alert("Неверный пароль");
+          // TODO: add remove class active and clear input password before hiding
+          popupErrorText.classList.add("active");
+          inputPassword.value = "";
         }
       },
     });
+    // pw_prompt({
+    //   lm: "Please enter your password:",
+    //   callback: function (password) {
+    //     if (password === PASSWORD) {
+    //       handleToggleManualButton(event);
+    //       rangeSouth.disabled = false;
+    //       rangeNorth.disabled = false;
+    //     } else {
+    //       alert("Неверный пароль");
+    //     }
+    //   },
+    // });
   }
 
   // if (buttonManualMode.getAttribute("aria-pressed") === "true") {
