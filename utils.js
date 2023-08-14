@@ -246,71 +246,29 @@ function pageReloadStart() {
   }, 3600000);
 }
 
-var promptCount = 0;
+// function password_prompt(options) {
+//   if (!options.callback) {
+//     alert("No callback function provided! Please provide one.");
+//   }
 
-function pw_prompt(options) {
-  var lm = options.lm || "Password:",
-    bm = options.bm || "Submit";
-  if (!options.callback) {
-    alert("No callback function provided! Please provide one.");
-  }
+//   var submit = function () {
+//     options.callback(input.value);
+//     input.value = "";
+//   };
 
-  var prompt = document.createElement("div");
-  prompt.className = "pw_prompt";
+//   var input = document.getElementById("password-input");
+//   input.addEventListener(
+//     "keyup",
+//     function (e) {
+//       if (e.key == "Enter") {
+//         submit();
+//       } else {
+//         popupErrorText.classList.remove("active");
+//       }
+//     },
+//     false
+//   );
 
-  var submit = function () {
-    options.callback(input.value);
-    document.body.removeChild(prompt);
-  };
-
-  var label = document.createElement("label");
-  label.textContent = lm;
-  label.for = "pw_prompt_input" + ++promptCount;
-  prompt.appendChild(label);
-
-  var input = document.createElement("input");
-  input.id = "pw_prompt_input" + promptCount;
-  input.type = "password";
-  input.addEventListener(
-    "keyup",
-    function (e) {
-      if (e.key == "Enter") submit();
-    },
-    false
-  );
-  prompt.appendChild(input);
-
-  var button = document.createElement("button");
-  button.className = "button";
-  button.textContent = bm;
-  button.addEventListener("click", submit, false);
-  prompt.appendChild(button);
-
-  document.body.appendChild(prompt);
-}
-
-function password_prompt(options) {
-  if (!options.callback) {
-    alert("No callback function provided! Please provide one.");
-  }
-
-  var submit = function () {
-    options.callback(input.value);
-    input.value = "";
-  };
-  var input = document.getElementById("password-input");
-  input.addEventListener(
-    "keyup",
-    function (e) {
-      if (e.key == "Enter") {
-        submit();
-      } else {
-        popupErrorText.classList.remove("active");
-      }
-    },
-    false
-  );
-
-  var button = document.getElementById("password-button");
-  button.addEventListener("click", submit, true);
-}
+//   var button = document.getElementById("password-button");
+//   button.addEventListener("click", submit, true);
+// }

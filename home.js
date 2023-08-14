@@ -15,8 +15,9 @@ let rangeNorth = document.getElementById("range-north");
 let popupBg = document.querySelector(".popup__bg"); // Фон попап окна
 let popup = document.querySelector(".popup"); // Само окно
 let inputPassword = document.getElementById("password-input");
+let buttonSubmitPassword = document.getElementById("password-button");
 let popupErrorText = document.querySelector(".popup .error-text"); // Само окно
-let openPopupButtons = document.querySelectorAll(".open-popup"); // Кнопки для показа окна
+// let openPopupButtons = document.querySelectorAll(".open-popup"); // Кнопки для показа окна
 let closePopupButton = document.querySelector(".close-popup"); // Кнопка для скрытия окна
 closePopupButton.addEventListener("click", () => {
   popupBg.classList.remove("active"); // Убираем активный класс с фона
@@ -235,12 +236,10 @@ function toggleHomeButton(element) {
   }
 }
 
-//TODO: добавить пароль на вход в режим Manual
+function handleToggleManualButton() {
+  toggleHomeButton(buttonManualMode);
 
-function handleToggleManualButton(event) {
-  toggleHomeButton(event.target);
-
-  if (event.target.getAttribute("aria-pressed") === "true") {
+  if (buttonManualMode.getAttribute("aria-pressed") === "true") {
     sendManualMode(true);
 
     buttonManualMode.firstChild.data = "Отключить ручной режим";
@@ -304,9 +303,69 @@ function handleToggleManualButton(event) {
   }
 }
 
+async function comparePass(password) {
+  let urlPasswordId =
+    apiUrl + "workflow/blocks/values/d79367c7-9ae0-4780-851e-24fb70a0bc82";
+  let urlCompareResult =
+    apiUrl + "workflow/blocks/values/020a02ad-282d-4d15-b1a5-2cf0c8348bc0";
+  const passwordData = {};
+  passwordData.inPortValue = password;
+  await putData(urlPasswordId, passwordData);
+  const result = await getData(urlCompareResult);
+  const resultBool = result.outPortValue === "True";
+
+  // return (await getData(urlID)).outPortValue === password;
+  return resultBool;
+}
+
+// TODO: добавить сравнение пароля с паролем на сервере
+async function onSubmit(password) {
+  if (await comparePass(password)) {
+    console.log("true pass");
+    try {
+      handleToggleManualButton();
+    } catch (error) {
+      console.log(error.message);
+    }
+    rangeSouth.disabled = false;
+    rangeNorth.disabled = false;
+    popupErrorText.classList.remove("active");
+    popupBg.classList.remove("active");
+    popup.classList.remove("active");
+    inputPassword.value = "";
+  } else {
+    popupErrorText.classList.add("active");
+    inputPassword.value = "";
+  }
+}
+
+inputPassword.addEventListener(
+  "keyup",
+  async function (e) {
+    if (e.key == "Enter") {
+      await onSubmit(e.target.value);
+    } else {
+      popupErrorText.classList.remove("active");
+    }
+  },
+  false
+);
+
+buttonSubmitPassword.addEventListener(
+  "click",
+  async (e) => {
+    await onSubmit(inputPassword.value);
+  },
+  true
+);
+
 buttonManualMode.addEventListener("click", (event) => {
   if (buttonManualMode.getAttribute("aria-pressed") === "true") {
-    handleToggleManualButton(event);
+    try {
+      handleToggleManualButton();
+    } catch (error) {
+      console.log(error.message);
+    }
     rangeSouth.disabled = true;
     rangeNorth.disabled = true;
   } else {
@@ -314,48 +373,28 @@ buttonManualMode.addEventListener("click", (event) => {
     popupBg.classList.add("active");
     popup.classList.add("active");
 
-    password_prompt({
-      callback: function (password) {
-        if (password === PASSWORD) {
-          // TODO: remove comments
-          console.log("CORRECT PASSWORD");
-          try {
-            handleToggleManualButton(event);
-          } catch (error) {
-            console.log(error.message);
-          }
-          rangeSouth.disabled = false;
-          rangeNorth.disabled = false;
-          popupBg.classList.remove("active");
-          popup.classList.remove("active");
-        } else {
-          // TODO: add remove class active and clear input password before hiding
-          popupErrorText.classList.add("active");
-          inputPassword.value = "";
-        }
-      },
-    });
-    // pw_prompt({
-    //   lm: "Please enter your password:",
+    // OLD
+
+    // password_prompt({
     //   callback: function (password) {
     //     if (password === PASSWORD) {
-    //       handleToggleManualButton(event);
+    //       try {
+    //         handleToggleManualButton(event);
+    //       } catch (error) {
+    //         console.log(error.message);
+    //       }
     //       rangeSouth.disabled = false;
     //       rangeNorth.disabled = false;
+    //       popupErrorText.classList.remove("active");
+    //       popupBg.classList.remove("active");
+    //       popup.classList.remove("active");
     //     } else {
-    //       alert("Неверный пароль");
+    //       popupErrorText.classList.add("active");
+    //       inputPassword.value = "";
     //     }
     //   },
     // });
   }
-
-  // if (buttonManualMode.getAttribute("aria-pressed") === "true") {
-  //   rangeSouth.disabled = false;
-  //   rangeNorth.disabled = false;
-  // } else {
-  //   rangeSouth.disabled = true;
-  //   rangeNorth.disabled = true;
-  // }
 });
 
 rangeSouth.addEventListener("change", function () {
