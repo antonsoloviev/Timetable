@@ -73,6 +73,12 @@ section:target ~ #home {
   
 }
 
+/* .section:target:not(#home) > .container {
+    background-color: #F05837;
+    pointer-events: none;
+    
+} */
+
 section > div {
   position: absolute;
   top: 90px;

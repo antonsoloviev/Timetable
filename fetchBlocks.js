@@ -1,7 +1,14 @@
-const weekEng = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+const weekEng = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday",
+];
 
 async function getValueBlocks() {
-
   url = apiUrl + "workflow/blocks/values";
   response = await getData(url);
   store.blockNotes = response;
@@ -28,7 +35,10 @@ function getHomeBlocks() {
 
 function getColorBlocks() {
   const colorBlocks = store.blockNotes.filter((item) => {
-    return item.displayName.startsWith("South_custom") || item.displayName.startsWith("North_custom");
+    return (
+      item.displayName.startsWith("South_custom") ||
+      item.displayName.startsWith("North_custom")
+    );
   });
   return colorBlocks;
 }
@@ -61,6 +71,13 @@ function getAlarmBlocks() {
   return alarmBlocks;
 }
 
+function getAuthBlocks() {
+  const authBlocks = store.blockNotes.filter((item) => {
+    return item.displayName.startsWith("Auth");
+  });
+  return authBlocks;
+}
+
 function alarmBlockstoStore() {
   store.alarmNotes = [];
   const alarmBlocks = getAlarmBlocks();
@@ -71,7 +88,7 @@ function alarmBlockstoStore() {
     alarmObj[name] = block.outPortValue;
     alarmObj[id] = block.id;
     store.alarmNotes.push(alarmObj);
-  })
+  });
 }
 
 function colorBlockstoStore() {
@@ -83,8 +100,8 @@ function colorBlockstoStore() {
     const colorObj = {};
     colorObj[name] = block.outPortValue;
     colorObj[id] = block.id;
-    store.colorNotes.push(colorObj)
-  })
+    store.colorNotes.push(colorObj);
+  });
 }
 
 function homeBlockstoStore() {
@@ -97,79 +114,92 @@ function homeBlockstoStore() {
     homeObj[name] = block.outPortValue;
     homeObj[id] = block.id;
     store.homeNotes.push(homeObj);
-  })
+  });
 }
 
 function southBlocksToStorebyDay(day) {
   const dayNumber = weekEng.indexOf(day);
   const southDayBlocks = getSouthDayBlocks(day);
   southDayBlocks.forEach((block) => {
-    const name = block.displayName.replace(`S_${day}_`, '');
+    const name = block.displayName.replace(`S_${day}_`, "");
     const id = `${name}-id`;
 
     if (block.outPortValue) {
-      if ((block.outPortValue?.length == 4) & (block.outPortValue[1] === ':')) {
-      outPortValueString = '0' + block.outPortValue;
+      if ((block.outPortValue?.length == 4) & (block.outPortValue[1] === ":")) {
+        outPortValueString = "0" + block.outPortValue;
+      } else {
+        outPortValueString = block.outPortValue;
+      }
     } else {
-      outPortValueString = block.outPortValue;
+      outPortValueString = "";
     }
-  } else {
-    outPortValueString = '';
-  }
-    
+
     store.southWeekNotes[dayNumber][name] = outPortValueString;
     store.southWeekNotes[dayNumber][id] = block.id;
-  })
+  });
 }
 
 function northBlocksToStorebyDay(day) {
   const dayNumber = weekEng.indexOf(day);
   const northDayBlocks = getNorthDayBlocks(day);
   northDayBlocks.forEach((block) => {
-    const name = block.displayName.replace(`N_${day}_`, '');
+    const name = block.displayName.replace(`N_${day}_`, "");
     const id = `${name}-id`;
 
     if (block.outPortValue) {
-      if ((block.outPortValue?.length == 4) & (block.outPortValue[1] === ':')) {
-      outPortValueString = '0' + block.outPortValue;
+      if ((block.outPortValue?.length == 4) & (block.outPortValue[1] === ":")) {
+        outPortValueString = "0" + block.outPortValue;
+      } else {
+        outPortValueString = block.outPortValue;
+      }
     } else {
-      outPortValueString = block.outPortValue;
+      outPortValueString = "";
     }
-  } else {
-    outPortValueString = '';
-  }
 
     store.northWeekNotes[dayNumber][name] = outPortValueString;
     store.northWeekNotes[dayNumber][id] = block.id;
-  })
+  });
 }
 
 function logoBlocksToStorebyDay(day) {
   const dayNumber = weekEng.indexOf(day);
   const logoDayBlocks = getLogoDayBlocks(day);
   logoDayBlocks.forEach((block) => {
-    const name = block.displayName.replace(`L_${day}_`, '');
+    const name = block.displayName.replace(`L_${day}_`, "");
     const id = `${name}-id`;
 
-    if ((block.outPortValue.length == 4) & (block.outPortValue[1] === ':')) {
-      outPortValueString = '0' + block.outPortValue;
+    if ((block.outPortValue.length == 4) & (block.outPortValue[1] === ":")) {
+      outPortValueString = "0" + block.outPortValue;
     } else {
       outPortValueString = block.outPortValue;
     }
 
     store.logoWeekNotes[dayNumber][name] = outPortValueString;
     store.logoWeekNotes[dayNumber][id] = block.id;
-  })
+  });
+}
+
+function authBlocksToStore() {
+  store.authNotes = [];
+  const authBlocks = getAuthBlocks();
+  authBlocks.forEach((block, index) => {
+    const name = block.displayName;
+    const id = `${name}-id`;
+    const authObj = {};
+    authObj[name] = block.outPortValue;
+    authObj[id] = block.id;
+    store.authNotes.push(authObj);
+  });
 }
 
 function saveBlocksToStore() {
   colorBlockstoStore();
   alarmBlockstoStore();
   homeBlockstoStore();
+  authBlocksToStore();
   weekEng.forEach((day) => {
     southBlocksToStorebyDay(day);
     northBlocksToStorebyDay(day);
     logoBlocksToStorebyDay(day);
   });
 }
-

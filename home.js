@@ -304,21 +304,31 @@ function handleToggleManualButton() {
 }
 
 async function comparePass(password) {
-  let urlPasswordId =
-    apiUrl + "workflow/blocks/values/d79367c7-9ae0-4780-851e-24fb70a0bc82";
-  let urlCompareResult =
-    apiUrl + "workflow/blocks/values/020a02ad-282d-4d15-b1a5-2cf0c8348bc0";
+  const blockPasswordInput = store.authNotes.find((item) => {
+    return item.hasOwnProperty("Auth_password_input-id");
+  });
+  const blockPasswordInputId = blockPasswordInput["Auth_password_input-id"];
+  const urlPasswordInput =
+    apiUrl + "workflow/blocks/values/" + blockPasswordInputId;
+
+  const blockPasswordAccess = store.authNotes.find((item) => {
+    return item.hasOwnProperty("Auth_access-id");
+  });
+  const blockPasswordAccessId = blockPasswordAccess["Auth_access-id"];
+
+  const urlPasswordAccess =
+    apiUrl + "workflow/blocks/values/" + blockPasswordAccessId;
+
   const passwordData = {};
   passwordData.inPortValue = password;
-  await putData(urlPasswordId, passwordData);
-  const result = await getData(urlCompareResult);
+
+  await putData(urlPasswordInput, passwordData);
+  const result = await getData(urlPasswordAccess);
   const resultBool = result.outPortValue === "True";
 
-  // return (await getData(urlID)).outPortValue === password;
   return resultBool;
 }
 
-// TODO: добавить сравнение пароля с паролем на сервере
 async function onSubmit(password) {
   if (await comparePass(password)) {
     console.log("true pass");
@@ -372,28 +382,6 @@ buttonManualMode.addEventListener("click", (event) => {
     popupErrorText.classList.remove("active");
     popupBg.classList.add("active");
     popup.classList.add("active");
-
-    // OLD
-
-    // password_prompt({
-    //   callback: function (password) {
-    //     if (password === PASSWORD) {
-    //       try {
-    //         handleToggleManualButton(event);
-    //       } catch (error) {
-    //         console.log(error.message);
-    //       }
-    //       rangeSouth.disabled = false;
-    //       rangeNorth.disabled = false;
-    //       popupErrorText.classList.remove("active");
-    //       popupBg.classList.remove("active");
-    //       popup.classList.remove("active");
-    //     } else {
-    //       popupErrorText.classList.add("active");
-    //       inputPassword.value = "";
-    //     }
-    //   },
-    // });
   }
 });
 
